@@ -48,14 +48,14 @@
     font-size:1.2em;
 }
 .active{
-    background-color: #ffffff44;
+    background-color: #ffffff25;
     border-radius: 0.5em;
 }
 
 .nav-item{
     font-family: 'Didact Gothic', sans-serif;
     font-size:.8em;
-    margin-left:0.25em;
+    margin-left:0.3em;
 }
 
 .nav-link:hover{
