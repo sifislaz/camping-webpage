@@ -1,0 +1,95 @@
+.navbar{
+    background-color: #404040;
+    width:100%;
+}
+
+.lang-button a{
+    position: absolute;
+    font-family: 'Didact Gothic', sans-serif;
+    padding: 0.1em 0.2em 0.1em 0.2em;
+    font-size: 15px;
+    font-weight: 800;
+    top: 0;
+    right: 0.25em;
+    text-decoration: none;
+    color: white;
+    background-color: #00cc66;
+    z-index:1;
+}
+
+.lang-button a:focus{
+    color: white;
+    background-color: transparent;
+    border: 0.1em solid #00cc66;
+}
+
+
+.fa-bars{
+    color:#0080ff;
+    font-size:1.5em !important;
+    display: inline;
+}
+
+.navbar-toggler{
+    color:transparent;
+    z-index:1;
+}
+
+.navbar a{
+    font-size: 2em;
+    text-decoration: none;
+    color:#66B2FF
+}
+
+.active{
+    background-color: #ffffff44;
+    border-radius: 0.5em;
+}
+
+.nav-link:hover{
+    color:#0080ff;
+}
+
+.nav-link:focus{
+    color:#0080ff;
+}
+
+.dropdown-menu{
+    background-color: #404040;
+    border-radius: 1em;
+    z-index: 100;
+}
+
+.dropdown-item:hover{
+    color:#404040;
+    background-color: #66B2FFAA;
+
+}
+
+.dropdown:hover .dropdown-menu{
+    visibility: visible !important;
+}
+
+.icons{
+    margin-left: 0.5em;
+}
+
+@media screen and (max-width:450px){
+
+    .navbar-brand{
+        font-family: 'Didact Gothic', sans-serif;
+        font-size:1em;
+    }
+
+    .nav-item{
+        font-family: 'Didact Gothic', sans-serif;
+        font-size:0.8em;
+        text-align: center;
+    }
+
+
+    .dropdown-menu{
+        font-family: 'Didact Gothic', sans-serif;
+        font-size:1em;
+    }
+}
