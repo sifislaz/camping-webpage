@@ -1,0 +1,44 @@
+.footer{
+    background-color: #404040;
+    width: 100%;
+}
+
+.social-shortcuts a{
+    text-decoration: none;
+}
+
+.social-shortcuts a:hover{
+    color: #66B2FF !important;
+}
+
+.footer-shortcuts{
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-shortcuts a{
+    color: #6C757D;
+    text-decoration: none;
+}
+
+.footer-shortcuts a:hover{
+    color: #66B2FF
+}
+
+.email-link a{
+    text-decoration: none;
+    color: #6C757D;
+}
+
+.email-link a:hover{
+    color: #66B2FF
+}
+
+.phone-link a{
+    text-decoration: none;
+    color: #6C757D;
+}
+
+.phone-link a:hover{
+    color: #66B2FF;
+}
