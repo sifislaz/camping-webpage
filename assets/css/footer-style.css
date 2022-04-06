@@ -3,42 +3,23 @@
     width: 100%;
 }
 
-.social-shortcuts a{
+.footer-link{
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 16px;
+}
+
+.footer-link a{
+    color: #6C757D;
     text-decoration: none;
 }
 
-.social-shortcuts a:hover{
+.footer-link a:hover{
     color: #66B2FF !important;
 }
 
-.footer-shortcuts{
-    list-style-type: none;
-    padding: 0;
+.camping-info{
+    margin-bottom: 16px;
 }
 
-.footer-shortcuts a{
-    color: #6C757D;
-    text-decoration: none;
-}
 
-.footer-shortcuts a:hover{
-    color: #66B2FF
-}
-
-.email-link a{
-    text-decoration: none;
-    color: #6C757D;
-}
-
-.email-link a:hover{
-    color: #66B2FF
-}
-
-.phone-link a{
-    text-decoration: none;
-    color: #6C757D;
-}
-
-.phone-link a:hover{
-    color: #66B2FF;
-}

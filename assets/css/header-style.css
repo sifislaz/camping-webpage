@@ -91,7 +91,7 @@
     margin-left: 0.5em;
 }
 
-@media screen and (max-width:450px){
+@media screen and (max-width:768px){
 
     .navbar-brand{
         font-family: 'Didact Gothic', sans-serif;
@@ -112,4 +112,20 @@
         font-family: 'Didact Gothic', sans-serif;
         font-size:1em;
     }
+}
+
+@media screen and (min-width:769px) and (max-width:992px){
+    .navbar{
+        background-color: #404040;
+        width:100%;
+    }
+}
+
+.row navbar-container{
+    width: 100%;
+    margin: 0;
+}
+
+.container-fluid head{
+    padding: 0;
 }
