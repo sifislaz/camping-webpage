@@ -1,12 +1,17 @@
+.header{
+    background-color: #404040;
+}
 .navbar{
     background-color: #404040;
     width:100%;
+    margin-top: 1em;
 }
 
 .lang-button a{
     position: absolute;
     font-family: 'Didact Gothic', sans-serif;
     padding: 0.1em 0.2em 0.1em 0.2em;
+    margin: 0 1.25em 0 0;
     font-size: 15px;
     font-weight: 800;
     top: 0;
@@ -45,7 +50,7 @@
 
 .navbar-brand{
     font-family:'Didact Gothic', sans-serif;
-    font-size:1.2em;
+    font-size:1em;
 }
 .active{
     background-color: #ffffff25;
@@ -54,7 +59,7 @@
 
 .nav-item{
     font-family: 'Didact Gothic', sans-serif;
-    font-size:.8em;
+    font-size: 0.75em;
     margin-left:0.3em;
 }
 
@@ -69,13 +74,12 @@
 .dropdown-menu{
     background-color: #404040;
     border-radius: 1em;
-    z-index: 100;
-}
-
-.dropdown-menu{
     font-family: 'Didact Gothic', sans-serif;
     font-size: 1em;
+    z-index: 100;
+    visibility: hidden;
 }
+
 
 .dropdown-item:hover{
     color:#404040;
@@ -121,11 +125,19 @@
     }
 }
 
-.row navbar-container{
-    width: 100%;
-    margin: 0;
+@media screen and (min-width:1000px){
+    .navbar{
+        background-color: #404040;
+        width:100%;
+    }
+
+    .nav-item{
+        font-size:0.6em;
+    }
+
+    .dropdown:hover .dropdown-menu{
+        visibility: visible !important;
+        transform: translateX(-50%);
+    }
 }
 
-.container-fluid head{
-    padding: 0;
-}
