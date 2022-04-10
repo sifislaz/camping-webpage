@@ -38,13 +38,13 @@
 
 .panel-image:nth-child(2n+1){
     display: inline;
-    width: 350px;
-    height: 250px;
+    width: 550px;
+    height: 350px;
 }
 .panel-image:nth-child(2n){
     display: inline;
-    width: 350px;
-    height: 250px;
+    width: 550px;
+    height: 350px;
 }
 
 .my-button-blue{
@@ -82,7 +82,6 @@
 
 .my-button-blue:hover::before{
     width: 150%;
-    ;
 }
 
 .my-button-green{
@@ -120,7 +119,6 @@
 
 .my-button-green:hover::before{
     width: 150%;
-    ;
 }
 
 .subtitle{
