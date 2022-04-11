@@ -18,10 +18,15 @@
 .panel-info{
     display: block;
     width: 50%;
+    font-family: 'Didact Gothic', sans-serif;
 }
 
 .panel-info:nth-child(2n){
     text-align: right;
+}
+
+.subtitle{
+    font-weight:800;
 }
 
 .panel-info:nth-child(2n+1) .subtitle{
@@ -34,17 +39,13 @@
 
 .description{
     margin-right: 0;
+    font-size:1em;
 }
 
-.panel-image:nth-child(2n+1){
+.panel-image{
     display: inline;
-    width: 550px;
-    height: 350px;
-}
-.panel-image:nth-child(2n){
-    display: inline;
-    width: 550px;
-    height: 350px;
+    width: 34.3%;
+    height: 21.8%;
 }
 
 .my-button-blue{
