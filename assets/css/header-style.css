@@ -77,7 +77,8 @@
     font-family: 'Didact Gothic', sans-serif;
     font-size: 1em;
     z-index: 100;
-    visibility: hidden;
+    display:none;
+    position:absolute;
 }
 
 
@@ -87,8 +88,8 @@
 
 }
 
-.dropdown:hover .dropdown-menu{
-    visibility: visible !important;
+.dropdown:focus .dropdown-menu{
+    display: block;
 }
 
 .icons{
@@ -136,7 +137,7 @@
     }
 
     .dropdown:hover .dropdown-menu{
-        visibility: visible !important;
+        display: block;
         transform: translateX(-50%);
     }
 }
