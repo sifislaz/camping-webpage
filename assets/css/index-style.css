@@ -38,9 +38,15 @@
 }
 
 .panel-image{
+    border-radius: 10px;
     display: inline;
     width: 34.3%;
     height: 21.8%;
+    transition: transform .8s;
+}
+
+.panel-image:hover{
+    transform: scale(1.025);
 }
 
 .my-button-blue{
