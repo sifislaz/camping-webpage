@@ -2,18 +2,13 @@
     justify-self: center;
 }
 
-.main-panel:nth-child(2n+1){
+.main-panel{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
 }
-.main-panel:nth-child(2n){
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-}
+
 
 .panel-info{
     display: block;
