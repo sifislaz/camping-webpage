@@ -34,7 +34,7 @@
 }
 
 
-.fa-bars{
+.toggler{
     color:#0080ff;
     font-size:1.5em !important;
     display: inline;
@@ -74,7 +74,7 @@
     color:#0080ff;
 }
 
-.dropdown-menu{
+.nav-drop-menu{
     background-color: #404040;
     border-radius: 1em;
     font-family: 'Didact Gothic', sans-serif;
@@ -85,7 +85,7 @@
 }
 
 
-.dropdown-item:hover{
+.nav-drop-item:hover{
     color:#404040;
     background-color: #66B2FFAA;
 
@@ -112,11 +112,11 @@
         text-align: center;
     }
 
-    .dropdown-item{
+    .nav-drop-item{
         text-align: center;
     }
 
-    .dropdown-menu{
+    .nav-drop-menu{
         font-family: 'Didact Gothic', sans-serif;
         font-size:1em;
     }
