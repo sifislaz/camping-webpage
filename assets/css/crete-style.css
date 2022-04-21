@@ -14,13 +14,18 @@
     position:relative;
     width:75%;
     height:40%;
-    margin: 0 auto; 
+    margin: 0 auto;
+    border-radius: 10px;
 }
 
 .slides{
     display:none;
+    border-radius: 10px;
 }
 
+.slides img{
+    border-radius: 10px;
+}
 .prev,.next{
     cursor:pointer;
     position:absolute;
@@ -63,8 +68,8 @@
     text-align: justify;
 }
 
-.content:nth-child(2n){
-    background-color: #40404044;
+.content:nth-child(2n+1){
+    background-color: #eee;
 }
 
 .subtitle{
@@ -73,3 +78,7 @@
     font-size: 2em;
 }
 
+hr{
+    width:50%;
+    margin:1em auto;
+}
