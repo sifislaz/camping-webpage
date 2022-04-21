@@ -12,8 +12,8 @@
 .photo-container{
     box-sizing: border-box;
     position:relative;
-    width:750px;
-    height:400px;
+    width:75%;
+    height:40%;
     margin: 0 auto; 
 }
 
