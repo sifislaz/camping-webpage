@@ -1,12 +1,20 @@
+.header{
+    background-color: #404040;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
 .navbar{
     background-color: #404040;
     width:100%;
+    margin-top: 1em;
 }
 
 .lang-button a{
     position: absolute;
     font-family: 'Didact Gothic', sans-serif;
     padding: 0.1em 0.2em 0.1em 0.2em;
+    margin: 0 1.25em 0 0;
     font-size: 15px;
     font-weight: 800;
     top: 0;
@@ -45,7 +53,7 @@
 
 .navbar-brand{
     font-family:'Didact Gothic', sans-serif;
-    font-size:1.2em;
+    font-size:1em;
 }
 .active{
     background-color: #ffffff25;
@@ -54,7 +62,7 @@
 
 .nav-item{
     font-family: 'Didact Gothic', sans-serif;
-    font-size:.8em;
+    font-size: 0.75em;
     margin-left:0.3em;
 }
 
@@ -69,26 +77,29 @@
 .nav-drop-menu{
     background-color: #404040;
     border-radius: 1em;
-    z-index: 100;
     font-family: 'Didact Gothic', sans-serif;
     font-size: 1em;
+    z-index: 100;
+    display:none;
+    position:absolute;
 }
 
-.nav-drop-item:hover{
+
+.dropdown-item:hover{
     color:#404040;
     background-color: #66B2FFAA;
 
 }
 
-.dropdown:hover .nav-drop-menu{
-    visibility: visible !important;
+.dropdown:focus .dropdown-menu{
+    display: block;
 }
 
 .icons{
     margin-left: 0.5em;
 }
 
-@media screen and (max-width:450px){
+@media screen and (max-width:768px){
 
     .navbar-brand{
         font-family: 'Didact Gothic', sans-serif;
@@ -110,3 +121,27 @@
         font-size:1em;
     }
 }
+
+@media screen and (min-width:769px) and (max-width:992px){
+    .navbar{
+        background-color: #404040;
+        width:100%;
+    }
+}
+
+@media screen and (min-width:1000px){
+    .navbar{
+        background-color: #404040;
+        width:100%;
+    }
+
+    .nav-item{
+        font-size:0.6em;
+    }
+
+    .dropdown:hover .dropdown-menu{
+        display: block;
+        transform: translateX(-50%);
+    }
+}
+

@@ -1,0 +1,25 @@
+.footer{
+    background-color: #404040;
+    width: 100%;
+}
+
+.footer-link{
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 16px;
+}
+
+.footer-link a{
+    color: #6C757D;
+    text-decoration: none;
+}
+
+.footer-link a:hover{
+    color: #66B2FF !important;
+}
+
+.camping-info{
+    margin-bottom: 16px;
+}
+
+

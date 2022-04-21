@@ -1,0 +1,129 @@
+.main-body{
+    justify-self: center;
+}
+
+.main-panel{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+.panel-info{
+    display: block;
+    width: 50%;
+    font-family: 'Didact Gothic', sans-serif;
+}
+
+.panel-info:nth-child(2n){
+    text-align: right;
+}
+
+.subtitle{
+    font-weight:800;
+}
+
+.panel-info:nth-child(2n+1) .subtitle{
+    color: #66b2ff;
+}
+
+.panel-info:nth-child(2n) .subtitle{
+    color: #00CC66;
+}
+
+.description{
+    margin-right: 0;
+    font-size:1em;
+}
+
+.panel-image{
+    display: inline;
+    width: 34.3%;
+    height: 21.8%;
+}
+
+.my-button-blue{
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #66B2FF;
+    padding: 15px 30px;
+    position: relative;
+    overflow: hidden;
+    transition: color 1s;
+    z-index: 1;
+    display: block;
+    border: #66B2FF;
+    border-radius: 0.25em;
+    flex-wrap: wrap;
+}
+
+.my-button-blue:hover{
+    color: #ffffff;
+}
+
+.my-button-blue::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50px;
+    width: 0;
+    height: 100%;
+    background-color: #66B2FF;
+    transform: skewX(35deg);
+    z-index: -1;
+    transition: width 1s;
+}
+
+.my-button-blue:hover::before{
+    width: 150%;
+}
+
+.my-button-green{
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #00CC66;
+    padding: 15px 30px;
+    position: relative;
+    overflow: hidden;
+    transition: color 1s;
+    z-index: 1;
+    /* display: block; */
+    border: #00CC66;
+    border-radius: 0.25em;
+    flex-wrap: wrap;
+}
+
+.my-button-green:hover{
+    color: #ffffff;
+}
+
+.my-button-green::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50px;
+    width: 0;
+    height: 100%;
+    background-color: #00CC66;
+    transform: skewX(35deg);
+    z-index: -1;
+    transition: width 1s;
+}
+
+.my-button-green:hover::before{
+    width: 150%;
+}
+
+.subtitle{
+    text-transform: uppercase;
+}
+
+hr{
+    width: 30%;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
