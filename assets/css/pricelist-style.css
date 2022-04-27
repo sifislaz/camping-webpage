@@ -1,0 +1,79 @@
+.main-body{
+    margin:1em;
+}
+
+.title{
+    font-family: 'Didact Gothic', snas-serif;
+    font-size:3em;
+    color:#66b2ff;
+    text-align: center;
+    margin:0 auto;
+}
+
+hr{
+    width:50%;
+    margin: 1em auto;
+}
+
+table{
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 1em;
+    text-align: center;
+    margin:0 auto;
+    border: 1px solid #66b2ff;
+}
+
+tr{
+    margin:1em 0;
+}
+
+tr:nth-child(2n){
+    background-color: #eee;
+}
+
+th{
+    color:#00cc66;
+    border: 1px solid #66b2ff;
+    padding:1em;
+}
+
+td{
+    border: 1px solid #66b2ff;
+    padding:1em;
+}
+
+.highlight{
+    color:#00cc66;
+    font-weight:bold;
+}
+
+.note{
+    width:675.59px;
+    margin:0.5em auto;
+}
+
+.info{
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 0.8em;
+    text-align: justify;
+    margin-top:0.25em;
+}
+
+@media screen and (max-width:500px){
+    .title{
+        font-size: 2em;
+    }
+
+    table{
+        margin:0 auto;
+    }
+
+    th,td{
+        padding:0.5em;
+        font-size:1em;
+    }
+
+    hr{
+        min-width:100px;
+    }
+}
