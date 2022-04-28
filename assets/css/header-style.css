@@ -150,7 +150,7 @@
 
     .dropdown:hover .nav-drop-menu{
         display: block;
-        transform: translateX(-45%);
+        right:1em;
     }
 }
 
