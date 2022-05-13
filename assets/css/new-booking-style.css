@@ -86,11 +86,16 @@ input[type=text]{
 
 #search-btn{
     border:1px solid #00cc66;
+    border-radius:0.5em;
     background-color: #eee;
     margin:0.5em 0;
     padding:0.2em;
 }
 
+hr{
+    width:50%;
+    margin:1em auto;
+}
 
 .spaces{
     display: none;
