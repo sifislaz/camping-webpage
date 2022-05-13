@@ -20,78 +20,78 @@
     
     </head>
 <body>
-    <div class="main-body">
-        <h1 class="title">Νέα Κράτηση</h1>
-        <form action='#' method="post">
-            <fieldset id="personal-info">
-                <legend>Προσωπικές Πληροφορίες</legend>
-                <label for="fullname">Ονοματεπώνυμο</label>
-                <div id="fullname">
-                    <input type="text" id="firstname" name="firstname" placeholder="Όνομα" required>
-                    <input type="text" id="lastname" name="lastname" placeholder="Επίθετο" required>
-                </div>
-                <label for="address">Διεύθυνση</label>
-                <div id="address">
-                    <input type="text" name="street" id="street" placeholder="Οδός" required>
-                    <input type="text" name="num" id="num" placeholder="Αριθμός" required>
-                    <input type="text" name="zip" id="zip" placeholder="Τ.Κ." required>
-                    <div class="city">
-                        <input type="text" id="city" name="city" placeholder="Πόλη" required>
-                        <input type="text" id="country" name="country" placeholder="Χώρα" required>
+        <div class="main-body">
+            <h1 class="title">Νέα Κράτηση</h1>
+            <form action='#' method="post">
+                <fieldset id="personal-info">
+                    <legend>Προσωπικές Πληροφορίες</legend>
+                    <label for="fullname">Ονοματεπώνυμο</label>
+                    <div id="fullname">
+                        <input type="text" id="firstname" name="firstname" placeholder="Όνομα" required>
+                        <input type="text" id="lastname" name="lastname" placeholder="Επίθετο" required>
                     </div>
-                </div>
-                <label for="tel">Τηλέφωνα Επικοινωνίας</label>
-                <div id="tel">
-                    <input type="tel" name="land" id="land" placeholder="Σταθερό τηλέφωνο">
-                    <input type="tel" name="cell" id="cell" placeholder="Κινητό τηλέφωνο" required>
-                    <span>Χωρίς κωδικό χώρας</span>
-                </div>
-            </fieldset>
-            <hr>
-            <div id="booking-info">
-                <fieldset>
-                    <legend>Πληροφορίες Κράτησης</legend>
-                    <label for="people">Αριθμός Ατόμων</label>
-                    <select name="people" id="people" required>
-                        <option value=""></option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                    </select>
-                    <div class="dates">
-                        <label for="dates">Ημερομηνίες</label>
-                        <div id="dates">
-                            <span for="startdate">Από</span>
-                            <input type="date" id="startdate" required>
-                            <span for="enddate">Έως</span>
-                            <input type="date" id="enddate" required>
+                    <label for="address">Διεύθυνση</label>
+                    <div id="address">
+                        <input type="text" name="street" id="street" placeholder="Οδός" required>
+                        <input type="text" name="num" id="num" placeholder="Αριθμός" required>
+                        <input type="text" name="zip" id="zip" placeholder="Τ.Κ." required>
+                        <div class="city">
+                            <input type="text" id="city" name="city" placeholder="Πόλη" required>
+                            <input type="text" id="country" name="country" placeholder="Χώρα" required>
                         </div>
                     </div>
-                    <button class="btn" id="search-btn" onclick="searchSpace()">Αναζήτηση</button>
-                    <div class="spaces">
-                        <label for="avail-space">Διαθέσιμες Επιλογές</label>
-                        <div id="avail-space">
-                            <div class="test" for="two_tent">
-                                <h2 class="subtitle">Χώρος για σκηνή 2 ατόμων</h2>
-                                <div>Χαρακτηριστικά:</div>
-                                <ul class="features">
-                                    <li>Πολύμπριζο 5 θέσεων</li>
-                                    <li>Φως πάνω από τον χώρο της σκηνής</li>
-                                    <li>250m από την θάλασσα</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <input type="submit" value="submit" onclick="check()">
+                    <label for="tel">Τηλέφωνα Επικοινωνίας</label>
+                    <div id="tel">
+                        <input type="tel" name="land" id="land" placeholder="Σταθερό τηλέφωνο">
+                        <input type="tel" name="cell" id="cell" placeholder="Κινητό τηλέφωνο" required>
+                        <span>Χωρίς κωδικό χώρας</span>
                     </div>
                 </fieldset>
-            </div>
-        </form>
-    </div>
-</body>
+                <hr>
+                <div id="booking-info">
+                    <fieldset>
+                        <legend>Πληροφορίες Κράτησης</legend>
+                        <label for="people">Αριθμός Ατόμων</label>
+                        <select name="people" id="people" required>
+                            <option value=""></option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                        </select>
+                        <div class="dates">
+                            <label for="dates">Ημερομηνίες</label>
+                            <div id="dates">
+                                <span for="startdate">Από</span>
+                                <input type="date" id="startdate" required>
+                                <span for="enddate">Έως</span>
+                                <input type="date" id="enddate" required>
+                            </div>
+                        </div>
+                        <button class="btn" id="search-btn" onclick="searchSpace()">Αναζήτηση</button>
+                        <div class="spaces">
+                            <label for="avail-space">Διαθέσιμες Επιλογές</label>
+                            <div id="avail-space">
+                                <div class="test" for="two_tent">
+                                    <h2 class="subtitle">Χώρος για σκηνή 2 ατόμων</h2>
+                                    <div>Χαρακτηριστικά:</div>
+                                    <ul class="features">
+                                        <li>Πολύμπριζο 5 θέσεων</li>
+                                        <li>Φως πάνω από τον χώρο της σκηνής</li>
+                                        <li>250m από την θάλασσα</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <input type="submit" value="submit" onclick="check()">
+                        </div>
+                    </fieldset>
+                </div>
+            </form>
+        </div>
+    </body>
 </html>
 <script src="./assets/js/booking-scripts.js"></script>
