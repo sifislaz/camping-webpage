@@ -1,0 +1,182 @@
+.main-body{
+    margin:1em;
+}
+
+.title{
+    color:#66b2ff;
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 3em;
+    text-align: center;
+}
+
+form{
+    border: 1px solid #66b2ff;
+    border-radius: 1em;
+    padding: 0.5em 1em;
+    font-family: 'Didact Gothic', sans-serif;
+}
+
+legend{
+    color:#00cc66;
+}
+
+label{
+    /* margin:0.5em 0; */
+    color:#66b2ff;
+}
+
+
+input{
+    border: 1px solid #00cc66;
+    border-radius: 0.5em;
+    margin: 0.5em 0.5em 0.5em 0;
+}
+
+input[type=text]{
+    min-width:300px;
+}
+
+#fullname>input{
+    width: 25%;
+}
+
+#street{
+    display: inline;
+    width: 25%;
+    
+}
+
+#num{
+    display: inline;
+    width:4%;
+    min-width:64px;
+}
+
+#zip{
+    display: inline;
+    width:10%;
+    min-width:80px;
+}
+
+#city{
+    display: inline;
+    width: 25%;
+}
+
+#country{
+    display: inline;
+    width:14.8%;
+}
+
+#tel span{
+    display:block;
+    color:grey;
+}
+
+#people{
+    border:1px solid #00cc66;
+    border-radius: 0.5em;
+    margin-left:0.5em;
+}
+
+#enddate{
+    margin-left:0.5em;
+    border:1px solid #00cc66;
+}
+
+#search-btn{
+    border:1px solid #00cc66;
+    background-color: #eee;
+    margin:0.5em 0;
+    padding:0.2em;
+}
+
+
+.spaces{
+    display: none;
+}
+
+
+.test{
+    border: 1px solid #eee;
+    border-radius: 1em;
+    padding: 0.5em;
+    margin-top: 0.5em;
+}
+
+.choice{
+    display: flex;
+    justify-content: baseline;
+}
+
+.choice>input{
+    position: relative;
+}
+
+.choice.test{
+    width:100%;
+}
+
+
+.subtitle{
+    font-size: 1.5em;
+    color:#66b2ff;
+}
+
+.features{
+    list-style-type: none;
+}
+
+.features>li::before{
+    content:"\f00c";
+    font-family: FontAwesome;
+    margin-right:0.25em;
+}
+
+@media screen and (min-width:769px) {
+    #address>input{
+        margin-bottom:0;
+    }
+}
+
+@media screen and (max-width:768px){
+    .title{
+        font-size: 2em;
+    }
+
+    input[type=text]{
+        margin-bottom:0;
+
+    }
+    #fullname>input{
+        display: block;
+        width:50%;
+    }
+
+    #firstname{
+        margin-bottom: 0.5em;
+    }
+
+    #street{
+        width:50%;
+    }
+    
+    #num{
+        width:10%;
+    }
+
+    #city{
+        width:40%;
+    }
+
+    #country{
+        width:32.5%;
+    }
+}
+
+@media screen and (max-width:360px){
+    form{
+        min-width: 340px;
+    }
+
+}
