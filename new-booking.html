@@ -73,22 +73,35 @@
                                 <input type="date" id="enddate" required>
                             </div>
                         </div>
-                        <button class="btn" id="search-btn" onclick="searchSpace()">Αναζήτηση</button>
-                        <div class="spaces">
-                            <label for="avail-space">Διαθέσιμες Επιλογές</label>
-                            <div id="avail-space">
-                                <div class="test" for="two_tent">
-                                    <h2 class="subtitle">Χώρος για σκηνή 2 ατόμων</h2>
-                                    <div>Χαρακτηριστικά:</div>
-                                    <ul class="features">
+                        <button class="btn" id="search-btn" onclick="searchSpace()" type="button">Αναζήτηση</button>
+                    </fieldset>
+                    <fieldset id="search-results">
+                        <hr>
+                        <legend>Διαθέσιμες Επιλογές</legend>
+                        <div id="avail-spaces">
+                            <button type="button">
+                                <h2 class="subtitle">Χώρος για σκηνή 2 ατόμων</h2>
+                                <div class="features">Χαρακτηριστικά:
+                                    <ul class="features-list">
                                         <li>Πολύμπριζο 5 θέσεων</li>
                                         <li>Φως πάνω από τον χώρο της σκηνής</li>
                                         <li>250m από την θάλασσα</li>
                                     </ul>
                                 </div>
-                            </div>
-                            <input type="submit" value="submit" onclick="check()">
+                            </button>
+                            <button type="button">
+                                <h2 class="subtitle">Χώρος για σκηνή 2 ατόμων</h2>
+                                <div class="features">Χαρακτηριστικά:
+                                    <ul class="features-list">
+                                        <li>Πολύμπριζο 5 θέσεων</li>
+                                        <li>Φως πάνω από τον χώρο της σκηνής</li>
+                                        <li>250m από την θάλασσα</li>
+                                    </ul>
+                                </div>
+                            </button>
                         </div>
+                            
+                        <input type="submit" value="submit" onclick="check()">
                     </fieldset>
                 </div>
             </form>

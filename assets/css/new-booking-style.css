@@ -16,6 +16,10 @@ form{
     font-family: 'Didact Gothic', sans-serif;
 }
 
+fieldset{
+    text-align: center;
+}
+
 legend{
     color:#00cc66;
 }
@@ -92,15 +96,32 @@ input[type=text]{
     padding:0.2em;
 }
 
+#search-results{
+    display:none;
+}
+
+#avail-spaces{
+    margin: 0 auto;
+    padding: 0;
+    width:85%;
+}
+
+#avail-spaces>button{
+    width:85%;
+    border-radius: 1em;
+    border:1px solid #66b2ff55;
+    background-color: #66b2ff25;
+    margin: 0.5em auto;
+}
+
+.active{
+    background-color: #00cc6655 !important;
+}
+
 hr{
     width:50%;
     margin:1em auto;
 }
-
-.spaces{
-    display: none;
-}
-
 
 .test{
     border: 1px solid #eee;
@@ -109,30 +130,22 @@ hr{
     margin-top: 0.5em;
 }
 
-.choice{
-    display: flex;
-    justify-content: baseline;
-}
-
-.choice>input{
-    position: relative;
-}
-
-.choice.test{
-    width:100%;
-}
-
-
 .subtitle{
     font-size: 1.5em;
     color:#66b2ff;
 }
 
 .features{
-    list-style-type: none;
+    margin:0 auto;
+    text-align: center;
 }
 
-.features>li::before{
+.features-list{
+    list-style-type: none;
+    text-align: justify;
+}
+
+.features-list>li::before{
     content:"\f00c";
     font-family: FontAwesome;
     margin-right:0.25em;

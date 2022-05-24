@@ -72,12 +72,27 @@ function checkInfo(){
 
 // Search for the requirements and display results
 function searchSpace(){
-    const spaces = document.querySelector(".spaces");
+    const spaces = document.querySelector("#search-results");
     spaces.style.display = "block";
 }
 
+function activeButton(){
+    const buttons = document.querySelectorAll("#avail-spaces>button");
+    for (let button of buttons){
+        button.addEventListener('click',()=>{
+            if(!button.classList.contains("active")){
+                button.classList.add("active");
+            }
+            else{
+                button.classList.remove("active");
+            }
+        })
+    }
+}
 
 function check(){
     checkInfo();
     checkDates();
 }
+
+activeButton();
