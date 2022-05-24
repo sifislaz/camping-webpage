@@ -1,5 +1,6 @@
 .main-body{
     margin:1em;
+    text-align: center;
 }
 
 .title{
@@ -76,12 +77,38 @@ input{
     border:1px solid #00cc66;
 }
 
-#search-btn{
-    border:1px solid #00cc66;
-    border-radius:0.5em;
-    background-color: #eee;
-    margin:0.5em 0;
-    padding:0.2em;
+.my-button-green{
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #00CC66;
+    padding: 15px 30px;
+    position: relative;
+    overflow: hidden;
+    transition: color 1s;
+    z-index: 1;
+    border: 0;
+    border-radius: 0.25em;
+    flex-wrap: wrap;
+    margin-top:0.5em;
+}
+.my-button-green:hover{
+    color: #ffffff;
+}
+.my-button-green::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50px;
+    width: 0;
+    height: 100%;
+    background-color: #00CC66;
+    transform: skewX(35deg);
+    z-index: -1;
+    transition: width 1s;
+}
+.my-button-green:hover::before{
+    width: 150%;
 }
 
 hr{
@@ -89,3 +116,6 @@ hr{
     margin:1em auto;
 }
 
+#search-results{
+    display:none;
+}

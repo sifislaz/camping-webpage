@@ -1,9 +1,9 @@
-<html lang="el">
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Επεξεργασία Κράτησης | Cretan Camping</title>
+        <title>Edit Booking | Cretan Camping</title>
         <!--Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/img/favicon-black-solid.ico">
         <!--Bootstrap 5.1.3 CSS-->
@@ -20,26 +20,26 @@
     </head>
     <body>
         <div class="main-body">
-            <h1 class="title">Επεξεργασία Κράτησης</h1>
+            <h1 class="title">Edit Booking</h1>
             <hr>
-            <h2 class="subtitle">Η κράτησή σας</h2>
+            <h2 class="subtitle">Your Booking</h2>
             <div id="booked-space">
-                <h3 class="space-title">Χώρος για σκηνή 3 ατόμων</h3>
-                <div>Χαρακτηριστικά:</div>
+                <h3 class="space-title">3 person tent space</h3>
+                <div>Features:</div>
                 <ul class="features">
-                    <li>Πολύμπριζο 5 θέσεων</li>
-                    <li>Φως πάνω από τον χώρο της σκηνής</li>
-                    <li>250m από την θάλασσα</li>
+                    <li>5 socket power strip</li>
+                    <li>Light above tent</li>
+                    <li>250m away from beach</li>
                 </ul>
             </div>
-            <h2 class="subtitle">Αλλαγή Κράτησης</h2>
+            <h2 class="subtitle">Change Reservation</h2>
             <form action="#">
                 <div class="formfield">
-                    <label for="booking-id">Αρ. Κράτησης:</label>
+                    <label for="booking-id">Booking no:</label>
                     <input type="text" name="id" id="booking-id" value="02f334d" disabled>
                 </div>
                 <div class="formfield">
-                    <label for="people">Αριθμός Ατόμων</label>
+                    <label for="people">No of People</label>
                     <select name="people" id="people">
                         <option value=""></option>
                         <option value="1">1</option>
@@ -53,15 +53,15 @@
                     </select>
                 </div>
                 <div class="formfield">
-                    <label for="dates">Ημερομηνίες Κράτησης</label>
+                    <label for="dates">Dates</label>
                         <div id="dates">
-                            <span for="startdate">Από</span>
+                            <span for="startdate">From</span>
                             <input type="date" name="checkin" id="startdate" value="2022-02-01">
-                            <span for="enddate">Έως</span>
+                            <span for="enddate">To</span>
                             <input type="date" name="checkout" id="enddate" value="2022-05-01">
                         </div>
                 </div>
-                <button class="my-button-green" id="search-btn" onclick="searchSpace()" type="button">Αναζήτηση</button>
+                <button class="my-button-green" id="search-btn" onclick="searchSpace()" type="button">search</button>
                 <div id="search-results">
                     <hr>
                 </div>
