@@ -63,7 +63,7 @@
 .nav-item{
     font-family: 'Didact Gothic', sans-serif;
     font-size: 0.75em;
-    margin-left:0.3em;
+    width:auto;
 }
 
 .nav-link:hover{
@@ -74,6 +74,10 @@
     color:#0080ff;
 }
 
+.nav-drop-link{
+    pointer-events: none;
+}
+
 .nav-drop-menu{
     background-color: #404040;
     border-radius: 1em;
@@ -82,13 +86,18 @@
     z-index: 100;
     display:none;
     position:absolute;
+    padding: 0;
 }
-
 
 .nav-drop-item:hover{
     color:#404040;
     background-color: #66B2FFAA;
+}
 
+.nav-drop-item:focus{
+    background-color: #404040;
+    color:#62b2ff;
+    border-radius: 1em;
 }
 
 .dropdown:focus .dropdown-menu{
@@ -139,9 +148,9 @@
         font-size:0.6em;
     }
 
-    .dropdown:hover .dropdown-menu{
+    .dropdown:hover .nav-drop-menu{
         display: block;
-        transform: translateX(-50%);
+        right:1em;
     }
 }
 

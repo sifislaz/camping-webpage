@@ -1,0 +1,121 @@
+.main-body{
+    margin:1em;
+    text-align: center;
+}
+
+.title{
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 3em;
+    color: #66b2ff;
+    text-align: center;
+}
+
+.subtitle{
+    font-family: 'Didact Gothic', sans-serif;
+    font-size:2em;
+    color:#00cc66;
+}
+
+#booked-space{
+    font-family: 'Didact Gothic', sans-serif;
+    border:1px solid #00cc66;
+    border-radius: 1em;
+    padding: 0.5em 1em;
+    margin-bottom: 0.5em;
+}
+
+.space-title{
+    font-family: 'Didact Gothic', sans-serif;
+    color:#66b2ff;
+    font-size:1.5em;
+}
+
+.features{
+    list-style-type: none;
+}
+
+.features>li::before{
+    content:"\f00c";
+    font-family: FontAwesome;
+    margin-right:0.25em;
+}
+
+form{
+    font-family: 'Didact Gothic', sans-serif;
+    border:1px solid #00cc66;
+    border-radius:1em;
+    margin: 1em 0;
+    padding:0.5em 1em;
+}
+
+.formfield{
+    margin:0.5em 0;
+}
+
+label{
+    font-size: 1em;
+    color:#66b2ff;
+}
+
+input{
+    border:1px solid #00cc66;
+    border-radius: 0.5em;
+}
+
+#people{
+    border:1px solid #00cc66;
+    border-radius: 0.5em;
+    margin-left:0.5em;
+}
+
+#dates{
+    margin-top:0.5em;
+}
+
+#startdate,#enddate{
+    margin: auto 0.3em;
+    border:1px solid #00cc66;
+}
+
+.my-button-green{
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #00CC66;
+    padding: 15px 30px;
+    position: relative;
+    overflow: hidden;
+    transition: color 1s;
+    z-index: 1;
+    border: 0;
+    border-radius: 0.25em;
+    flex-wrap: wrap;
+    margin-top:0.5em;
+}
+.my-button-green:hover{
+    color: #ffffff;
+}
+.my-button-green::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50px;
+    width: 0;
+    height: 100%;
+    background-color: #00CC66;
+    transform: skewX(35deg);
+    z-index: -1;
+    transition: width 1s;
+}
+.my-button-green:hover::before{
+    width: 150%;
+}
+
+hr{
+    width:50%;
+    margin:1em auto;
+}
+
+#search-results{
+    display:none;
+}

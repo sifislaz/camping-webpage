@@ -1,0 +1,56 @@
+.main-body{
+    margin:1em; 
+}
+
+.title{
+    color:#66b2ff;
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 3em;
+    text-align: center;
+}
+
+
+hr{
+    width:50%;
+    margin:1em auto;
+}
+
+.photo-container{
+    width:48%;
+    height:30%;
+    margin: 0 auto;
+}
+
+.image{
+    width:100%;
+}
+
+.content{
+    margin-top:1em;
+}
+
+.info{
+    font-family: 'Didact Gothic', sans-serif;
+    font-size:1em;
+    text-align: justify;
+    font-style: italic;
+    color:#00cc66;
+}
+
+.subtitle{
+    font-weight: bold;
+    text-decoration: underline;
+    margin-right: 0.5em;
+    font-style: normal;
+    color:black;
+}
+
+.link{
+    color:#66b2ff;
+    text-decoration: none;
+}
+
+.link:hover{
+    color: #0080ff;
+    text-decoration: underline;
+}
