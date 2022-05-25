@@ -1,0 +1,87 @@
+#sign-in-form{
+    display: none;
+}
+
+.img{
+    height: 250px;
+    background-position: center;
+    background-size: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#sign-in-card{
+    padding: 0;
+    box-shadow: 5px 5px 20px;
+    border-radius: 10px;
+}
+
+#basic-addon2 i{
+    padding: 4px 0px;
+}
+
+#basic-addon1 i{
+    padding: 4px 0px;
+}
+#remember-me{
+    color: #6C757D;
+}
+#forgot-pass{
+    float: right;
+    text-decoration: none;
+    color: #6C757D;
+}
+#forgot-pass:hover{
+    color: #66B2FF;
+}
+#sign-up{
+    text-decoration: none;
+    color: #6C757D;
+}
+#sign-up:hover{
+    color: #66B2FF;
+}
+
+hr{
+    width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+    margin-top: 0;
+}
+
+.my-button-blue{
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #66B2FF;
+    padding: 15px 30px;
+    position: relative;
+    overflow: hidden;
+    transition: color 1s;
+    z-index: 1;
+    border: #66B2FF;
+    border-radius: 0.25em;
+    flex-wrap: wrap;
+}
+
+.my-button-blue:hover{
+    color: #ffffff;
+}
+
+.my-button-blue::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50px;
+    width: 0;
+    height: 100%;
+    background-color: #66B2FF;
+    transform: skewX(35deg);
+    z-index: -1;
+    transition: width 1s;
+}
+
+.my-button-blue:hover::before{
+    width: 150%;
+}

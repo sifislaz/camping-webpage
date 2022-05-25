@@ -1,0 +1,115 @@
+#sign-up-form{
+    display: none;
+}
+
+.img{
+    height: 250px;
+    background-position: center;
+    background-size: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#sign-up-card{
+    padding: 0;
+    box-shadow: 5px 5px 20px;
+    border-radius: 10px;
+}
+
+.my-button-blue{
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #66B2FF;
+    padding: 15px 30px;
+    position: relative;
+    overflow: hidden;
+    transition: color 1s;
+    z-index: 1;
+    border: #66B2FF;
+    border-radius: 0.25em;
+    flex-wrap: wrap;
+}
+
+.my-button-blue:hover{
+    color: #ffffff;
+}
+
+.my-button-blue::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50px;
+    width: 0;
+    height: 100%;
+    background-color: #66B2FF;
+    transform: skewX(35deg);
+    z-index: -1;
+    transition: width 1s;
+}
+
+.my-button-blue:hover::before{
+    width: 150%;
+}
+
+
+#terms-link{
+    text-decoration: none;
+    color: #6C757D;
+}
+
+#terms-link:hover{
+    color: #66B2FF;
+}
+
+hr{
+    width: 65%;
+    margin: 0 auto;
+}
+
+#sign-in{
+    color: #6C757D;
+    text-decoration: none;
+}
+
+#sign-in:hover{
+    color: #66B2FF;
+}
+
+.my-button-green{
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #00CC66;
+    padding: 15px 30px;
+    position: relative;
+    overflow: hidden;
+    transition: color 1s;
+    z-index: 1;
+    /* display: block; */
+    border: #00CC66;
+    border-radius: 0.25em;
+    flex-wrap: wrap;
+}
+
+.my-button-green:hover{
+    color: #ffffff;
+}
+
+.my-button-green::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50px;
+    width: 0;
+    height: 100%;
+    background-color: #00CC66;
+    transform: skewX(35deg);
+    z-index: -1;
+    transition: width 1s;
+}
+
+.my-button-green:hover::before{
+    width: 150%;
+}
+
