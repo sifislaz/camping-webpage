@@ -1,0 +1,172 @@
+body{
+    font-family: 'Didact Gothic', sans-serif;
+    margin:1em;
+}
+
+.title{
+    font-size:3em;
+    text-align: center;
+    color: #66b2ff;
+}
+
+.main-cont{
+    margin-top:1.5em;
+}
+
+.clmn{
+    border-top: 1px solid #00cc66;
+    border-bottom: 1px solid #00cc66;
+}
+
+.clmn:nth-child(2n){
+    border-left: 1px dashed #00cc66;
+    border-right: 1px solid #00cc66;
+}
+
+.clmn:nth-child(2n+1){
+    border-left: 1px solid #00cc66;
+}
+
+.subtitle{
+    font-size: 2em;
+    text-align: center;
+    color: #66b2ff;
+    margin-top: 0.5em;
+}
+
+.book-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5em;
+}
+
+.my-button-blue{
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #66B2FF;
+    padding: 15px 30px;
+    position: relative;
+    overflow: hidden;
+    transition: color 1s;
+    z-index: 1;
+    border: 0;
+    border-radius: 0.25em;
+    flex-wrap: wrap;
+
+}
+.my-button-blue:hover{
+    color: #ffffff;
+}
+.my-button-blue::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50px;
+    width: 0;
+    height: 100%;
+    background-color: #66B2FF;
+    transform: skewX(35deg);
+    z-index: -1;
+    transition: width 1s;
+}
+.my-button-blue:hover::before{
+    width: 150%;
+}
+
+.booking{
+    list-style: none;
+    text-align: center;
+    padding:0.25em;
+    border-radius: 1em;
+    margin-top: 0.5em;
+}
+
+table{
+    border:1px solid #00cc66;
+    margin: 1em auto;
+}
+
+th{
+    color:#66b2ff;
+    text-align: center;
+    padding: 0 0.5em;
+    border: 1px solid #00cc66;
+}
+
+td{
+    text-align: center;
+    border:1px solid #00cc66;
+}
+
+.go-to-booking{
+    text-decoration: none;
+    color:#000;
+}
+
+.go-to-booking:hover{
+    color: #000;
+    font-style: italic;
+    cursor: pointer;
+}
+
+.situation{
+    padding: 0 0 0 0.5em;
+}
+
+.sit-done{
+    background-color: rgba(0,256,0,0.2);
+}
+
+.sit-wait{
+    background-color: rgba(256,165,0,0.2);
+}
+
+.sit-cancelled{
+    background-color: rgba(256,0,0,0.2);
+}
+
+.icons{
+    position: relative;
+    float:right;
+    top: 5px;
+    right:0.5em;
+    margin-left:1em;
+}
+
+.fa-circle-check{
+    color:rgb(0,128,0);
+    display: none;
+}
+
+.fa-circle-xmark{
+    color:rgb(256,0,0);
+    display: none;
+}
+
+.fa-circle-exclamation{
+    color:rgb(256,165,0);
+    display: none;
+}
+
+.show{
+    display:inline;
+}
+
+hr{
+    width:50%;
+    margin:1em auto;
+}
+
+@media screen and (max-width:992px){
+    .clmn{
+        border:1px solid #00cc66 !important;
+        margin-top: 1em;
+    }
+
+    .book-button{
+        margin-top: 1%;
+        margin-bottom: 1%;
+    }
+}
