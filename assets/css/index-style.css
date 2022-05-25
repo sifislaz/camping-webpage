@@ -42,7 +42,7 @@
     display: inline;
     width: 34.3%;
     height: 21.8%;
-    transition: transform .8s;
+    transition: transform .5s;
 }
 
 .panel-image:hover{

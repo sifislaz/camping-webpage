@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    z-index: -10;
+    background-color: white;
+}
+
+.container {
+    display: flex;
+    height: 80vh;
+    justify-content: space-around;
+    align-items: center;
+    animation: expand .8s ease forwards;
+    background-color: white;
+    position: relative;
+    transition: all .8s ease;
+}
+
+.container_content {
+    width: 50%;
+}
+
+.container_content_inner {
+    width: 70%;
+}
+
+.container_img {
+    width: 100%;
+    animation: slideIn 1.5s ease-in-out forwards;
+    outline-offset: -8px;
+    outline: rgba(255,255,255,0.5) solid 1px;
+    border-radius: 15px;
+    -moz-outline-radius: 20px;
+}
+
+.par {
+    height: auto;
+    overflow: hidden;
+}
+
+p{
+    line-height: 30px;
+    transform: translateY(300px);
+    animation: slideUp .8s ease-in-out forwards .8s;
+    color: #404040;
+}
+
+
+.title {
+    overflow: hidden;
+    height: auto;
+}
+
+h1 {
+    font-size: 50px;
+    color: #404040;
+    margin-bottom: 20px;
+    transform: translateY(100px);
+    animation: slideUp .8s ease forwards .5s;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(500px) scale(.2);
+    }
+    100% {
+        transform: translateX(0px) scale(1);
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(300px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes expand {
+    0% {
+        transform: translateX(1400px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+.my-button-green{
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #00CC66;
+    padding: 15px 30px;
+    position: relative;
+    overflow: hidden;
+    transition: color 1s;
+    z-index: 1;
+    border: #00CC66;
+    border-radius: 0.25em;
+    flex-wrap: wrap;
+}
+
+.my-button-green:hover{
+    color: #ffffff;
+}
+
+.my-button-green::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50px;
+    width: 0;
+    height: 100%;
+    background-color: #00CC66;
+    transform: skewX(35deg);
+    z-index: -1;
+    transition: width 1s;
+}
+
+.my-button-green:hover::before{
+    width: 150%;
+}
