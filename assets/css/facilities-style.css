@@ -1,0 +1,129 @@
+body {
+	background: #fff;
+}
+
+.green_tilesWrap {
+	padding: 0;
+	margin: 50px auto;
+	list-style: none;
+	text-align: center;
+}
+.green_tilesWrap li {
+	display: inline-block;
+	width: 20%;
+	min-width: 200px;
+	max-width: 230px;
+	padding: 80px 20px 40px;
+	position: relative;
+	vertical-align: top;
+	margin: 10px;
+	font-family: 'helvetica', san-serif;
+	min-height: 25vh;
+	background: #fff;
+	border: 1px solid #00cc66;
+	text-align: left;
+}
+
+.green_tilesWrap li h2 {
+	font-size: 114px;
+	margin: 0;
+	position: absolute;
+	opacity: 0.2;
+	top: 50px;
+	right: 10px;
+	transition: all 0.3s ease-in-out;
+}
+.green_tilesWrap li h3 {
+	font-size: 20px;
+	color: #404040;
+	margin-bottom: 5px;
+}
+
+.green_tilesWrap li p {
+	font-size: 16px;
+	line-height: 18px;
+	color: #404040;
+	margin-top: 5px;
+}
+
+.green_tilesWrap li:hover h2 {
+	top: 0px;
+	opacity: 0.2;
+}
+
+.green_tilesWrap li:before {
+	content: '';
+	position: absolute;
+	top: -2px;
+	left: -2px;
+	right: -2px;
+	bottom: -2px;
+	z-index: -1;
+	background: #00cc66;
+	transform: skew(2deg, 2deg);
+}
+
+.blue_tilesWrap {
+	padding: 0;
+	margin: 50px auto;
+	list-style: none;
+	text-align: center;
+}
+
+.blue_tilesWrap li {
+	display: inline-block;
+	width: 20%;
+	min-width: 200px;
+	max-width: 230px;
+	padding: 80px 20px 40px;
+	position: relative;
+	vertical-align: top;
+	margin: 10px;
+	font-family: 'helvetica', san-serif;
+	min-height: 25vh;
+	background: #fff;
+	border: 1px solid #66b2ff;
+	text-align: left;
+}
+
+.blue_tilesWrap li h2 {
+	font-size: 114px;
+	margin: 0;
+	position: absolute;
+	opacity: 0.2;
+	top: 50px;
+	right: 10px;
+	transition: all 0.3s ease-in-out;
+}
+.blue_tilesWrap li h3 {
+	font-size: 20px;
+	color: #404040;
+	margin-bottom: 5px;
+}
+.blue_tilesWrap li p {
+	font-size: 16px;
+	line-height: 18px;
+	color: #404040;
+	margin-top: 5px;
+}
+
+.blue_tilesWrap li:hover h2 {
+	top: 0px;
+	opacity: 0.2;
+}
+
+.blue_tilesWrap li:before {
+	content: '';
+	position: absolute;
+	top: -2px;
+	left: -2px;
+	right: -2px;
+	bottom: -2px;
+	z-index: -1;
+	background: #66b2ff;
+	transform: skew(2deg, 2deg);
+}
+
+.photo-container{
+    width: 70%;
+}
