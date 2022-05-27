@@ -28,13 +28,13 @@
 <div class="text-center buttons">
 
   <div>
-    <button class="my-button-blue" id="pop-up-button-sign-in">Sign in</button>
+    <button class="my-button-blue" id="pop-up-button-sign-in">Εισοδος</button>
   </div>
 
   <br>
 
   <div>
-    <button class="my-button-green" id="pop-up-button-sign-up">Sign up</button>
+    <button class="my-button-green" id="pop-up-button-sign-up">εγγραφη</button>
   </div>
 
 </div>
@@ -56,7 +56,7 @@
         <div class="d-flex">
 
           <div class="w-100">
-            <h3 class="mb-3 text-center">Sign In</h3>
+            <h3 class="mb-3 text-center">Είσοδος</h3>
           </div>
 
         </div>
@@ -71,7 +71,10 @@
               <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
             </div>
 
+
+
             <input type="text" class="form-control" placeholder="Enter username" aria-label="Username" aria-describedby="basic-addon1" required>
+
 
           </div>
 
@@ -83,22 +86,24 @@
               <span class="input-group-text" id="basic-addon2"><i class="fa-solid fa-lock"></i></span>
             </div>
 
+
             <input type="password" id="pass1" class="form-control" placeholder="Enter password" aria-label="Password" aria-describedby="basic-addon2" required>
             <div class="rev-pass" id="showCont"><span class="fa fa-eye pass-icon" id="showPass"></span></div><div class="rev-pass" id="hideCont"><span class="fa fa-eye-slash pass-icon" id="hidePass"></span></div>
+
           </div>
 
           <div class="form-group d-md-flex" id="options">
 
             <div class="w-50">
 
-              <label class="checkbox-wrap checkbox-primary mb-0" id="remember-me">Remember Me
+              <label class="checkbox-wrap checkbox-primary mb-0" id="remember-me">Θυμήσου με
                 <input type="checkbox" checked="" id="check">
               </label>
 
             </div>
 
             <div class="w-50">
-              <a href="#" id="forgot-pass">Forgot Password</a>
+              <a href="#" id="forgot-pass">Ξεχάσα τον κωδικό</a>
             </div>
 
           </div>
@@ -108,8 +113,10 @@
   
         </form>
 
-        
-        <p class="text-center">Not a member? <a data-toggle="tab" href="#signup" id="sign-up">Sign Up.</a></p>
+
+
+        <p class="text-center">Δεν είστε μέλος <a data-toggle="tab" href="#signup" id="sign-up">Εγγραφείτε.</a></p>
+
 
       </div>
 
@@ -135,7 +142,7 @@
 
         <div class="d-flex">
           <div class="w-100">
-            <h3 class="mb-3 text-center">Sign Up</h3>
+            <h3 class="mb-3 text-center">Εγγραφή</h3>
           </div>
         </div>
 
@@ -144,8 +151,9 @@
         <form action="babalos" class="signup-form mt-3">
 
           <div class="top-label">
-            <h4>Username</h4>
+            <h4>Όνομα Χρήστη</h4>
           </div>
+
 
           <div class="input-group mb-3 user">
             <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required>
@@ -155,13 +163,15 @@
             <h4>Email</h4>
           </div>
 
+
           <div class="input-group mb-3 user">
             <input type="email" class="form-control" id="floatingEmail" placeholder="name@example.com" required>
           </div>
 
           <div class="top-label">
-            <h4>Password</h4>
+            <h4>Κωδικός</h4>
           </div>
+
 
           <div class="input-group mb-3">
             <input type="password" id="pass1Up" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon2" required>
@@ -169,15 +179,16 @@
           </div>
 
           <div class="mb-3">
-            <p class="text-muted mb-0">Password must contain at least:</p>
-            <span class="text-muted">&#8226;One capital and one lower case letter</span>
+            <p class="text-muted mb-0">Ο κωδικός πρέπει να περιέχει τουλάχιστον:</p>
+            <span class="text-muted">&#8226;Ένα κεφαλαίο και ένα πεζό γράμμα</span>
             <br>
-            <span class="text-muted">&#8226;One number and one special character</span>
+            <span class="text-muted">&#8226;Έναν αριθμό και έναν ειδικό χαρακτήρα</span>
           </div>
 
           <div class="top-label">
-            <h4>Re-enter Password</h4>
+            <h4>Επαναλάβετε τον κωδικό</h4>
           </div>
+
 
           <div class="input-group mb-3">
             <input type="password" class="form-control" id="pass2" placeholder="Password" required>
@@ -185,19 +196,18 @@
           </div>
 
           <div class="mb-3">
-            <label for="newslettercheck">Subscribe to our newsletter</label>
+            <label for="newslettercheck">Εγγραφή στο newsletter</label>
             <input type="checkbox" id="newslettercheck">
-            <label for="terms-and-conditions">I have read and accept the <a href="#" id="terms-link">terms and conditions</a></label>
+            <label for="terms-and-conditions">Έχω διαβάσει και αποδέχομαι τους <a href="#" id="terms-link">όρους χρήσης και προυποθέσεις</a></label>       
             <input type="checkbox" id="terms-and-conditions" required>
           </div>
           <div class="text-center">
             <button class="my-button-green" id="sign-up-btn" onclick="checkPassword()" type="submit">Sign up</button>
+
           </div>
         </form>
 
-        
-
-        <p class="text-center mt-3">Already a member? <a data-toggle="tab" href="#signup" id="sign-in">Sign In.</a></p>
+        <p class="text-center mt-3">Είστε μέλος? <a data-toggle="tab" href="#signup" id="sign-in">Συνδεθείτε.</a></p>
 
       </div>
 

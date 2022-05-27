@@ -17,13 +17,11 @@
 
 .container {
     display: flex;
-    height: 80vh;
+    margin-top: 1em;
     justify-content: space-around;
     align-items: center;
-    animation: expand .8s ease forwards;
     background-color: white;
     position: relative;
-    transition: all .8s ease;
 }
 
 .container_content {
@@ -36,7 +34,6 @@
 
 .container_img {
     width: 100%;
-    animation: slideIn 1.5s ease-in-out forwards;
     outline-offset: -8px;
     outline: rgba(255,255,255,0.5) solid 1px;
     border-radius: 15px;
@@ -50,8 +47,6 @@
 
 p{
     line-height: 30px;
-    transform: translateY(300px);
-    animation: slideUp .8s ease-in-out forwards .8s;
     color: #404040;
 }
 
@@ -65,35 +60,6 @@ h1 {
     font-size: 50px;
     color: #404040;
     margin-bottom: 20px;
-    transform: translateY(100px);
-    animation: slideUp .8s ease forwards .5s;
-}
-
-@keyframes slideIn {
-    0% {
-        transform: translateX(500px) scale(.2);
-    }
-    100% {
-        transform: translateX(0px) scale(1);
-    }
-}
-
-@keyframes slideUp {
-    0% {
-        transform: translateY(300px);
-    }
-    100% {
-        transform: translateY(0px);
-    }
-}
-
-@keyframes expand {
-    0% {
-        transform: translateX(1400px);
-    }
-    100% {
-        transform: translateX(0px);
-    }
 }
 
 .my-button-green{
