@@ -23,7 +23,7 @@
     <div class="header">
         <header>
             <div class="lang-button">
-                <a href="/">EL</a>
+                <a href="/{{link}}">EL</a>
             </div>
             <div class="container-fluid">
                 <div class="row">
@@ -39,24 +39,63 @@
                         <div class="collapse navbar-collapse" id="navbarCollapse">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="/en/">HOME</a>
+                                    {{#ifEqual link ""}} 
+                                        <a class="nav-link active" href="/en/">HOME</a>
+                                    {{else}}
+                                        <a class="nav-link" href="/en/">HOME</a>
+                                    {{/ifEqual}}
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle nav-drop-link" href="#" id="navbarDropdownLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">THE CAMPING</a>
-                                    <ul class="dropdown-menu nav-drop-menu" aria-labelledby="navbarDropdownLink">
-                                        <li><a class="dropdown-item nav-drop-item" href="/en/facilities/">FACILITIES</a></li>
-                                        <li><a class="dropdown-item nav-drop-item" href="/en/season/">OPERATING PERIOD</a></li>
-                                        <li><a class="dropdown-item nav-drop-item" href="/en/activities/">ACTIVITIES</a></li>
-                                    </ul>
+                                    {{#ifEqual link "camping/facilities/"}}
+                                        <a class="active nav-link dropdown-toggle nav-drop-link" href="#" id="navbarDropdownLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">THE CAMPING</a>
+                                        <ul class="dropdown-menu nav-drop-menu" aria-labelledby="navbarDropdownLink">
+                                            <li class="active"><a class="dropdown-item nav-drop-item" href="/en/camping/facilities/">FACILITIES</a></li>
+                                            <li><a class="dropdown-item nav-drop-item" href="/en/camping/season/">OPERATING PERIOD</a></li>
+                                            <li><a class="dropdown-item nav-drop-item" href="/en/camping/activities/">ACTIVITIES</a></li>
+                                        </ul>
+                                    {{else ifEqual link "camping/season/"}}
+                                        <a class="active nav-link dropdown-toggle nav-drop-link" href="#" id="navbarDropdownLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">THE CAMPING</a>
+                                        <ul class="dropdown-menu nav-drop-menu" aria-labelledby="navbarDropdownLink">
+                                            <li><a class="dropdown-item nav-drop-item" href="/en/camping/facilities/">FACILITIES</a></li>
+                                            <li class="active"><a class="dropdown-item nav-drop-item" href="/en/camping/season/">OPERATING PERIOD</a></li>
+                                            <li><a class="dropdown-item nav-drop-item" href="/en/camping/activities/">ACTIVITIES</a></li>
+                                        </ul>
+                                    {{else ifEqual link "camping/activities/"}}
+                                        <a class="active nav-link dropdown-toggle nav-drop-link" href="#" id="navbarDropdownLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">THE CAMPING</a>
+                                        <ul class="dropdown-menu nav-drop-menu" aria-labelledby="navbarDropdownLink">
+                                            <li><a class="dropdown-item nav-drop-item" href="/en/camping/facilities/">FACILITIES</a></li>
+                                            <li><a class="dropdown-item nav-drop-item" href="/en/camping/season/">WORKING PERIODS</a></li>
+                                            <li class="active"><a class="dropdown-item nav-drop-item" href="/en/camping/activities/">ACTIVITIES</a></li>
+                                        </ul>
+                                    {{else}}
+                                        <a class="nav-link dropdown-toggle nav-drop-link" href="#" id="navbarDropdownLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">THE CAMPING</a>
+                                        <ul class="dropdown-menu nav-drop-menu" aria-labelledby="navbarDropdownLink">
+                                            <li><a class="dropdown-item nav-drop-item" href="/en/camping/facilities/">FACILITIES</a></li>
+                                            <li><a class="dropdown-item nav-drop-item" href="/en/camping/season/">OPERATING PERIOD</a></li>
+                                            <li><a class="dropdown-item nav-drop-item" href="/en/camping/activities/">ACTIVITIES</a></li>
+                                        </ul>
+                                    {{/ifEqual}}
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/en/pricelist/">PRICE&nbsp;LIST</a>
+                                    {{#ifEqual link "pricelist/"}}
+                                        <a class="active nav-link" href="/en/pricelist/">PRICE&nbsp;LIST</a>
+                                    {{else}}
+                                        <a class="nav-link" href="/en/pricelist/">PRICE&nbsp;LIST</a>
+                                    {{/ifEqual}}
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/en/crete/">CRETE</a>
+                                    {{#ifEqual link "crete/"}}
+                                        <a class="active nav-link" href="/en/crete/">CRETE</a>
+                                    {{else}}
+                                        <a class="nav-link" href="/en/crete/">CRETE</a>
+                                    {{/ifEqual}}
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/en/contact/">CONTACT&nbsp;US</a>
+                                    {{#ifEqual link "form/"}}
+                                        <a class="active nav-link" href="/en/form/">COMMENTS</a>
+                                    {{else}}
+                                        <a class="nav-link" href="/en/form/">COMMENTS</a>
+                                    {{/ifEqual}}
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle nav-drop-link" href="#" id="navbarDropdownLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">SIGN IN</a>
