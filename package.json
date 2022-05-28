@@ -1,0 +1,22 @@
+{
+  "name": "camping-webpage",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "nodemon ./app-camping.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sifislaz/camping-webpage.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "express-handlebars": "^6.0.6",
+    "nodemon": "^2.0.16"
+  }
+}
