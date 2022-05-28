@@ -12,7 +12,7 @@
 .photo-container{
     box-sizing: border-box;
     position:relative;
-    width:75%;
+    width:35%;
     height:40%;
     margin: 0 auto;
     border-radius: 10px;
@@ -80,5 +80,6 @@
 
 hr{
     width:50%;
-    margin:1em auto;
+    /* margin:1em auto; */
+    transform: translateX(50%);
 }
