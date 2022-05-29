@@ -24,73 +24,73 @@ ifEq.handlebars.registerHelper('ifEqual', function () {
 
 //--------INDEX---------//
 let renderIndex = function (req, res){
-    res.render('index', {link:""})
+    res.render('index', {link:"", pageName:"Αρχική"})
 }
 
 let renderIndexEn = function (req, res){
-    res.render('index-en', {link:"",layout : 'main-en.hbs'})
+    res.render('index-en', {link:"",pageName:"Home",layout : 'main-en.hbs'})
 }
 //----------------------//
 
 //--------FACILITIES---------//
 let renderFacilities = function (req, res){
-    res.render('facilities', {link:"camping/facilities/"})
+    res.render('facilities', {link:"camping/facilities/", pageName:"Εγκαταστάσεις"})
 }
 
 let renderFacilitiesEn = function (req, res){
-    res.render('facilities-en', {link:"camping/facilities/",layout : 'main-en.hbs'})
+    res.render('facilities-en', {link:"camping/facilities/",pageName:"Facilities",layout : 'main-en.hbs'})
 }
 //---------------------------//
 
 
 //--------SEASON---------//
 let renderSeason = function (req, res){
-    res.render('season', {link:"camping/season/"})
+    res.render('season', {link:"camping/season/", pageName:"Περίοδοι Λειτουργίας"})
 }
 
 let renderSeasonEn = function (req, res){
-    res.render('season-en', {link:"camping/season/", layout : 'main-en.hbs'})
+    res.render('season-en', {link:"camping/season/", pageName:"Operating Periods", layout : 'main-en.hbs'})
 }
 //-----------------------//
 
 
 //--------ACTIVITIES---------//
 let renderActivities = function (req, res){
-    res.render('activities', {link:"camping/activities/"})
+    res.render('activities', {link:"camping/activities/", pageName:"Δραστηριότητες"})
 }
 
 let renderActivitiesEn = function (req, res){
-    res.render('activities-en', {link:"camping/activities/", layout : 'main-en.hbs'})
+    res.render('activities-en', {link:"camping/activities/", pageName:"Activities", layout : 'main-en.hbs'})
 }
 //---------------------------//
 
 //--------PRICELIST---------//
 let renderPricelist = function (req, res){
-    res.render('pricelist', {link:"pricelist/"})
+    res.render('pricelist', {link:"pricelist/", pageName:"Τιμοκατάλογος"})
 }
 
 let renderPricelistEn = function (req, res){
-    res.render('pricelist-en', {link:"pricelist/",layout : 'main-en.hbs'})
+    res.render('pricelist-en', {link:"pricelist/", pageName:"Pricelist", layout : 'main-en.hbs'})
 }
 //--------------------------//
 
 //--------CRETE---------//
 let renderCrete = function (req, res){
-    res.render('crete', {link:"crete/"})
+    res.render('crete', {link:"crete/", pageName:"Η Κρήτη"})
 }
 
 let renderCreteEn = function (req, res){
-    res.render('crete-en', {link:"crete/", layout : 'main-en.hbs'})
+    res.render('crete-en', {link:"crete/", pageName:"Crete", layout : 'main-en.hbs'})
 }
 //----------------------//
 
 //--------FORM---------//
 let renderForm = function (req, res){
-    res.render('form', {link:"form/"})
+    res.render('form', {link:"form/", pageName:"Σχόλια"})
 }
 
 let renderFormEn = function (req, res){
-    res.render('form-en', {link:"form/", layout : 'main-en.hbs'})
+    res.render('form-en', {link:"form/", pageName:"Comments", layout : 'main-en.hbs'})
 }
 //---------------------//
 
