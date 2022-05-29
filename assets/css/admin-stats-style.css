@@ -1,0 +1,23 @@
+.main-body{
+    margin:1em;
+    text-align: center;
+}
+
+.title{
+    font-family: 'Didact Gothic', snas-serif;
+    font-size:3em;
+    color:#66b2ff;
+    margin:0.5rem auto;
+}
+
+.subtitle{
+    font-family: 'Didact Gothic', snas-serif;
+    font-size: 1.5em;
+    color:#00cc66;
+    margin:0.5rem auto;
+}
+
+.cont{
+    text-align: center;
+    margin:0;
+}
