@@ -22,17 +22,31 @@
 </head>
 <body>
     <div class="main-body">
-        <h1 class="title">Προσθήκη Χώρου</h1>
-        <form method="post" action="/registerSpace/">
-            <div class="cont">
-                <label for="location">Location</label>
-                <input type="number" name="location" id="location">
-                <label for="people">No of people</label>
-                <input type="number" name="people" id="people" min="1" max="8">
-                <button class="my-button-blue" type="submit">Προσθήκη</button>
-            </div>
-            
-        </form>
+        <div>
+            <h1 class="title">Προσθήκη Χώρου</h1>
+            <form method="post" action="/registerSpace/">
+                <div class="cont">
+                    <label for="location">Location</label>
+                    <input type="number" name="location" id="location">
+                    <label for="people">No of people</label>
+                    <input type="number" id="people" name="people" min="1" max="8">
+                    <button class="my-button-blue" type="submit">Προσθήκη</button>
+                </div>
+                
+            </form>
+        </div>
+        <div>
+            <h1 class="title">Διαγραφή Χώρου</h1>
+            <form action="/deleteSpace/:spaceId/" method="post">
+                <div class="cont">
+                    <label for="spaceId">ID Χώρου:</label>
+                    <input type="text" id="spaceId">
+                    <button class="my-button-red" type="submit">Διαγραφή</button>
+                </div>
+                
+            </form>
+        </div>
+        
     </div>
 </body>
 <!--Bootstrap 5.1.3 JS-->

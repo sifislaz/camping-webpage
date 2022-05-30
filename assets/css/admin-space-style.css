@@ -69,3 +69,41 @@ input{
 .my-button-blue:hover::before{
     width: 150%;
 }
+
+.my-button-red{
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: indianred;
+    padding: 15px 30px;
+    position: relative;
+    overflow: hidden;
+    transition: color 1s;
+    z-index: 1;
+    display: block;
+    border: indianred;
+    border-radius: 0.25em;
+    flex-wrap: wrap;
+    margin: 1em auto;
+}
+
+.my-button-red:hover{
+    color: #ffffff;
+}
+
+.my-button-red::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50px;
+    width: 0;
+    height: 100%;
+    background-color: indianred;
+    transform: skewX(35deg);
+    z-index: -1;
+    transition: width 1s;
+}
+
+.my-button-red:hover::before{
+    width: 150%;
+}
