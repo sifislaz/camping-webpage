@@ -94,6 +94,24 @@ let renderFormEn = function (req, res){
 }
 //---------------------//
 
+//--------ADMIN---------//
+let adminMain = function(req, res){
+    res.render('admin');
+}
+
+let adminBookings = function(req, res){
+    res.render('admin-bookings');
+}
+
+let adminSpace = function(req, res){
+    res.render('admin-space');
+}
+
+let adminStatistics = function(req, res){
+    res.render('admin-stats');
+}
+//---------------------//
+
 app.use(router);
 
 //--------INDEX---------//
@@ -129,6 +147,13 @@ router.route('/en/crete/').get(renderCreteEn);
 //--------FORM---------//
 router.route('/form/').get(renderForm);
 router.route('/en/form/').get(renderFormEn);
+//---------------------//
+
+//--------ADMIN---------//
+router.route('/admin/').get(adminMain);
+router.route('/admin/bookings/').get(adminBookings);
+router.route('/admin/space/').get(adminSpace);
+router.route('/admin/statistics/').get(adminStatistics);
 //---------------------//
 
 let port = process.env.PORT || '3000';
