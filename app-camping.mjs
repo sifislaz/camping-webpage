@@ -3,6 +3,10 @@ import * as hbs from "express-handlebars";
 const app = express()
 const router = express.Router();
 
+const users = [
+    {"username": "tasos", "password": "test"},
+    {"username": "tasos1", "password": "test1"}
+]
 
 app.use(express.static('assets/'));
 
@@ -31,6 +35,7 @@ let renderIndexEn = function (req, res){
     res.render('index-en', {link:"",pageName:"Home",layout : 'main-en.hbs'})
 }
 //----------------------//
+
 
 //--------FACILITIES---------//
 let renderFacilities = function (req, res){
@@ -86,11 +91,11 @@ let renderCreteEn = function (req, res){
 
 //--------FORM---------//
 let renderForm = function (req, res){
-    res.render('form', {link:"form/", pageName:"Σχόλια"})
+    res.render('form-log-in', {link:"form/", pageName:"Σχόλια"})
 }
 
 let renderFormEn = function (req, res){
-    res.render('form-en', {link:"form/", pageName:"Comments", layout : 'main-en.hbs'})
+    res.render('form-log-in-en', {link:"form/", pageName:"Comments", layout : 'main-en.hbs'})
 }
 //---------------------//
 
@@ -111,6 +116,35 @@ let adminStatistics = function(req, res){
     res.render('admin-stats');
 }
 //---------------------//
+function getAllUsernames(array){
+    return array.map(({username}) => username);
+}
+
+let renderLoggedIn =  function(req, res){
+    let username = req.query.usrnm;
+    let password = req.query.pswd;
+    let correct_pass = undefined;
+    let usernames = getAllUsernames(users)
+
+    if(usernames.includes(username.toString())){
+        for (let user of users){
+            if(user.username === username){
+                correct_pass = user.password
+                if(password === correct_pass){
+                    res.render('form', {link:'form/', pageName: 'form', layout: 'main.hbs'});
+                }
+                else{
+                    console.log('Wrong Password')
+                    break
+                }
+            }
+        }
+    }
+    else{
+        console.log('No such user')
+    }
+}
+
 
 app.use(router);
 
@@ -155,6 +189,7 @@ router.route('/admin/bookings/').get(adminBookings);
 router.route('/admin/space/').get(adminSpace);
 router.route('/admin/statistics/').get(adminStatistics);
 //---------------------//
+router.route('/signIn').get(renderLoggedIn);
 
 let port = process.env.PORT || '3000';
 
