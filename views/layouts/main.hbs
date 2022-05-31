@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="el">
 
     <head>
         <meta charset="UTF-8">
@@ -24,10 +24,21 @@
     </head>
 
     <body>
-        {{> header}}
-        {{> sign-in-up-modal}}
+        {{#ifEqual userId 1}}
+        {{> header-admin}}
+        {{else}}
+            {{#if userId}}
+            {{>header-logged}}
+            {{else}}
+            {{>header}}
+            {{> sign-in-up-modal}}
+            {{/if}}
+        {{/ifEqual}}
         {{{body}}}
+        {{#ifEqual userId 1}}
+        {{else}}
         {{> footer}}
+        {{/ifEqual}}
     </body>
 
 </html>

@@ -19,10 +19,17 @@
     </head>
 
     <body>
-        {{> header-en}}
+        {{#if userId}}
+        {{>header-logged-en}}
+        {{else}}
+        {{>header-en}}
         {{> sign-in-up-modal-en}}
+        {{/if}}
         {{{body}}}
+        {{#ifEqual userId 1}}
+        {{else}}
         {{> footer-en}}
+        {{/ifEqual}}
     </body>
 
 </html>

@@ -37,21 +37,21 @@
                             </div>
                         </div>
                         <hr>
-                        <form action="#" class="signin-form">
+                        <form action="/signIn/" class="signin-form" method="post">
 
                             <div class="input-group mt-3 user">
 
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Enter username" aria-label="Username" aria-describedby="basic-addon1" required>
+                                <input type="text" class="form-control" name="user" placeholder="Enter username" aria-label="Username" aria-describedby="basic-addon1" required>
                             </div>
                             <br>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="basic-addon2"><i class="fa-solid fa-lock"></i></span>
                                 </div>
-                                <input type="password" id="pass1" class="form-control" placeholder="Enter password" aria-label="Password" aria-describedby="basic-addon2" required>
+                                <input type="password" id="pass1" class="form-control" name="pass" placeholder="Enter password" aria-label="Password" aria-describedby="basic-addon2" required>
                                 <div class="rev-pass" id="showCont">
                                     <span class="fa fa-eye pass-icon" id="showPass"></span>
                                 </div>
@@ -92,7 +92,7 @@
                             </div>
                         </div>
                         <hr>
-                        <form action="" class="signup-form mt-3">
+                        <form action="/signUp/" class="signup-form mt-3" method="post">
                             <div class="top-label">
                                 <h4>Full Name</h4>
                             </div>
@@ -126,7 +126,9 @@
                                 <div class="rev-pass" id="showCont2"><span class="fa fa-eye pass-icon" id="showPass2"></span></div><div class="rev-pass" id="hideCont2"><span class="fa fa-eye-slash pass-icon" id="hidePass2"></span></div>
                             </div>
                             <div class="mb-3">
-                                <p class="text-muted mb-0">Password must contain at least:</p>
+                                <p class="text-muted mb-0">Password must contain:</p>
+                                <span class="text-muted">&#8226;From 8 to 20 characters</span>
+                                <br>
                                 <span class="text-muted">&#8226;One capital and one lowercase letter</span>
                                 <br>
                                 <span class="text-muted">&#8226;One number and one special character</span>

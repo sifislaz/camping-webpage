@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="el">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -37,21 +37,21 @@
                             </div>
                         </div>
                         <hr>
-                        <form action="/signIn" class="signin-form">
+                        <form action="/signIn/" class="signin-form" method="post">
 
                             <div class="input-group mt-3 user">
 
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
                                 </div>
-                                <input name="usrnm" type="text" class="form-control" placeholder="Όνομα Χρήστη" aria-label="Username" aria-describedby="basic-addon1" required>
+                                <input name="user" type="text" class="form-control" placeholder="Όνομα Χρήστη" aria-label="Username" aria-describedby="basic-addon1" required>
                             </div>
                             <br>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="basic-addon2"><i class="fa-solid fa-lock"></i></span>
                                 </div>
-                                <input name="pswd" type="password" id="pass1" class="form-control" placeholder="Κωδικός" aria-label="Password" aria-describedby="basic-addon2" required>
+                                <input name="pass" type="password" id="pass1" class="form-control" placeholder="Κωδικός" aria-label="Password" aria-describedby="basic-addon2" required>
                                 <div class="rev-pass" id="showCont">
                                     <span class="fa fa-eye pass-icon" id="showPass"></span>
                                 </div>
@@ -92,41 +92,43 @@
                             </div>
                         </div>
                         <hr>
-                        <form action="" class="signup-form mt-3">
+                        <form action="/signUp/" class="signup-form mt-3" method="post">
                             <div class="top-label">
                                 <h4>Ονοματεπώνυμο</h4>
                             </div>
                             <div class="input-group mb-3 user">
-                                <input type="text" class="form-control" placeholder="Όνομα" aria-label="FullName" aria-describedby="basic-addon1" required>
-                                <input type="text" class="form-control" placeholder="Επώνυμο" aria-label="FullName" aria-describedby="basic-addon1" required>
+                                <input type="text" class="form-control" name="firstname" placeholder="Όνομα" aria-label="FullName" aria-describedby="basic-addon1" required>
+                                <input type="text" class="form-control" name="lastname" placeholder="Επώνυμο" aria-label="FullName" aria-describedby="basic-addon1" required>
                             </div>
                             <div class="top-label">
                                 <h4>Όνομα Χρήστη</h4>
                             </div>
                             <div class="input-group mb-3 user">
-                                <input type="text" class="form-control" placeholder="Όνομα Χρήστη" aria-label="Username" aria-describedby="basic-addon1" required>
+                                <input type="text" class="form-control" name="username" placeholder="Όνομα Χρήστη" aria-label="Username" aria-describedby="basic-addon1" required>
                             </div>
                             <div class="top-label">
                                 <h4>Email</h4>
                             </div>
                             <div class="input-group mb-3 user">
-                                <input type="email" class="form-control" id="floatingEmail" placeholder="name@example.com" required>
+                                <input type="email" class="form-control" name="email" id="floatingEmail" placeholder="name@example.com" required>
                             </div>
                             <div class="top-label">
                                 <h4>Κινητό Τηλέφωνο</h4>
                             </div>
                             <div class="input-group mb-3 user">
-                                <input type="text" class="form-control" id="phone" placeholder="Κινητό τηλέφωνο" required>
+                                <input type="text" class="form-control" name="mobile" id="phone" placeholder="Κινητό τηλέφωνο" required>
                             </div>
                             <div class="top-label">
                                 <h4>Κωδικός</h4>
                             </div>
                             <div class="input-group mb-3">
-                                <input type="password" id="pass1Up" class="form-control" placeholder="Κωδικός" aria-label="Password" aria-describedby="basic-addon2" required>
+                                <input type="password" id="pass1Up" name="password" class="form-control" placeholder="Κωδικός" aria-label="Password" aria-describedby="basic-addon2" required>
                                 <div class="rev-pass" id="showCont2"><span class="fa fa-eye pass-icon" id="showPass2"></span></div><div class="rev-pass" id="hideCont2"><span class="fa fa-eye-slash pass-icon" id="hidePass2"></span></div>
                             </div>
                             <div class="mb-3">
-                                <p class="text-muted mb-0">Ο κωδικός πρέπει να περιέχει τουλάχιστον:</p>
+                                <p class="text-muted mb-0">Ο κωδικός πρέπει να περιέχει:</p>
+                                <span class="text-muted">&#8226;Από 8 έως 12 χαρακτήρες</span>
+                                <br>
                                 <span class="text-muted">&#8226;Ένα κεφαλαίο και ένα πεζό γράμμα</span>
                                 <br>
                                 <span class="text-muted">&#8226;Έναν αριθμό και έναν ειδικό χαρακτήρα</span>
@@ -139,8 +141,8 @@
                                 <div class="rev-pass" id="showContConf"><span class="fa fa-eye pass-icon" id="showPassConf"></span></div><div class="rev-pass" id="hideContConf"><span class="fa fa-eye-slash pass-icon" id="hidePassConf"></span></div>
                             </div>
                             <div class="mb-3">
-                                <label for="newslettercheck">Εγγραφή στο newsletter</label>
-                                <input type="checkbox" id="newslettercheck">
+                                {{!-- <label for="newslettercheck">Εγγραφή στο newsletter</label>
+                                <input type="checkbox" id="newslettercheck"> --}}
                                 <label for="terms-and-conditions">Έχω διαβάσει και αποδέχομαι τους <a href="#" id="terms-link">όρους χρήσης και προϋποθέσεις</a></label>
                                 <input type="checkbox" id="terms-and-conditions" required>
                             </div>

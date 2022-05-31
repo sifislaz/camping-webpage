@@ -1,7 +1,9 @@
 .flx{
     display: flex;
     flex-direction: column;
-    margin: 1em;
+    /* align-items: center; */
+    justify-content: center;
+    margin: 1em auto;
     font-family: 'Didact Gothic', sans-serif;
 }
 

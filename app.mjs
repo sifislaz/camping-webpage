@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from 'dotenv'
 import * as hbs from 'express-handlebars'
 import routes from './routes/routes.mjs'
+import webSession from './app-setup/app-setup-session.mjs'
 
 const app = express()
 
@@ -13,9 +14,15 @@ if (process.env.NODE_ENV !== 'production') {
 app.use(express.urlencoded({extended: false}));
 
 //Session Init
-// app.use(session)
+app.use(webSession);
 
 app.use(express.static('assets/'));
+
+app.use((req, res, next)=>{
+    res.locals.userId = req.session.loggedUserId;
+    next();
+});
+
 app.use('/', routes);
 
 app.engine('hbs', hbs.engine({extname: 'hbs'}));
