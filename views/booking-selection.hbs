@@ -20,7 +20,7 @@
 
 </head>
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid disp">
         <h1 class="title">Κρατήσεις</h1>
         <hr>
         <div class="container main-cont">
@@ -61,9 +61,9 @@
                                 <td><a class="go-to-booking">0029384</a></td>
                                 <td class="situation">ΑΚΥΡΩΘΗΚΕ<span class="fa fa-circle-check icons"></span><span class="fa fa-circle-xmark icons"></span><span class="fa fa-circle-exclamation icons"></span></td>
                             </tr> --}}
-                            {{#each booking}}
+                            {{#each bookings}}
                                 <tr>
-                                    <td><a href="/en/booking/{{bookingId}}" class="go-to-booking">{{bookingId}}</a></td>
+                                    <td><a href="/en/booking/{{id}}" class="go-to-booking">{{id}}</a></td>
                                     <td class="situation">{{situation}}<span class="fa fa-circle-check icons"></span><span class="fa fa-circle-xmark icons"></span><span class="fa fa-circle-exclamation icons"></span></td>
                                 </tr>
                             {{/each}}

@@ -12,6 +12,7 @@ export let doRegister = function (req, res) {
         res.redirect('/');  // can't register admin user
     }
     else{
+        console.log(req.body.username);
         dbmodel.insertClient({"username":req.body.username, "email":req.body.email, "password":req.body.password,
                             "firstname":req.body.firstname, "lastname":req.body.lastname, "mobile":req.body.mobile},
                             (err,result)=>{
@@ -57,7 +58,7 @@ export let doLogin = function (req, res){
                         res.redirect(redirectTo);
                     }
                     else {
-                        res.render("/")
+                        res.redirect("/")
                     }
                 })
             }

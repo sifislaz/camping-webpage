@@ -1,4 +1,5 @@
 import dotenv from 'dotenv';
+import * as modelDB from '../model/model.mjs';
 
 if(process.env.NODE_ENV !== 'production'){
     dotenv.config();
@@ -57,7 +58,7 @@ export let renderForm = function (req, res){
 }
 
 export let renderFormEn = function (req, res){
-    res.render('form', {link:"form/", pageName:"Comments", layout : 'main-en.hbs'})
+    res.render('form-en', {link:"form/", pageName:"Comments", layout : 'main-en.hbs'})
 }
 
 export let renderFormNotLogged = function(req, res){
@@ -80,6 +81,19 @@ export let adminStatistics = function(req, res){
     res.render('admin-stats', {link:"admin/statistics/", pageName:"Statistics"});
 }
 
-export let bookings = function(req, res){
-    res.render('booking-selection', {link:"bookings/", pageName:"Κρατήσεις"});
+export let renderBookings = function(req, res){
+    modelDB.getUserReservations(req.session.loggedUserId, (err,bookings)=>{
+        if(err){
+            console.log(err);
+            res.redirect('/');
+        }
+        else{
+            res.render('booking-selection', {link:"bookings/", pageName:"Κρατήσεις", bookings:bookings});
+        }
+    })
+    
+}
+
+export let renderBookingsEn = function(req, res){
+    res.render('booking-selection-en', {link:"bookings/", pageName:"Bookings", layout:"main-en.hbs"});
 }

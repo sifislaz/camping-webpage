@@ -43,6 +43,9 @@ router.route('/form/').get(control.renderForm);
 router.route('/en/form/').get(control.renderFormEn);
 //---------------------//
 
+//--------BOOKINGS---------//
+router.route('/bookings/').get(loginControl.checkAuthenticated, control.renderBookings);
+
 //--------ADMIN---------//
 router.route('/admin/').get(loginControl.checkAdmin, control.adminMain);
 router.route('/admin/bookings/').get(loginControl.checkAdmin, control.adminBookings);

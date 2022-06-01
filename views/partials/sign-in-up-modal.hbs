@@ -92,7 +92,7 @@
                             </div>
                         </div>
                         <hr>
-                        <form action="/signUp/" class="signup-form mt-3" method="post">
+                        <form action="/signUp/" id="form-sign-up" class="signup-form mt-3" method="post">
                             <div class="top-label">
                                 <h4>Ονοματεπώνυμο</h4>
                             </div>
@@ -104,7 +104,7 @@
                                 <h4>Όνομα Χρήστη</h4>
                             </div>
                             <div class="input-group mb-3 user">
-                                <input type="text" class="form-control" name="username" placeholder="Όνομα Χρήστη" aria-label="Username" aria-describedby="basic-addon1" required>
+                                <input type="text" class="form-control" id="username" name="username" placeholder="Όνομα Χρήστη" aria-label="Username" aria-describedby="basic-addon1" required>
                             </div>
                             <div class="top-label">
                                 <h4>Email</h4>
@@ -147,7 +147,7 @@
                                 <input type="checkbox" id="terms-and-conditions" required>
                             </div>
                             <div class="text-center">
-                                <button class="my-button-green" id="sign-up-btn" onclick="checkPassword()" type="submit">Εγγραφη</button>
+                                <button class="my-button-green" id="sign-up-btn" type="submit">Εγγραφη</button>
                             </div>
                         </form>
                         <p class="text-center mt-3">Είστε μέλος? <a data-toggle="tab" href="#signin" id="sign-in">Συνδεθείτε.</a></p>

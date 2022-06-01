@@ -7,6 +7,11 @@ body{
     font-size:3em;
     text-align: center;
     color: #66b2ff;
+    font-family: 'Didact Gothic', sans-serif;
+}
+
+.disp{
+    margin-bottom:18%;
 }
 
 .main-cont{
@@ -32,6 +37,7 @@ body{
     text-align: center;
     color: #66b2ff;
     margin-top: 0.5em;
+    font-family: 'Didact Gothic', sans-serif;
 }
 
 .book-button{
@@ -39,6 +45,7 @@ body{
     justify-content: center;
     align-items: center;
     margin-top: 1.5em;
+    font-family: 'Didact Gothic', sans-serif;
 }
 
 .my-button-blue{
@@ -54,7 +61,7 @@ body{
     border: 0;
     border-radius: 0.25em;
     flex-wrap: wrap;
-
+    margin-bottom: 0.5em;
 }
 .my-button-blue:hover{
     color: #ffffff;
@@ -83,21 +90,22 @@ body{
     margin-top: 0.5em;
 }
 
-table{
+table{  
     border:1px solid #00cc66;
     margin: 1em auto;
+    font-family: 'Didact Gothic', sans-serif;
 }
 
 th{
     color:#66b2ff;
     text-align: center;
     padding: 0 0.5em;
-    border: 1px solid #00cc66;
+    border: 1px solid #00cc66 !important;
 }
 
 td{
     text-align: center;
-    border:1px solid #00cc66;
+    border:1px solid #00cc66 !important;
 }
 
 .go-to-booking{
@@ -137,26 +145,26 @@ td{
 
 .fa-circle-check{
     color:rgb(0,128,0);
-    display: none;
+    display: none !important;
 }
 
 .fa-circle-xmark{
     color:rgb(256,0,0);
-    display: none;
+    display: none !important;
 }
 
 .fa-circle-exclamation{
     color:rgb(256,165,0);
-    display: none;
+    display: none !important;
 }
 
 .show{
-    display:inline;
+    display:inline !important;
 }
 
 hr{
     width:50%;
-    margin:1em auto;
+    transform: translateX(50%);
 }
 
 @media screen and (max-width:992px){

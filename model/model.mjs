@@ -60,7 +60,7 @@ export async function getAllReservations(callback){
 }
 
 export async function getUserReservations(clientId, callback){
-    const sqlQuery = `SELECT * FROM "RESERVATION" JOIN "USER" WHERE "client_id" = '${clientId}' ORDER BY "reservation_date"`;
+    const sqlQuery = `SELECT * FROM "RESERVATION" WHERE "client_id" = '${clientId}' ORDER BY "reservation_date"`;
     try{
         const client = await connect();
         const res = await client.query(sqlQuery);
@@ -192,8 +192,7 @@ export async function insertClient(cl, callback){
                                 VALUES ('${cl.username}','${hashPass}','${cl.email}', '${cl.firstname}', '${cl.lastname}', '${cl.mobile}')`;
                 const res = await client.query(sqlQuery);
                 client.release();
-                console.log(res);
-                callback(null, res.rows[0].id);
+                callback(null, res);
             }
             catch(err){
                 callback(err,null);
