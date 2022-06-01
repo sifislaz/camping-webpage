@@ -55,27 +55,11 @@
                     <div class="col-xl">
                         <form id="algin-form">
                             <h1>Αφήστε σχόλιο</h1>
-                            <p class="log-in-warning">Για να αφήστε σχόλιο <strong> πρέπει</strong> να είστε συνδεδεμένοι στον λογαριασμό σας στην ιστοσελίδα.</p>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
-                                </div>
-                                <input type="text" class="form-control" placeholder="Όνομα Χρήστη" aria-label="Username" aria-describedby="basic-addon1">
-                            </div>
+                            <p class="log-in-warning">Για να αφήστε σχόλιο <strong> πρέπει</strong> να είστε <a href="#" id="comment-sign-in" class="sign-up" data-bs-toggle="modal" data-bs-target="#signInModal">συνδεδεμένοι</a> στον λογαριασμό σας στην ιστοσελίδα.</p>
                             <br>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon2"><i class="fa-solid fa-lock"></i></span>
-                                </div>
-                                <input type="password" class="form-control" placeholder="Κωδικός" aria-label="Password" aria-describedby="basic-addon2">
-                            </div>
-                            <br>
-                            <div class="form-group">
-                                <p class="text-sign-up">Αν δεν έχετε λογαριασμό στην ιστοσελίδα μας μπορείτε να κάνετε εγγραφή <a href="#" class="sign-up">ΕΔΩ</a>.</p>
-                            </div>                      
-                            <div class="form-group">
-                                <button type="button" id="post" class="my-button-blue">Συνδεση</button>
-                            </div>
+                            <p class="text-sign-up">Αν δεν έχετε λογαριασμό στην ιστοσελίδα μας μπορείτε να κάνετε εγγραφή <a href="#" id="comment-sign-up" class="sign-up" data-bs-toggle="modal" data-bs-target="#signInModal">ΕΔΩ</a>.</p>
+<!--                            <div class="form-group">-->
+<!--                            </div>-->
                         </form>
                     </div>
                     {{/if}}
@@ -83,6 +67,6 @@
             </div>
         </section>
     </body>
-
+    <script src="/js/comment-pannel-change.js"></script>
 
 </html>

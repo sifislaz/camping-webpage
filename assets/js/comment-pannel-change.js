@@ -1,12 +1,12 @@
 const commentSignUpLink = document.getElementById('comment-sign-up');
-const commentBtn = document.getElementById('post');
+const commentSignInLink = document.getElementById('comment-sign-in');
 
 commentSignUpLink.addEventListener('click', function(){
     containerSignIn.style.display = 'none';
     containerSignUp.style.display = 'block';
 })
 
-commentBtn.addEventListener('click', function(){
+commentSignInLink.addEventListener('click', function(){
     containerSignUp.style.display = 'none';
     containerSignIn.style.display = 'block';
 })
