@@ -11,6 +11,9 @@
     "type": "git",
     "url": "git+https://github.com/sifislaz/camping-webpage.git"
   },
+  "engines":{
+    "node":"16.15.0"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
