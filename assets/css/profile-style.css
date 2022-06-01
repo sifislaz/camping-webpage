@@ -95,6 +95,7 @@ label{
     display: flex;
     justify-content: center;
     gap: 30px;
+    flex-wrap: wrap;
 }
 hr{
     width:50%;
