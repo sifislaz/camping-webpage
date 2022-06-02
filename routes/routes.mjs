@@ -50,6 +50,7 @@ router.route('/en/bookings/').get(loginControl.checkAuthenticated, control.rende
 
 //--------PROFILE---------//
 router.route('/profile/').get(loginControl.checkAuthenticated, control.renderProfile);
+router.route('/profile/').post(control.updateProfile);
 router.route('/en/profile/').get(loginControl.checkAuthenticated, control.renderProfileEn);
 //-----------------------//
 

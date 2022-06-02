@@ -4,7 +4,7 @@ const reNewPass = document.querySelector('#renewpass')
 const saveChanges = document.querySelector('#saveBtn')
 
 saveChanges.addEventListener('click', function (){
-    if (newPass !== reNewPass){
+    if (newPass.value !== reNewPass.value){
         alert("New passwords must much each other!@#$^&");
     }
 })

@@ -140,11 +140,12 @@ export async function getBestClient(callback){
 }
 
 export async function updateClient(client, callback){
-    const sqlQuery = `UPDATE "CLIENT" SET "username"='${client.username}', "firstname"='${client.firstname}', "lastname"='${client.lastname}',
-                        "email"='${client.email}, "password"='${client.password}', "mobile"='${client.mobile}`;
+    const sqlQuery = `UPDATE "CLIENT" SET "firstname"='${client.firstname}', "lastname"='${client.lastname}',
+                        "email"='${client.email}', "password"='${client.password}', "mobile"='${client.mobile}' WHERE "id" = '${client.id}'`;
     try{
         const client = await connect();
         const res = await client.query(sqlQuery);
+        console.log(res.rows)
         client.release();
         callback(null, res.rows);
     }

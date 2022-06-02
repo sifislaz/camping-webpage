@@ -29,47 +29,47 @@
 
 <div class="container disp">
     {{#each info}}
-    <form>
+    <form method="post" action="/profile/">
         <label>Ονοματεπώνυμο</label>
         <div class="input-group mb-3 user">
-            <input type="text" class="form-control" placeholder="Όνομα" aria-label="FullName" aria-describedby="basic-addon1" required value="{{firstname}}">
-            <input type="text" class="form-control" placeholder="Επώνυμο" aria-label="FullName" aria-describedby="basic-addon1" required value="{{lastname}}">
+            <input name="fname" type="text" class="form-control" placeholder="Όνομα" aria-label="FullName" aria-describedby="basic-addon1" required value="{{firstname}}">
+            <input name="lname" type="text" class="form-control" placeholder="Επώνυμο" aria-label="FullName" aria-describedby="basic-addon1" required value="{{lastname}}">
         </div>
 
         <div class="form-group mb-3">
 
             <label for=username>Όνομα Χρήστη</label>
-            <input type="text" class="form-control" id="username" placeholder="Όνομα Χρήστη" value="{{username}}">
+            <input type="text" class="form-control" id="username" placeholder="Όνομα Χρήστη" value="{{username}}" disabled>
 
         </div>
         <div class="form-group mb-3">
 
             <label for=email>Ηλεκτρονικό Ταχυδρομείο</label>
-            <input type="email" class="form-control" id="email" placeholder="name@example.com" value="{{email}}">
+            <input name="email" type="email" class="form-control" id="email" placeholder="name@example.com" value="{{email}}">
 
         </div>
         <div class="form-group mb-3">
 
             <label for=username>Κινητό Τηλέφωνο</label>
-            <input type="text" class="form-control" id="mobile" placeholder="Κινητό Τηλέφωνο" value="{{mobile}}">
+            <input name="mobile" type="text" class="form-control" id="mobile" placeholder="Κινητό Τηλέφωνο" value="{{mobile}}">
 
         </div>
         <div class="form-group mb-3">
 
             <label for=oldpass>Παλιός Κωδικός</label>
-            <input type="password" class="form-control" id="oldpass" placeholder="Παλιός Κωδικός">
+            <input name="oldPass" type="password" class="form-control" id="oldpass" placeholder="Παλιός Κωδικός">
 
         </div>
         <div class="form-group mb-3">
 
             <label for=newpass>Νέος Κωδικός</label>
-            <input type="password" class="form-control" id="newpass" placeholder="Νέος Κωδικός">
+            <input name="newPass" type="password" class="form-control" id="newpass" placeholder="Νέος Κωδικός">
 
         </div>
         <div class="form-group mb-3">
 
             <label for=renewpass>Επαναλάβετε τον Νέο Κωδικό</label>
-            <input type="password" class="form-control" id="renewpass" placeholder="Νέος Κωδικός">
+            <input name="reNewPass" type="password" class="form-control" id="renewpass" placeholder="Νέος Κωδικός">
 
         </div>
 
@@ -77,7 +77,7 @@
 
             <div class="text-center btns">
 
-                <button type="button" class="my-button-green" id="saveBtn">Αποθήκευση Αλλαγών</button>
+                <button type="submit" class="my-button-green" id="saveBtn">Αποθήκευση Αλλαγών</button>
                 <button type="reset" class="my my-button-red">Ακύρωση</button>
 
             </div>
