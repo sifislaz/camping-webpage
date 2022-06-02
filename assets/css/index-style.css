@@ -145,6 +145,7 @@ hr{
 
 .top {
     display: flex;
+    height: 100%;
     margin-top: 1em;
     justify-content: space-around;
     align-items: center;
@@ -154,7 +155,7 @@ hr{
 }
 
 .container_content {
-    width: 50%;
+    width: 100%;
 }
 
 .container_content_inner {
@@ -163,6 +164,7 @@ hr{
 
 .container_img {
     width: 100%;
+    height: 100%;
     outline-offset: -8px;
     outline: rgba(255,255,255,0.5) solid 1px;
     border-radius: 15px;
@@ -189,4 +191,14 @@ hr{
     font-size: 50px;
     color: #404040;
     margin-bottom: 20px;
+}
+
+.btns{
+    text-align: center;
+}
+
+@media screen and (max-width: 550px) {
+    .top{
+        flex-wrap: wrap;
+    }
 }

@@ -28,31 +28,31 @@
 <hr>
 
 <div class="container disp">
-
+{{#each info}}
   <form>
 
     <label>Full Name</label>
     <div class="input-group mb-3 user">
-      <input type="text" class="form-control" placeholder="First Name" aria-label="FullName" aria-describedby="basic-addon1" required>
-      <input type="text" class="form-control" placeholder="Last Name" aria-label="FullName" aria-describedby="basic-addon1" required>
+      <input type="text" class="form-control" placeholder="First Name" aria-label="FullName" aria-describedby="basic-addon1" required value="{{firstname}}">
+      <input type="text" class="form-control" placeholder="Last Name" aria-label="FullName" aria-describedby="basic-addon1" required value="{{lastname}}">
     </div>
 
     <div class="form-group mb-3">
 
       <label for=username>Username</label>
-      <input type="text" class="form-control" id="username" placeholder="Username">
+      <input type="text" class="form-control" id="username" placeholder="Username" value="{{username}}">
 
     </div>
     <div class="form-group mb-3">
 
       <label for=email>Email</label>
-      <input type="email" class="form-control" id="email" placeholder="name@example.com">
+      <input type="email" class="form-control" id="email" placeholder="name@example.com" value="{{email}}">
 
     </div>
     <div class="form-group mb-3">
 
       <label for=username>Mobile Phone</label>
-      <input type="text" class="form-control" id="mobile" placeholder="Mobile Phone">
+      <input type="text" class="form-control" id="mobile" placeholder="Mobile Phone" value="{{mobile}}">
 
     </div>
     <div class="form-group mb-3">
@@ -85,6 +85,7 @@
 
     </div>
   </form>
+{{/each}}
 </div>
 <script src="/js/pass-match.js"></script>
 </body>
