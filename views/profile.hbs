@@ -28,31 +28,30 @@
 <hr>
 
 <div class="container disp">
-
+    {{#each info}}
     <form>
-
         <label>Ονοματεπώνυμο</label>
         <div class="input-group mb-3 user">
-            <input type="text" class="form-control" placeholder="Όνομα" aria-label="FullName" aria-describedby="basic-addon1" required>
-            <input type="text" class="form-control" placeholder="Επώνυμο" aria-label="FullName" aria-describedby="basic-addon1" required>
+            <input type="text" class="form-control" placeholder="Όνομα" aria-label="FullName" aria-describedby="basic-addon1" required value="{{firstname}}">
+            <input type="text" class="form-control" placeholder="Επώνυμο" aria-label="FullName" aria-describedby="basic-addon1" required value="{{lastname}}">
         </div>
 
         <div class="form-group mb-3">
 
             <label for=username>Όνομα Χρήστη</label>
-            <input type="text" class="form-control" id="username" placeholder="Όνομα Χρήστη">
+            <input type="text" class="form-control" id="username" placeholder="Όνομα Χρήστη" value="{{username}}">
 
         </div>
         <div class="form-group mb-3">
 
             <label for=email>Ηλεκτρονικό Ταχυδρομείο</label>
-            <input type="email" class="form-control" id="email" placeholder="name@example.com">
+            <input type="email" class="form-control" id="email" placeholder="name@example.com" value="{{email}}">
 
         </div>
         <div class="form-group mb-3">
 
             <label for=username>Κινητό Τηλέφωνο</label>
-            <input type="text" class="form-control" id="mobile" placeholder="Κινητό Τηλέφωνο">
+            <input type="text" class="form-control" id="mobile" placeholder="Κινητό Τηλέφωνο" value="{{mobile}}">
 
         </div>
         <div class="form-group mb-3">
@@ -84,8 +83,8 @@
             </div>
 
         </div>
-
     </form>
+    {{/each}}
 </div>
 <script src="/js/pass-match.js"></script>
 </body>

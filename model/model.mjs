@@ -166,6 +166,19 @@ export async function getClientByUsername(username, callback){
     }
 }
 
+export async function getClientById(id, callback){
+    const sqlQuery = `SELECT * FROM "CLIENT" WHERE "id" = '${id}' LIMIT 1`;
+    try{
+        const client = await connect();
+        const res = await client.query(sqlQuery);
+        client.release();
+        callback(null, res.rows);
+    }
+    catch(err){
+        callback(err,null);
+    }
+}
+
 export async function getAdminByUsername(username, callback){
     const sqlQuery = `SELECT * FROM "ADMIN" WHERE "username"= '${username}' LIMIT 1`;
     try{

@@ -95,5 +95,40 @@ export let renderBookings = function(req, res){
 }
 
 export let renderBookingsEn = function(req, res){
-    res.render('booking-selection-en', {link:"bookings/", pageName:"Bookings", layout:"main-en.hbs"});
+    modelDB.getUserReservations(req.session.loggedUserId, (err,bookings)=>{
+        if(err){
+            console.log(err);
+            res.redirect('/en/');
+        }
+        else{
+            console.log(bookings)
+            res.render('booking-selection-en', {link:"bookings/", pageName:"Bookings", bookings:bookings, layout:"main-en.hbs"});
+        }
+    })
+}
+
+export let renderProfile = function (req, res){
+    const userId = req.session.loggedUserId
+    modelDB.getClientById(userId, (err, info) => {
+        if(err){
+            res.redirect('/')
+        }
+        else{
+            console.log(info)
+            res.render('profile', {link:"profile/", pageName:'Προφίλ', info:info})
+        }
+    })
+}
+
+export let renderProfileEn = function (req, res){
+    const userId = req.session.loggedUserId
+    modelDB.getClientById(userId, (err, info) => {
+        if(err){
+            res.redirect('/en/')
+        }
+        else{
+            console.log(info)
+            res.render('profile-en', {link:"profile/", pageName:'Profile', info:info})
+        }
+    })
 }
