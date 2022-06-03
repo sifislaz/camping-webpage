@@ -2,24 +2,38 @@
     <div class="main-body">
         <div>
             <h1 class="title">Προσθήκη Χώρου</h1>
-            <form method="post" action="/registerSpace/">
+            <form method="post" action="/admin/registerSpace/">
                 <div class="cont">
                     <label for="location">Location</label>
                     <input type="number" name="location" id="location">
                     <label for="people">No of people</label>
                     <input type="number" id="people" name="people" min="1" max="8">
                     <button class="my-button-blue" type="submit">Προσθήκη</button>
+                    {{#if messageReg}}
+                     {{#ifEqual messageReg "Added space successfully"}}
+                        <div class="alert alert-success" role="alert">{{messageReg}}</div>
+                    {{else}}
+                        <div class="alert alert-danger" role="alert">{{messageReg}}</div>
+                    {{/ifEqual}}
+                    {{/if}}
                 </div>
                 
             </form>
         </div>
         <div>
             <h1 class="title">Διαγραφή Χώρου</h1>
-            <form action="/deleteSpace/:spaceId/" method="post">
+            <form action="/admin/deleteSpace/" method="post">
                 <div class="cont">
                     <label for="spaceId">ID Χώρου:</label>
-                    <input type="text" id="spaceId">
+                    <input type="text" name="spaceId" id="spaceId">
                     <button class="my-button-red" type="submit">Διαγραφή</button>
+                    {{#if messageDel}}
+                    {{#ifEqual messageDel "Deleted space successfully"}}
+                        <div class="alert alert-success" role="alert">{{messageDel}}</div>
+                    {{else}}
+                        <div class="alert alert-danger" role="alert">{{messageDel}}</div>
+                    {{/ifEqual}}
+                    {{/if}}
                 </div>
                 
             </form>

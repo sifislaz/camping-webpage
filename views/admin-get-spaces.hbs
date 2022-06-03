@@ -1,0 +1,28 @@
+
+    <div class="container">
+        <h1 class="title">Χώροι Σκηνών</h1>
+        <table>
+            <tbody>
+                <tr>
+                    <th>ID</th>
+                    <th>Απόσταση</th>
+                    <th>Άτομα</th>
+                    <th>Ελεύθερη</th>
+                </tr>
+                {{#each spaces}}
+                    <tr>
+                        <td>{{this.id}}</td>
+                        <td>{{this.location}}</td>
+                        <td>{{this.people}}</td>
+                        <td>
+                            {{#if this.free}}
+                            <span class="fa fa-circle-check icon"></span>
+                            {{else}}
+                            <span class="fa fa-circle-xmark icon"></span>
+                            {{/if}}
+                        </td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>

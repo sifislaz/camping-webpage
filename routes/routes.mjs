@@ -59,6 +59,9 @@ router.route('/admin/').get(loginControl.checkAdmin, control.adminMain);
 router.route('/admin/bookings/').get(loginControl.checkAdmin, control.adminBookings);
 router.route('/admin/space/').get(loginControl.checkAdmin, control.adminSpace);
 router.route('/admin/statistics/').get(loginControl.checkAdmin, control.adminStatistics);
+router.route('/admin/registerSpace/').post(loginControl.checkAdmin, control.adminRegisterSpace);
+router.route('/admin/deleteSpace/').post(loginControl.checkAdmin, control.adminDeleteSpace);
+router.route('/admin/getSpaces/').get(loginControl.checkAdmin, control.renderSpaces);
 //---------------------//
 //--------LOGIN---------//
 router.route('/signIn/').post(loginControl.doLogin);

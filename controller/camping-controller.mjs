@@ -71,16 +71,116 @@ export let adminMain = function(req, res){
 }
 
 export let adminBookings = function(req, res){
-    res.render('admin-bookings', {link:"admin/bookings/", pageName:"Bookings"});
+    modelDB.getAllReservations((err,result)=>{
+        if(err){
+            console.log(err);
+            res.redirect("/admin/");
+        }
+        else{
+            const bookings = [];
+            for(let book of result){
+                let checkin = `${book.checkin.getFullYear()}/${(book.checkin.getMonth()+1).toString().length==1?"0"+(book.checkin.getMonth()+1):(book.checkin.getMonth()+1)}/${(book.checkin.getDate()).toString().length==1?"0"+(book.checkin.getDate()):(book.checkin.getDate())}`;
+                let checkout = `${book.checkout.getFullYear()}/${(book.checkout.getMonth()+1).toString().length==1?"0"+(book.checkout.getMonth()+1):(book.checkout.getMonth()+1)}/${(book.checkout.getDate()).toString().length==1?"0"+(book.checkout.getDate()):(book.checkout.getDate())}`;
+                let b = {"id":book.id, "lastname":book.lastname, "people":book.no_of_people, "tent":book.space_id, "checkin":checkin, "checkout":checkout}
+                bookings.push(b);
+            }
+            res.render('admin-bookings', {link:"admin/bookings/", pageName:"Bookings", bookings:bookings});
+        }
+    });
+    
 }
 
 export let adminSpace = function(req, res){
     res.render('admin-space', {link:"admin/space/", pageName:"Space"});
 }
 
-export let adminStatistics = function(req, res){
-    res.render('admin-stats', {link:"admin/statistics/", pageName:"Statistics"});
+export let adminRegisterSpace = function(req,res){
+    const space = {"location":req.body.location, "noOfPeople":req.body.people, "adminId":req.session.loggedUserId};
+    modelDB.insertSpace(space,(err,result)=>{
+        if(err){
+            console.log(err);
+            res.render("admin-space", {link:"admin/space/", pageName:"Space", messageReg:"Error: "+err});
+        }
+        else{
+            res.render('admin-space',{link:"admin/space/", pageName:"Space", messageReg:"Added space successfully"});
+        }
+    });
 }
+
+export let adminDeleteSpace = function(req,res){
+    modelDB.deleteSpace(req.body.spaceId, (err,result)=>{
+        if(err){
+            console.log(err);
+            res.render('admin-space',{link:"admin/space/", pageName:"Space", messageDel:"Error: "+err});
+        }
+        else{
+            res.render('admin-space',{link:"admin/space/", pageName:"Space", messageDel:"Deleted space successfully"});
+        }
+    });
+}
+
+export async function adminStatistics(req, res){
+    let bookNum, usersNum, bestClient;
+    let message1, message2, message3;
+   await modelDB.getReservationNum((err,result)=>{
+        if(err){
+            message1 = err;
+            console.log(err);
+        }
+        else{
+            bookNum = result[0].count;
+        }
+    });
+    await modelDB.getClientsNum((err,result)=>{
+        if(err){
+            message2 = err;
+            console.log(err);
+        }
+        else{
+            usersNum = result[0].count;
+        }
+    });
+    await modelDB.getBestClient((err,result)=>{
+        if(err){
+            message3 = err;
+            console.log(err);
+        }
+        else{
+            if(result.length !== 0){
+                bestClient = result[0].firstname + " "+ result[0].lastname;
+            }
+            else{
+                bestClient = "None";
+            }
+        }
+    });
+    res.render('admin-stats', {link:"admin/statistics/", pageName:"Statistics", message1:message1, message2:message2, message3:message3, bookNum:bookNum, users:usersNum, bestClient:bestClient});
+}
+
+export let renderSpaces = function(req,res){
+    modelDB.getSpaces((err,result)=>{
+        if(err){
+            console.log(err);
+            res.redirect("/admin/");
+        }
+        else{
+            const spaces=[];
+            for(let reg of result){
+                if(reg.checkin!==null && reg.checkout!==null && reg.checkin.getTime() < Date.now() && reg.checkout.getTime() > Date.now()){  // if currentDate between checkin and checkout
+                    let s = {"id":reg.id, "location":reg.location, "people":reg.no_of_people, "free":false};
+                    spaces.push(s);
+                }
+                else{
+                    let s = {"id":reg.id, "location":reg.location, "people":reg.no_of_people, "free":true};
+                    spaces.push(s);
+                }
+               
+            }
+            res.render('admin-get-spaces',{link:"admin/getSpaces/", pageName:"Spaces Panel", spaces:spaces});
+        }
+    });
+}
+
 
 export let renderBookings = function(req, res){
     modelDB.getUserReservations(req.session.loggedUserId, (err,bookings)=>{
@@ -91,7 +191,7 @@ export let renderBookings = function(req, res){
         else{
             res.render('booking-selection', {link:"bookings/", pageName:"Κρατήσεις", bookings:bookings});
         }
-    })
+    });
     
 }
 

@@ -37,10 +37,15 @@ td{
     padding:1em;
 }
 
-.highlight{
-    color:#00cc66;
-    font-weight:bold;
+
+.fa-circle-check{
+    color:rgb(0,128,0);
 }
+
+.fa-circle-xmark{
+    color:rgb(256,0,0);
+}
+
 
 @media screen and (max-width:500px){
     .title{

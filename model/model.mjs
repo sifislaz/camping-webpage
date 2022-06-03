@@ -21,19 +21,6 @@ async function connect(){
     }
 }
 
-export async function getSpaces(numOfPeople, callback){
-    const sqlQuery = `SELECT * FROM "SPACE" WHERE "no_of_people"='${numOfPeople}'`;
-    try{
-        const client = await connect();
-        const res = await client.query(sqlQuery);
-        client.release();
-        callback(null, res.rows)
-    }
-    catch(err){
-        callback(err, null);
-    }
-}
-
 export async function getReservation(reservationId, callback){
     const sqlQuery = `SELECT * FROM "RESERVATION" WHERE "id" = '${reservationId}'`;
     try{
@@ -46,8 +33,12 @@ export async function getReservation(reservationId, callback){
         callback(err, null);
     }
 }
+
+
+
 export async function getAllReservations(callback){
-    const sqlQuery = `SELECT * FROM "RESERVATION"`;
+    const sqlQuery = `SELECT "R"."id", "C"."lastname", "R"."no_of_people", "S"."space_id", "R"."checkin", "R"."checkout"
+    FROM "RESERVATION" AS "R" JOIN "CLIENT" AS "C" ON "R"."client_id"="C"."id" JOIN "RESERVES" AS "S" ON "S"."reservation_id"="R"."id" ORDER BY "R"."id"`;
     try{
         const client = await connect();
         const res = await client.query(sqlQuery);
@@ -72,21 +63,10 @@ export async function getUserReservations(clientId, callback){
     }
 }
 
-export async function deleteSpace(spaceId, callback){
-    const sqlQuery = `DELETE FROM "SPACE" WHERE "id" = '${spaceId}'`;
-    try{
-        const client = await connect();
-        const res = await client.query(sqlQuery);
-        client.release();
-        callback(null, res.rows);
-    }
-    catch(err){
-        callback(err, null);
-    }
-}
+
 
 export async function getClientsNum(callback){
-    const sqlQuery = `SELECT SUM(*) FROM "CLIENT"`;
+    const sqlQuery = `SELECT COUNT(*) FROM "CLIENT"`;
     try{
         const client = await connect();
         const res = await client.query(sqlQuery);
@@ -99,7 +79,7 @@ export async function getClientsNum(callback){
 }
 
 export async function getReservationNum(callback){
-    const sqlQuery = `SELECT SUM(*) FROM "RESERVATION"`;
+    const sqlQuery = `SELECT COUNT(*) FROM "RESERVATION"`;
     try{
         const client = await connect();
         const res = await client.query(sqlQuery);
@@ -112,21 +92,22 @@ export async function getReservationNum(callback){
 }
 
 export async function getBestClient(callback){
-    const sqlQuery = `SELECT firstname, lastname
-    FROM "CLIENT"
+    const sqlQuery = `SELECT "firstname", "lastname"
+    FROM public."CLIENT"
     GROUP BY "id"
     HAVING "id" = (
-        SELECT client_id
-        FROM "RESERVATION"
+        SELECT "client_id"
+        FROM public."RESERVATION"
         GROUP BY "client_id"
-        HAVING COUNT(client_id)=(
+        HAVING COUNT("client_id")=(
             SELECT MAX("counter")
             FROM(
-                SELECT client_id, COUNT(id) AS counter
-                FROM "RESERVATION"
+                SELECT "client_id", COUNT("id") AS "counter"
+                FROM public."RESERVATION"
                 GROUP BY "client_id"
-            )
+            ) AS "maximum"
         )
+        limit 1
     )`;
     try{
         const client = await connect();
@@ -145,7 +126,6 @@ export async function updateClient(client, callback){
     try{
         const client = await connect();
         const res = await client.query(sqlQuery);
-        console.log(res.rows)
         client.release();
         callback(null, res.rows);
     }
@@ -216,16 +196,69 @@ export async function insertClient(cl, callback){
 }
 
 
+export async function getSpacesByPeople(numOfPeople, callback){
+    const sqlQuery = `SELECT * FROM "SPACE" WHERE "no_of_people"='${numOfPeople}'`;
+    try{
+        const client = await connect();
+        const res = await client.query(sqlQuery);
+        client.release();
+        callback(null, res.rows)
+    }
+    catch(err){
+        callback(err, null);
+    }
+}
 
-async function getPassword(username, admin=false, callback){
-    let sqlQuery;
-    if(admin){
-        sqlQuery = `SELECT "password" FROM "ADMIN" WHERE "username"='${username}'`;    
+export async function getSpaceFromId(spaceId, callback){
+    const sqlQuery = `SELECT * FROM "SPACE" WHERE "id"='${spaceId};`;
+    try{
+        const client = await connect();
+        const res = await client.query(sqlQuery);
+        client.release();
+        callback(null, res.rows)
     }
-    else{
-        sqlQuery = `SELECT "password" FROM "CLIENT" WHERE "username"='${username}'`;
+    catch(err){
+        callback(err, null);
     }
+}
+
+export async function insertSpace(space, callback){
+    const sqlQuery = `INSERT INTO "SPACE"("location","no_of_people","admin_id") VALUES(
+                   ${space.location}, ${space.noOfPeople}, ${space.adminId})`;
+    try{
+        const client = await connect();
+        const res = await client.query(sqlQuery);
+        client.release();
+        callback(null, res.rows);
+    }
+    catch(err){
+        callback(err, null);
+    }
+}
+
+export async function deleteSpace(spaceId, callback){
+    getSpaceFromId(spaceId, async (err,result)=>{
+        if(result === undefined){
+            callback("Space doesn't exist", null);
+        }
+        else{
+            const sqlQuery = `DELETE FROM "SPACE" WHERE "id" = '${spaceId}'`;
+            try{
+                const client = await connect();
+                const res = await client.query(sqlQuery);
+                client.release();
+                callback(null, res.rows);
+            }
+            catch(err){
+                callback(err, null);
+            }
+        }
+    });
     
+}
+
+export async function getSpaces(callback){
+    const sqlQuery = `SELECT "S"."id", "S"."location", "S"."no_of_people", "R"."checkin", "R"."checkout" FROM "SPACE" AS "S" LEFT OUTER JOIN "RESERVES" AS "R" ON "S"."id"="R"."space_id" ORDER BY "S"."id"`;
     try{
         const client = await connect();
         const res = await client.query(sqlQuery);

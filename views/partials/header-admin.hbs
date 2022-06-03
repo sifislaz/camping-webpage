@@ -30,9 +30,16 @@
                                 </li>
                                 <li class="nav-item">
                                     {{#ifEqual link "admin/space/"}}
-                                        <a class="nav-link active" href="/admin/space/">ΔΙΑΧΕΙΡΙΣΗ&nbsp;ΧΩΡΟΥ</a>
+                                        <a class="nav-link active" href="/admin/space/">ΠΡΟΣΘΗΚΗ/ΑΦΑΙΡΕΣΗ&nbsp;ΧΩΡΟΥ</a>
                                     {{else}}
-                                        <a class="nav-link" href="/admin/space/">ΔΙΑΧΕΙΡΙΣΗ&nbsp;ΧΩΡΟΥ</a>
+                                        <a class="nav-link" href="/admin/space/">ΠΡΟΣΘΗΚΗ/ΑΦΑΙΡΕΣΗ&nbsp;ΧΩΡΟΥ</a>
+                                    {{/ifEqual}}
+                                </li>
+                                <li class="nav-item">
+                                    {{#ifEqual link "admin/getSpaces/"}}
+                                        <a class="nav-link active" href="/admin/getSpaces/">ΧΩΡΟΙ</a>
+                                    {{else}}
+                                        <a class="nav-link" href="/admin/getSpaces/">ΧΩΡΟΙ</a>
                                     {{/ifEqual}}
                                 </li>
                                 <li class="nav-item">
