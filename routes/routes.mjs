@@ -46,6 +46,8 @@ router.route('/en/form/').get(control.renderFormEn);
 //--------BOOKINGS---------//
 router.route('/bookings/').get(loginControl.checkAuthenticated, control.renderBookings);
 router.route('/en/bookings/').get(loginControl.checkAuthenticated, control.renderBookingsEn);
+router.route('/bookings/:bookingId/').get(loginControl.checkAuthenticated, control.renderBooking);
+router.route('/en/bookings/:bookingId/').get(loginControl.checkAuthenticated, control.renderBookingEn);
 //-------------------------//
 
 //--------PROFILE---------//

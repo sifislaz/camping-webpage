@@ -113,9 +113,5 @@ input{
 
 hr{
     width:50%;
-    margin:1em auto;
-}
-
-#search-results{
-    display:none;
+    transform: translateX(50%);
 }

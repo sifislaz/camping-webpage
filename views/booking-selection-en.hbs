@@ -18,8 +18,16 @@
                         <tbody>
                             <tr>
                                 {{#each bookings}}
-                                    <td><a href="/bookings/{{id}}/" class="go-to-booking">{{id}}</a></td>
-                                    <td class="situation">{{situation}}<span class="fa fa-circle-check icon"></span><span class="fa fa-circle-xmark icon"></span><span class="fa fa-circle-exclamation icon"></span></td>
+                                    <tr>
+                                        {{#ifEqual situation "WAITING"}}
+                                        <td><a href="/bookings/{{id}}/" class="go-to-booking">{{id}}</a></td>
+                                        {{else ifEqual situation "ΣΕ ΑΝΑΜΟΝΗ"}}
+                                        <td><a href="/bookings/{{id}}/" class="go-to-booking">{{id}}</a></td>
+                                        {{else}}
+                                        <td>{{id}}</td>
+                                        {{/ifEqual}}
+                                        <td class="situation">{{situation}}<span class="fa fa-circle-check icon"></span><span class="fa fa-circle-xmark icon"></span><span class="fa fa-circle-exclamation icon"></span></td>
+                                    </tr>
                                 {{/each}}
                             </tr>
                         </tbody>

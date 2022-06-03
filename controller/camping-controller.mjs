@@ -7,7 +7,7 @@ if(process.env.NODE_ENV !== 'production'){
 }
 
 export let renderIndex = function (req, res){
-    res.render('index', {link:"", pageName:"Αρχική"})
+    res.render('index', {link:"", pageName:"Αρχική"});
 }
 
 export let renderIndexEn = function (req, res){
@@ -202,8 +202,45 @@ export let renderBookingsEn = function(req, res){
             res.redirect('/en/');
         }
         else{
-            console.log(bookings)
             res.render('booking-selection-en', {link:"bookings/", pageName:"Bookings", bookings:bookings, layout:"main-en.hbs"});
+        }
+    })
+}
+
+
+export let renderBooking = function(req,res){
+    modelDB.getSpaceFromBooking(req.params.bookingId,(err,result)=>{
+        if(err){
+            console.log(err);
+            res.render('edit-booking', {link:`bookings/${req.params.bookingId}/`, pageName:"Επεξεργασία Κράτησης", message:"Couldn't load booking.", css:true});
+        }
+        else{
+            const booking = [{"id":result.id,
+                            "checkin":`${result.checkin.getFullYear()}-${(result.checkin.getMonth()+1).toString().length===1?"0"+(result.checkin.getMonth()+1):(result.checkin.getMonth()+1)}-${result.checkin.getDate().toString().length===1?"0"+result.checkin.getDate():result.checkin.getDate()}`,
+                            "checkout":`${result.checkout.getFullYear()}-${(result.checkout.getMonth()+1).toString().length===1?"0"+(result.checkout.getMonth()+1):(result.checkout.getMonth()+1)}-${result.checkout.getDate().toString().length===1?"0"+result.checkout.getDate():result.checkout.getDate()}`,
+                            "booking_people":result.no_of_people,
+                            "space_capacity":result.space_capacity,
+                            "location":result.location
+            }];
+            res.render('edit-booking', {link:`bookings/${req.params.bookingId}/`, pageName:"Επεξεργασία Κράτησης", booking:booking, css:true});
+        }
+    })
+}
+export let renderBookingEn = function(req,res){
+    modelDB.getSpaceFromBooking(req.params.bookingId,(err,result)=>{
+        if(err){
+            console.log(err);
+            res.render('edit-booking', {link:`bookings/${req.params.bookingId}/`, pageName:"Edit Booking", message:"Couldn't load booking.", css:true});
+        }
+        else{
+            const booking = [{"id":result.id,
+                            "checkin":`${result.checkin.getFullYear()}-${(result.checkin.getMonth()+1).toString().length===1?"0"+(result.checkin.getMonth()+1):(result.checkin.getMonth()+1)}-${result.checkin.getDate().toString().length===1?"0"+result.checkin.getDate():result.checkin.getDate()}`,
+                            "checkout":`${result.checkout.getFullYear()}-${(result.checkout.getMonth()+1).toString().length===1?"0"+(result.checkout.getMonth()+1):(result.checkout.getMonth()+1)}-${result.checkout.getDate().toString().length===1?"0"+result.checkout.getDate():result.checkout.getDate()}`,
+                            "booking_people":result.no_of_people,
+                            "space_capacity":result.space_capacity,
+                            "location":result.location
+            }];
+            res.render('edit-booking', {link:`bookings/${req.params.bookingId}/`, pageName:"Edit Booking", booking:booking, css:true});
         }
     })
 }
@@ -212,10 +249,10 @@ export let renderProfile = function (req, res){
     const userId = req.session.loggedUserId
     modelDB.getClientById(userId, (err, info) => {
         if(err){
+            console.log(err);
             res.redirect('/')
         }
         else{
-            console.log(info)
             res.render('profile', {link:"profile/", pageName:'Προφίλ', info:info})
         }
     })
@@ -225,10 +262,10 @@ export let renderProfileEn = function (req, res){
     const userId = req.session.loggedUserId
     modelDB.getClientById(userId, (err, info) => {
         if(err){
+            console.log(err);
             res.redirect('/en/')
         }
         else{
-            console.log(info)
             res.render('profile-en', {link:"profile/", pageName:'Profile', info:info})
         }
     })

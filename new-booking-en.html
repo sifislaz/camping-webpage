@@ -73,36 +73,38 @@
                                 <input type="date" id="enddate" required>
                             </div>
                         </div>
-                        <button class="my-button-green" id="search-btn" onclick="searchSpace()" type="button">Search</button>
-                    </fieldset>
-                    <fieldset id="search-results">
-                        <hr>
-                        <legend>Available Options</legend>
-                        <div id="avail-spaces">
-                            <button type="button">
-                                <h2 class="subtitle">2 person tent space</h2>
-                                <div class="features">Features:
-                                    <ul class="features-list">
-                                        <li>5 socket power strip</li>
-                                        <li>Light above tent</li>
-                                        <li>250m away from beach</li>
-                                    </ul>
-                                </div>
-                            </button>
-                            <button type="button">
-                                <h2 class="subtitle">2 person tent space</h2>
-                                <div class="features">Features:
-                                    <ul class="features-list">
-                                        <li>5 socket power strip</li>
-                                        <li>Light above tent</li>
-                                        <li>250m away from beach</li>
-                                    </ul>
-                                </div>
-                            </button>
-                        </div>
-                        <button class="my-button-green" type="submit" value="submit" onclick="check()">Submit</button>
                     </fieldset>
                 </div>
+                <button class="my-button-green" id="search-btn" type="submit">Search</button>
+            </form>
+            <form method="post" action="/addBooking/">
+                <fieldset id="search-results">
+                    <hr>
+                    <legend>Available Options</legend>
+                    <div id="avail-spaces">
+                        <button type="button">
+                            <h2 class="subtitle">2 person tent space</h2>
+                            <div class="features">Features:
+                                <ul class="features-list">
+                                    <li>5 socket power strip</li>
+                                    <li>Light above tent</li>
+                                    <li>250m away from beach</li>
+                                </ul>
+                            </div>
+                        </button>
+                        <button type="button">
+                            <h2 class="subtitle">2 person tent space</h2>
+                            <div class="features">Features:
+                                <ul class="features-list">
+                                    <li>5 socket power strip</li>
+                                    <li>Light above tent</li>
+                                    <li>250m away from beach</li>
+                                </ul>
+                            </div>
+                        </button>
+                    </div>
+                    <button class="my-button-green" type="submit" value="submit" onclick="check()">Submit</button>
+                </fieldset>
             </form>
         </div>
     </body>

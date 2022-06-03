@@ -22,6 +22,10 @@
         <div class="main-body">
             <h1 class="title">Edit Booking</h1>
             <hr>
+            {{#if message}}
+            <div class="alert alert-danger" role="alert">{{message}}</div>
+            {{else}}
+            {{#each booking}}
             <h2 class="subtitle">Your Booking</h2>
             <div id="booked-space">
                 <h3 class="space-title">3 person tent space</h3>
@@ -29,43 +33,45 @@
                 <ul class="features">
                     <li>5 socket power strip</li>
                     <li>Light above tent</li>
-                    <li>250m away from beach</li>
+                    <li>{{location}}m away from beach</li>
                 </ul>
             </div>
             <h2 class="subtitle">Change Reservation</h2>
             <form action="#">
                 <div class="formfield">
                     <label for="booking-id">Booking no:</label>
-                    <input type="text" name="id" id="booking-id" value="02f334d" disabled>
+                    <input type="text" name="id" id="booking-id" value="{{booking.id}}" disabled>
                 </div>
                 <div class="formfield">
                     <label for="people">No of People</label>
                     <select name="people" id="people">
                         <option value=""></option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3" selected>3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
+                        <option value="1"{{#ifEqual booking_people 1}}selected{{/ifEqual}}>1</option>
+                        <option value="2"{{#ifEqual booking_people 2}}selected{{/ifEqual}}>2</option>
+                        <option value="3"{{#ifEqual booking_people 3}}selected{{/ifEqual}}>3</option>
+                        <option value="4"{{#ifEqual booking_people 4}}selected{{/ifEqual}}>4</option>
+                        <option value="5"{{#ifEqual booking_people 5}}selected{{/ifEqual}}>5</option>
+                        <option value="6"{{#ifEqual booking_people 6}}selected{{/ifEqual}}>6</option>
+                        <option value="7"{{#ifEqual booking_people 7}}selected{{/ifEqual}}>7</option>
+                        <option value="8"{{#ifEqual booking_people 8}}selected{{/ifEqual}}>8</option>
                     </select>
                 </div>
                 <div class="formfield">
                     <label for="dates">Dates</label>
                         <div id="dates">
                             <span for="startdate">From</span>
-                            <input type="date" name="checkin" id="startdate" value="2022-02-01">
+                            <input type="date" name="checkin" id="startdate" value="{{booking.checkin}}">
                             <span for="enddate">To</span>
-                            <input type="date" name="checkout" id="enddate" value="2022-05-01">
+                            <input type="date" name="checkout" id="enddate" value="{{booking.checkout}}">
                         </div>
                 </div>
-                <button class="my-button-green" id="search-btn" onclick="searchSpace()" type="button">search</button>
+                <button class="my-button-green" id="search-btn" type="button">search</button>
                 <div id="search-results">
                     <hr>
                 </div>
             </form>
+            {{/each}}
+            {{/if}}
         </div>
     </body>
     <script src="assets/js/booking-scripts.js"></script>

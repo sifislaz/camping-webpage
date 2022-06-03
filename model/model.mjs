@@ -22,12 +22,12 @@ async function connect(){
 }
 
 export async function getReservation(reservationId, callback){
-    const sqlQuery = `SELECT * FROM "RESERVATION" WHERE "id" = '${reservationId}'`;
+    const sqlQuery = `SELECT * FROM "RESERVATION" WHERE "id" = '${reservationId}' limit 1`;
     try{
         const client = await connect();
         const res = await client.query(sqlQuery);
         client.release();
-        callback(null, res.rows)
+        callback(null, res.rows[0])
     }
     catch(err){
         callback(err, null);
@@ -216,6 +216,21 @@ export async function getSpaceFromId(spaceId, callback){
         const res = await client.query(sqlQuery);
         client.release();
         callback(null, res.rows)
+    }
+    catch(err){
+        callback(err, null);
+    }
+}
+
+export async function getSpaceFromBooking(bookingId, callback){
+    const sqlQuery = `SELECT "R"."id", "R"."checkin", "R"."checkout", "R"."no_of_people", "S"."no_of_people" AS "space_capacity", "S"."location"
+                    FROM "RESERVATION" AS "R" JOIN "RESERVES" ON "R"."id" = "reservation_id" JOIN "SPACE" AS "S" ON "S"."id" = "space_id"
+                    WHERE "R"."id" = '${bookingId}'`;
+    try{
+        const client = await connect();
+        const res = await client.query(sqlQuery);
+        client.release();
+        callback(null, res.rows[0]);
     }
     catch(err){
         callback(err, null);

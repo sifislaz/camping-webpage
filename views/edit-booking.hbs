@@ -22,51 +22,53 @@
         <div class="main-body">
             <h1 class="title">Επεξεργασία Κράτησης</h1>
             <hr>
+            {{#if message}}
+            <div class="alert alert-danger" role="alert">{{message}}</div>
+            {{else}}
+            {{#each booking}}
             <h2 class="subtitle">Η κράτησή σας</h2>
             <div id="booked-space">
-                <h3 class="space-title">Χώρος για σκηνή 3 ατόμων</h3>
+                <h3 class="space-title">Χώρος για σκηνή {{space_capacity}} ατόμων</h3>
                 <div>Χαρακτηριστικά:</div>
                 <ul class="features">
-                    <li>Πολύμπριζο 5 θέσεων</li>
+                    <li>Πολύπριζο 5 θέσεων</li>
                     <li>Φως πάνω από τον χώρο της σκηνής</li>
-                    <li>250m από την θάλασσα</li>
+                    <li>{{location}}m από την θάλασσα</li>
                 </ul>
             </div>
             <h2 class="subtitle">Αλλαγή Κράτησης</h2>
-            <form action="#">
+            <form method="get" action="/bookings/{{id}}/edit/">
                 <div class="formfield">
                     <label for="booking-id">Αρ. Κράτησης:</label>
-                    <input type="text" name="id" id="booking-id" value="02f334d" disabled>
+                    <input type="text" name="id" id="booking-id" value="{{id}}" disabled>
                 </div>
                 <div class="formfield">
                     <label for="people">Αριθμός Ατόμων</label>
                     <select name="people" id="people">
                         <option value=""></option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3" selected>3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
+                        <option value="1"{{#ifEqual booking_people 1}}selected{{/ifEqual}}>1</option>
+                        <option value="2"{{#ifEqual booking_people 2}}selected{{/ifEqual}}>2</option>
+                        <option value="3"{{#ifEqual booking_people 3}}selected{{/ifEqual}}>3</option>
+                        <option value="4"{{#ifEqual booking_people 4}}selected{{/ifEqual}}>4</option>
+                        <option value="5"{{#ifEqual booking_people 5}}selected{{/ifEqual}}>5</option>
+                        <option value="6"{{#ifEqual booking_people 6}}selected{{/ifEqual}}>6</option>
+                        <option value="7"{{#ifEqual booking_people 7}}selected{{/ifEqual}}>7</option>
+                        <option value="8"{{#ifEqual booking_people 8}}selected{{/ifEqual}}>8</option>
                     </select>
                 </div>
                 <div class="formfield">
                     <label for="dates">Ημερομηνίες Κράτησης</label>
                         <div id="dates">
                             <span for="startdate">Από</span>
-                            <input type="date" name="checkin" id="startdate" value="2022-02-01">
+                            <input type="date" name="checkin" id="startdate" value="{{checkin}}">
                             <span for="enddate">Έως</span>
-                            <input type="date" name="checkout" id="enddate" value="2022-05-01">
+                            <input type="date" name="checkout" id="enddate" value="{{checkout}}">
                         </div>
                 </div>
-                <button class="my-button-green" id="search-btn" onclick="searchSpace()" type="button">Αναζήτηση</button>
-                <div id="search-results">
-                    <hr>
-                </div>
+                <button class="my-button-green" id="search-btn" type="submit">Αναζήτηση</button>
             </form>
+            {{/each}}
+            {{/if}}
         </div>
     </body>
-    <script src="assets/js/booking-scripts.js"></script>
 </html>
