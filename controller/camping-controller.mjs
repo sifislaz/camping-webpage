@@ -308,3 +308,41 @@ export let updateProfile = function (req, res){
     })
 
 }
+
+export let updateProfileEn = function (req, res){
+    const id = req.session.loggedUserId;
+    let client;
+    modelDB.getClientById(id, (err, cl)=>{
+        if(err){
+            res.redirect("/profile/");
+        }
+        else{
+            client = cl[0];
+        }
+    })
+    const firstName = req.body.fname||client.firstname;
+    const lastName = req.body.lname||client.lastname;
+    const email = req.body.email||client.email;
+    const mobile = req.body.mobile||client.mobile;
+    const newPass = bcrypt.hashSync(req.body.newPass,10)||client.password;
+
+    const newClientInfo = {
+        "id":id,
+        "firstname":firstName,
+        "lastname":lastName,
+        "email":email,
+        "password":newPass,
+        "mobile":mobile
+    }
+
+    modelDB.updateClient(newClientInfo, (err, result) => {
+        if(err){
+            res.redirect('/profile/')
+            console.log(err);
+        }
+        else{
+            res.redirect('/profile/')
+        }
+    })
+
+}

@@ -54,6 +54,7 @@ router.route('/en/bookings/:bookingId/').get(loginControl.checkAuthenticated, co
 router.route('/profile/').get(loginControl.checkAuthenticated, control.renderProfile);
 router.route('/profile/').post(control.updateProfile);
 router.route('/en/profile/').get(loginControl.checkAuthenticated, control.renderProfileEn);
+router.route('/en/profile/').post(control.updateProfileEn);
 //-----------------------//
 
 //--------ADMIN---------//
