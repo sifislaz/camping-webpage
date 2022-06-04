@@ -46,6 +46,7 @@ router.route('/en/form/').get(control.renderFormEn);
 //--------BOOKINGS---------//
 router.route('/bookings/').get(loginControl.checkAuthenticated, control.renderBookings);
 router.route('/en/bookings/').get(loginControl.checkAuthenticated, control.renderBookingsEn);
+
 router.route('/bookings/:bookingId/').get(loginControl.checkAuthenticated, control.renderBooking);
 router.route('/en/bookings/:bookingId/').get(loginControl.checkAuthenticated, control.renderBookingEn);
 
@@ -57,11 +58,14 @@ router.route('/en/bookings/:bookingId/edit/').post(loginControl.checkAuthenticat
 
 router.route('/newBooking/').get(loginControl.checkAuthenticated, control.renderNewBooking);
 router.route('/en/newBooking/').get(loginControl.checkAuthenticated, control.renderNewBookingEn);
+
 router.route('/newBooking/addBooking/').post(loginControl.checkAuthenticated, control.getAvailableSpaces);
-router.route('en/newBooking/addBooking/').post(loginControl.checkAuthenticated, control.getAvailableSpaces);
+// router.route('/newBooking/addBooking/').post(loginControl.checkAuthenticated, control.getAvailableSpaces);
 router.route('/en/newBooking/addBooking/').post(loginControl.checkAuthenticated, control.getAvailableSpacesEn);
+
 router.route('/addBooking').post(loginControl.checkAuthenticated, control.addBooking);
 router.route('/en/addBooking').post(loginControl.checkAuthenticated, control.addBookingEn);
+
 router.route('/cancelBookings/:bookingId/').post(loginControl.checkAuthenticated, control.cancelBooking);
 //-------------------------//
 
