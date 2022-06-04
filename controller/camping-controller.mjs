@@ -1,6 +1,7 @@
 import dotenv from 'dotenv';
 import bcrypt from 'bcrypt';
 import * as modelDB from '../model/model.mjs';
+import { css } from 'styled-components';
 
 if(process.env.NODE_ENV !== 'production'){
     dotenv.config();
@@ -73,11 +74,29 @@ export let adminMain = function(req, res){
 }
 
 export let renderNewBooking = function(req, res){
-    res.render('new-booking', {link:"newBooking/", pageName:"New Booking", search:false})
+    const userId = req.session.loggedUserId
+
+    modelDB.getClientById(userId, (err, info) =>{
+        if(err){
+            res.redirect('/bookings/')
+        }
+        else{
+            res.render('new-booking', {link:"newBooking/", pageName:"Νέα Κράτηση", search:false, info:info})
+        }
+    })
 }
 
 export let renderNewBookingEn = function(req, res){
-    res.render('new-booking-en', {link:"newBooking/", pageName:"New Booking", layout:'main-en.hbs', search:false})
+    const userId = req.session.loggedUserId
+
+    modelDB.getClientById(userId, (err, info) =>{
+        if(err){
+            res.redirect('/en/bookings/')
+        }
+        else{
+            res.render('new-booking-en', {link:"newBooking/", pageName:"New Booking", search:false, info:info})
+        }
+    })
 }
 
 export let adminBookings = function(req, res){
@@ -191,7 +210,6 @@ export let renderSpaces = function(req,res){
     });
 }
 
-
 export let renderBookings = function(req, res){
     modelDB.getUserReservations(req.session.loggedUserId, (err,bookings)=>{
         if(err){
@@ -217,40 +235,58 @@ export let renderBookingsEn = function(req, res){
     })
 }
 
-
 export let renderBooking = function(req,res){
-    modelDB.getSpaceFromBooking(req.params.bookingId,(err,result)=>{
+    modelDB.getSpaceFromBooking(req.params.bookingId,(err,bookings)=>{
         if(err){
             console.log(err);
-            res.render('edit-booking', {link:`bookings/${req.params.bookingId}/`, pageName:"Επεξεργασία Κράτησης", message:"Couldn't load booking.", css:true});
+            res.render('edit-booking', {link:`bookings/${req.params.bookingId}/`, pageName:"Επεξεργασία Κράτησης", message:"Δεν φορτώθηκε η κράτηση", css:true});
         }
         else{
-            const booking = [{"id":result.id,
-                            "checkin":`${result.checkin.getFullYear()}-${(result.checkin.getMonth()+1).toString().length===1?"0"+(result.checkin.getMonth()+1):(result.checkin.getMonth()+1)}-${result.checkin.getDate().toString().length===1?"0"+result.checkin.getDate():result.checkin.getDate()}`,
-                            "checkout":`${result.checkout.getFullYear()}-${(result.checkout.getMonth()+1).toString().length===1?"0"+(result.checkout.getMonth()+1):(result.checkout.getMonth()+1)}-${result.checkout.getDate().toString().length===1?"0"+result.checkout.getDate():result.checkout.getDate()}`,
-                            "booking_people":result.no_of_people,
-                            "space_capacity":result.space_capacity,
-                            "location":result.location
-            }];
-            res.render('edit-booking', {link:`bookings/${req.params.bookingId}/`, pageName:"Επεξεργασία Κράτησης", booking:booking, css:true});
+            const booking = bookings[0];
+            let spaces = []
+            const bookingsInfo = [{
+                "id":booking.id,
+                "checkin":`${booking.checkin.getFullYear()}-${(booking.checkin.getMonth()+1).toString().length===1?"0"+(booking.checkin.getMonth()+1):(booking.checkin.getMonth()+1)}-${booking.checkin.getDate().toString().length===1?"0"+booking.checkin.getDate():booking.checkin.getDate()}`,
+                "checkout":`${booking.checkout.getFullYear()}-${(booking.checkout.getMonth()+1).toString().length===1?"0"+(booking.checkout.getMonth()+1):(booking.checkout.getMonth()+1)}-${booking.checkout.getDate().toString().length===1?"0"+booking.checkout.getDate():booking.checkout.getDate()}`,
+                "nop":booking.no_of_people.toString()
+            }]
+
+            for(let b of bookings){
+                const book = {
+                            "space_capacity":b.space_capacity,
+                            "location":b.location
+                         };
+                spaces.push(book);
+            }
+            res.render('edit-booking', {link:`bookings/${req.params.bookingId}/`, pageName:"Επεξεργασία Κράτησης", space:spaces, booking:bookingsInfo, css:true});
         }
     })
 }
+
 export let renderBookingEn = function(req,res){
-    modelDB.getSpaceFromBooking(req.params.bookingId,(err,result)=>{
+    modelDB.getSpaceFromBooking(req.params.bookingId,(err,bookings)=>{
         if(err){
             console.log(err);
-            res.render('edit-booking', {link:`bookings/${req.params.bookingId}/`, pageName:"Edit Booking", message:"Couldn't load booking.", css:true});
+            res.render('edit-booking-en', {layout:'main-en.hbs', link:`bookings/${req.params.bookingId}/`, pageName:"Edit Booking", message:"Couldn't load booking.", css:true});
         }
         else{
-            const booking = [{"id":result.id,
-                            "checkin":`${result.checkin.getFullYear()}-${(result.checkin.getMonth()+1).toString().length===1?"0"+(result.checkin.getMonth()+1):(result.checkin.getMonth()+1)}-${result.checkin.getDate().toString().length===1?"0"+result.checkin.getDate():result.checkin.getDate()}`,
-                            "checkout":`${result.checkout.getFullYear()}-${(result.checkout.getMonth()+1).toString().length===1?"0"+(result.checkout.getMonth()+1):(result.checkout.getMonth()+1)}-${result.checkout.getDate().toString().length===1?"0"+result.checkout.getDate():result.checkout.getDate()}`,
-                            "booking_people":result.no_of_people,
-                            "space_capacity":result.space_capacity,
-                            "location":result.location
-            }];
-            res.render('edit-booking', {link:`bookings/${req.params.bookingId}/`, pageName:"Edit Booking", booking:booking, css:true});
+            const booking = bookings[0];
+            let spaces = []
+            const bookingsInfo = [{
+                "id":booking.id,
+                "checkin":`${booking.checkin.getFullYear()}-${(booking.checkin.getMonth()+1).toString().length===1?"0"+(booking.checkin.getMonth()+1):(booking.checkin.getMonth()+1)}-${booking.checkin.getDate().toString().length===1?"0"+booking.checkin.getDate():booking.checkin.getDate()}`,
+                "checkout":`${booking.checkout.getFullYear()}-${(booking.checkout.getMonth()+1).toString().length===1?"0"+(booking.checkout.getMonth()+1):(booking.checkout.getMonth()+1)}-${booking.checkout.getDate().toString().length===1?"0"+booking.checkout.getDate():booking.checkout.getDate()}`,
+                "nop":booking.no_of_people.toString()
+            }]
+
+            for(let b of bookings){
+                const book = {
+                            "space_capacity":b.space_capacity,
+                            "location":b.location
+                         };
+                spaces.push(book);
+            }
+            res.render('edit-booking-en', {layout:'main-en.hbs', link:`bookings/${req.params.bookingId}/`, pageName:"Edit Booking", space:spaces, booking:bookingsInfo, css:true});
         }
     })
 }
@@ -276,7 +312,7 @@ export let renderProfileEn = function (req, res){
             res.redirect('/en/')
         }
         else{
-            res.render('profile-en', {link:"profile/", pageName:'Profile', info:info})
+            res.render('profile-en', {link:"profile/", pageName:'Profile', info:info, layout:"main-en.hbs"})
         }
     })
 }
@@ -357,25 +393,366 @@ export let updateProfileEn = function (req, res){
 
 }
 
-export let getAvailableSpaces =  function(req, res){
+export let getAvailableSpaces = function(req, res){
     const id = req.session.loggedUserId;
     const nop = req.body.people;
     const details = {
+        "fname":req.body.firstname,
+        "lname":req.body.lastname,
+        "mobile":req.body.cell,
+        "zip":req.body.zip,
+        "street":req.body.street,
+        "num":req.body.num,
         "nop":nop,
         "checkin":req.body.checkin,
         "checkout":req.body.checkout
     }
+    
     modelDB.getSpacesByPeople(details, (err, result) => {
         if(err){
             console.log(err);
-            res.render('new-booking', {link:'newBooking/', pageName:'Νέα Κράτηση', msg: 'Κάτι πήγε στραβά', search:false})
+            res.render('add-booking', {link:'newBooking/', pageName:'Νέα Κράτηση', msg: 'Κάτι πήγε στραβά', search:false})
         }
         else{
             console.log(result);
-            res.render('new-booking', {link:'newBooking/', pageName:'Νέα Κράτηση', result: result, search:true})
+            res.render('add-booking', {link:'newBooking/', pageName:'Νέα Κράτηση', result: result, search:true, details:[details]})
+        }
+    })
+}
+
+export let getAvailableSpacesEn = function(req, res){
+    const id = req.session.loggedUserId;
+    const nop = req.body.people;
+    const details = {
+        "fname":req.body.firstname,
+        "lname":req.body.lastname,
+        "mobile":req.body.cell,
+        "zip":req.body.zip,
+        "street":req.body.street,
+        "num":req.body.num,
+        "nop":nop,
+        "checkin":req.body.checkin,
+        "checkout":req.body.checkout
+    }
+
+    modelDB.getSpacesByPeople(details, (err, result) => {
+        if(err){
+            console.log(err);
+            res.render('add-booking-en', {link:'newBooking/', pageName:'New Booking', msg: 'Somehting went wrong', search:false, layout:'main-en.hbs'})
+        }
+        else{
+            console.log(result);
+            res.render('add-booking-en', {link:'newBooking/', pageName:'New Booking', result: result, search:true, details:[details] , layout:'main-en.hbs'})
+        }
+    })
+}
+
+export let getAvailableSpacesEdit = async function(req, res){
+    const id = req.session.loggedUserId;
+    const nop = req.body.people;
+    const newCheckIn =  req.body.checkin;
+    const newCheckOut = req.body.checkout;
+    const bookingId = req.params.bookingId;
+    let spaces = []
+
+    const info = {
+        'id':bookingId,
+        'nop':nop,
+        'checkin':newCheckIn,
+        'checkout':newCheckOut,
+        "check":false
+    }
+
+    await modelDB.getSpaceFromBooking(req.params.bookingId,(err,bookings)=>{
+        if(err){
+            console.log(err);
+            res.render('edit-booking', {link:`bookings/${req.params.bookingId}/`, pageName:"Επεξεργασία Κράτησης", message:"Δεν φορτώθηκε κράτηση", css:true});
+        }
+        else{
+            for(let b of bookings){
+                const book = {
+                            "space_capacity":b.space_capacity,
+                            "location":b.location
+                         };
+                spaces.push(book);
+            }
         }
     })
 
+    await modelDB.getSpacesByPeople(info, (err, result) => {
+        if(err){
+            console.log(err);
+            res.render('edit-booking', {link:`bookings/${bookingId}/`, pageName:'Τροποποίηση Κράτησης', message: 'Κατι πήγε στραβά ', search:false, css:true})
+        }
+        else{
+            console.log(result);
+            info.check = true;
+            res.render('edit-booking', {link:`bookings/${bookingId}/`, pageName:'Τροποποίηση Κράτησης', newResults: result, space:spaces, booking:[info] ,css:true})
+        }
+    })
+}
+
+export let getAvailableSpacesEditEn = async function(req, res){
+    const id = req.session.loggedUserId;
+    const nop = req.body.people;
+    const newCheckIn =  req.body.checkin;
+    const newCheckOut = req.body.checkout;
+    const bookingId = req.params.bookingId;
+    let spaces = []
+
+    const info = {
+        'id':bookingId,
+        'nop':nop,
+        'checkin':newCheckIn,
+        'checkout':newCheckOut
+    }
+
+    await modelDB.getSpaceFromBooking(req.params.bookingId,(err,bookings)=>{
+        if(err){
+            console.log(err);
+            res.render('edit-booking-en', {link:`bookings/${req.params.bookingId}/`, layout:"main-en.hbs", pageName:"Edit Booking", message:"Couldn't load booking.", css:true});
+        }
+        else{
+            for(let b of bookings){
+                const book = {
+                            "space_capacity":b.space_capacity,
+                            "location":b.location
+                         };
+                spaces.push(book);
+            }
+            console.log(spaces);
+        }
+    })
+
+    await modelDB.getSpacesByPeople(info, (err, result) => {
+        if(err){
+            console.log(err);
+            res.render('edit-booking-en', {link:`bookings/${bookingId}/`, layout:"main-en.hbs", pageName:'Edit Booking', message: 'Somehting Went Wrong.', search:false, css:true})
+        }
+        else{
+            console.log(result);
+            res.render('edit-booking-en', {link:`bookings/${bookingId}/`, layout:"main-en.hbs", pageName:'Edit Booking', newResults: result, search:true, space:spaces, booking:[info] ,css:true})
+        }
+    })
+}
+
+export let updateBooking =  async function(req, res){
+    const bookingId = req.params.bookingId;
+    const nop = req.body.people;
+    const newCheckin =  req.body.checkin;
+    const newCheckout =  req.body.checkout;
+    const  space = req.body.selectedspace;
+
+    const newInfo = {
+        'reservation_id':bookingId,
+        'nop':nop,
+        'checkin':newCheckin,
+        'space_id': space,
+        'checkout':newCheckout
+    }
 
 
+    await modelDB.updateReservation(newInfo, (err, result) => {
+        if(err){
+            console.log(err);
+            res.render('edit-booking', {link:`bookings/${req.params.bookingId}/`, pageName:"Επεξεργασία Κράτησης", message:"Δεν φορτώθηκε κράτηση", css:true});
+        }
+    });
+
+    await modelDB.deleteSpaceReservation(bookingId, (err, result) => {
+        if(err){
+            console.log(err);
+            res.render('edit-booking', {link:`bookings/${req.params.bookingId}/`, pageName:"Επεξεργασία Κράτησης", message:"Δεν φορτώθηκε κράτηση", css:true});
+        }
+    });
+
+    await modelDB.reservedSpace(newInfo, (err, result) =>{
+        if(err){
+            console.log(err);
+            res.render('edit-booking', {link:`bookings/${req.params.bookingId}/`, pageName:"Επεξεργασία Κράτησης", message:"Δεν φορτώθηκε κράτηση", css:true});
+        }
+    })
+
+    res.redirect('/bookings/')
+}
+
+export let updateBookingEn =  async function(req, res){
+    const bookingId = req.params.bookingId;
+    const nop = req.body.people;
+    const newCheckin =  req.body.checkin;
+    const newCheckout =  req.body.checkout;
+    const  space = req.body.selectedspace;
+
+    const newInfo = {
+        'reservation_id':bookingId,
+        'nop':nop,
+        'checkin':newCheckin,
+        'space_id': space,
+        'checkout':newCheckout
+    }
+
+
+    await modelDB.updateReservation(newInfo, (err, result) => {
+        if(err){
+            console.log(err);
+            res.render('edit-booking-en', {layout:"main-en.hbs",link:`bookings/${req.params.bookingId}/`, pageName:"Edit Booking", message:"Couldn't load booking", css:true});
+        }
+    });
+
+    await modelDB.deleteSpaceReservation(bookingId, (err, result) => {
+        if(err){
+            console.log(err);
+            res.render('edit-booking-en', {layout:"main-en.hbs",link:`bookings/${req.params.bookingId}/`, pageName:"Edit booking", message:"Couldn't load booking", css:true});
+        }
+    });
+
+    await modelDB.reservedSpace(newInfo, (err, result) =>{
+        if(err){
+            console.log(err);
+            res.render('edit-booking-en', {layout:"main-en.hbs", link:`bookings/${req.params.bookingId}/`, pageName:"Edit Booking", message:"Couldn't load booking", css:true});
+        }
+    })
+
+    res.redirect('/en/bookings/')
+}
+
+
+export let addBooking = async function (req, res){
+    const date = new Date();
+    const reservationDate = `${date.getFullYear()}-${(date.getMonth()+1).toString().length===1?"0"+(date.getMonth()+1):(date.getMonth()+1)}-${date.getDate().toString().length===1?"0"+date.getDate():date.getDate()}`;
+    const reservation = {
+        "checkin":req.body.checkin,
+        "checkout":req.body.checkout,
+        "situation":"ΣΕ ΑΝΑΜΟΝΗ",
+        "no_of_people":req.body.people,
+        "client_id":req.session.loggedUserId,
+        "reservation_date": reservationDate,
+        "space_id":req.body.selectedspace
+    }
+    let reservationId = 0;
+
+    await modelDB.insertReservation(reservation, (err, result) => {
+        if(err){
+            console.log(err);
+            res.redirect('/newBooking')
+        }
+    })
+
+    await modelDB.getLastReservationId((err, id) => {
+        if(err){
+            console.log(err);
+            res.redirect('/newBooking')
+        }
+        else{
+            reservationId=id.id;
+        }
+    })
+
+    for (let space of req.body.selectedspace){
+        const reserves = {
+            "reservation_id":reservationId,
+            "space_id":space,
+            "checkin":req.body.checkin,
+            "checkout":req.body.checkout
+        }
+        await modelDB.reservedSpace(reserves, (err, result) => {
+            if(err){
+                console.log(err);
+                res.redirect('/newBooking')
+            }
+        })
+    }
+
+    res.redirect('/bookings');
+}
+
+export let addBookingEn = async function (req, res){
+    const date = new Date();
+    const reservationDate = `${date.getFullYear()}-${(date.getMonth()+1).toString().length===1?"0"+(date.getMonth()+1):(date.getMonth()+1)}-${date.getDate().toString().length===1?"0"+date.getDate():date.getDate()}`;
+    const reservation = {
+        "checkin":req.body.checkin,
+        "checkout":req.body.checkout,
+        "situation":"ΣΕ ΑΝΑΜΟΝΗ",
+        "no_of_people":req.body.people,
+        "client_id":req.session.loggedUserId,
+        "reservation_date": reservationDate,
+        "space_id":req.body.selectedspace
+    }
+    let reservationId = 0;
+
+    await modelDB.insertReservation(reservation, (err, result) => {
+        if(err){
+            console.log(err);
+            res.redirect('/en/newBooking')
+        }
+    })
+
+    await modelDB.getLastReservationId((err, id) => {
+        if(err){
+            console.log(err);
+            res.redirect('/en/newBooking')
+        }
+        else{
+            reservationId=id.id;
+        }
+    })
+
+    for (let space of req.body.selectedspace){
+        const reserves = {
+            "reservation_id":reservationId,
+            "space_id":space,
+            "checkin":req.body.checkin,
+            "checkout":req.body.checkout
+        }
+        await modelDB.reservedSpace(reserves, (err, result) => {
+            if(err){
+                console.log(err);
+                res.redirect('/en/newBooking')
+            }
+        })
+    }
+
+    res.redirect('/en/bookings');
+}
+
+export let cancelBooking = async function(req,res){
+    const bookingId = req.params.bookingId;
+
+    await modelDB.cancelBooking(bookingId, (err, result) => {
+        if(err){
+            console.log(err);
+            res.redirect('/bookings/');
+        }
+    });
+
+    await modelDB.deleteSpaceReservation(bookingId, (err, result) => {
+        if(err){
+            console.log(err);
+            res.redirect('/bookings/');
+        }
+        else{
+            res.redirect("/bookings/");
+        }
+    });
+}
+
+export let cancelBookingEn = async function(req,res){
+    const bookingId = req.params.bookingId;
+
+    await modelDB.cancelBooking(bookingId, (err, result) => {
+        if(err){
+            console.log(err);
+            res.redirect('/en/bookings/');
+        }
+    });
+
+    await modelDB.deleteSpaceReservation(bookingId, (err, result) => {
+        if(err){
+            console.log(err);
+            res.redirect('/en/bookings/');
+        }
+        else{
+            res.redirect("/en/bookings/");
+        }
+    });
 }

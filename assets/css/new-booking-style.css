@@ -133,9 +133,18 @@ input[type=text]{
     margin: 0 auto;
     padding: 0;
     width:85%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5em;
 }
 
-#avail-spaces>button{
+#spaceCheck{
+    display: flex;
+    align-items: center;
+}
+
+#avail-spaces{
     width:85%;
     border-radius: 1em;
     border:1px solid #66b2ff55;

@@ -2,7 +2,8 @@
         <div class="main-body">
             <h1 class="title">New Booking</h1>
             <hr>
-            <form action='/en/newBooking/' method="post" id="search-form">
+            <form action='/en/newBooking/addBooking' method="post" id="search-form">
+                {{#each info}}
                 <fieldset id="personal-info">
                     <legend>Personal Information</legend>
                     <label for="fullname">Full Name</label>
@@ -18,10 +19,11 @@
                     </div>
                     <label for="tel">Contact Information</label>
                     <div id="tel">
-                        <input type="tel" name="cell" id="cell" placeholder="Cellphone" pattern="\d{10}" required>
+                        <input type="tel" name="cell" id="cell" placeholder="Cellphone" pattern="\d{10}" value="{{mobile}}" required>
                         <span>Do not include telephone code</span>
                     </div>
                 </fieldset>
+                {{/each}}
                 <hr>
                 <div id="booking-info">
                     <fieldset>
@@ -43,7 +45,7 @@
                                 <input type="date" id="enddate" name="checkout" required>
                             </div>
                         </div>
-                        <button class="my-button-green" id="search-btn" >type="submit">Search</button><!--onclick="searchSpace()"-->
+                        <button class="my-button-green" id="search-btn" type="submit">Search</button><!--onclick="searchSpace()"-->
                     </fieldset>
                 </div>
             </form>
@@ -58,7 +60,7 @@
                     <fieldset id="search-results">
                         <legend>Available Options</legend>
                         <div id="avail-spaces">
-                            <button type="button">
+                            <input type="button" data-space-id="{{id}}">
                                 <h2 class="subtitle">{{no_of_people}} person tent space</h2>
                                 <div class="features">Features:
                                     <ul class="features-list">
@@ -67,7 +69,6 @@
                                         <li>{{location}}m away from beach</li>
                                     </ul>
                                 </div>
-                            </button>
                         </div>
                     </fieldset>
                     {{/each}}

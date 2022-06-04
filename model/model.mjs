@@ -35,7 +35,7 @@ export async function getReservation(reservationId, callback){
 }
 
 export async function insertReservation(reservation, callback){
-    const sqlQuery = `INSERT INTO "RESERVATION"("checkin", "checkout", "situation", "no_of_people", "client_id", "reservation_date")
+    const sqlQuery = `INSERT INTO "RESERVATION" ("checkin", "checkout", "situation", "no_of_people", "client_id", "reservation_date")
                     VALUES ('${reservation.checkin}',
                             '${reservation.checkout}',
                             '${reservation.situation}',
@@ -46,6 +46,57 @@ export async function insertReservation(reservation, callback){
         const client = await connect();
         const res = await client.query(sqlQuery);
         client.release();
+        console.log(res.rows);
+        callback(null, res.rows)
+    }
+    catch(err){
+        callback(err, null);
+    }
+}
+
+export async function getLastReservationId(callback){
+    const sqlQuery = `SELECT "id" FROM "RESERVATION" ORDER BY "id" DESC LIMIT 1`;
+
+    try{
+        const client = await connect();
+        const res = await client.query(sqlQuery);
+        client.release();
+        console.log(res.rows[0]);
+        callback(null, res.rows[0])
+    }
+    catch(err){
+        callback(err, null);
+    }
+}
+
+export async function cancelBooking(bookingId, callback){
+    getReservation(bookingId, async (err,result)=>{
+        if(result === undefined){
+            callback("Booking doesn't exist", null);
+        }
+        else{
+            const sqlQuery = `UPDATE "RESERVATION" SET "situation" = 'CANCELLED' WHERE "id" = '${bookingId}'`;
+            try{
+                const client = await connect();
+                const res = await client.query(sqlQuery);
+                client.release();
+                callback(null, res.rows[0]);
+            }
+            catch(err){
+                console.log(err);
+                callback(err, null);
+            }
+        }
+    })
+}
+
+export async function deleteSpaceReservation(bookingId, callback){
+    const sqlQuery = `DELETE FROM "RESERVES" WHERE "reservation_id"='${bookingId}'`;
+    try{
+        const client = await connect();
+        const res = await client.query(sqlQuery);
+        client.release();
+        console.log(res.rows[0]);
         callback(null, res.rows[0])
     }
     catch(err){
@@ -59,6 +110,7 @@ export async function reservedSpace(reservation, callback){
         const client = await connect();
         const res = await client.query(sqlQuery);
         client.release();
+        console.log(res.rows[0]);
         callback(null, res.rows[0])
     }
     catch(err){
@@ -269,7 +321,8 @@ export async function getSpaceFromBooking(bookingId, callback){
         const client = await connect();
         const res = await client.query(sqlQuery);
         client.release();
-        callback(null, res.rows[0]);
+        console.log(res.rows);
+        callback(null, res.rows);
     }
     catch(err){
         callback(err, null);
@@ -313,6 +366,20 @@ export async function deleteSpace(spaceId, callback){
 
 export async function getSpaces(callback){
     const sqlQuery = `SELECT "S"."id", "S"."location", "S"."no_of_people", "R"."checkin", "R"."checkout" FROM "SPACE" AS "S" LEFT OUTER JOIN "RESERVES" AS "R" ON "S"."id"="R"."space_id" ORDER BY "S"."id"`;
+    try{
+        const client = await connect();
+        const res = await client.query(sqlQuery);
+        client.release();
+        callback(null, res.rows);
+    }
+    catch(err){
+        callback(err, null);
+    }
+}
+
+export async function updateReservation(info, callback){
+    
+    const sqlQuery = `UPDATE "RESERVATION" SET "no_of_people"='${info.nop}', "checkin"='${info.checkin}', "checkout"='${info.checkout}' WHERE "id"='${info.reservation_id}'`
     try{
         const client = await connect();
         const res = await client.query(sqlQuery);

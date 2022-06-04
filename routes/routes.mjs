@@ -48,11 +48,21 @@ router.route('/bookings/').get(loginControl.checkAuthenticated, control.renderBo
 router.route('/en/bookings/').get(loginControl.checkAuthenticated, control.renderBookingsEn);
 router.route('/bookings/:bookingId/').get(loginControl.checkAuthenticated, control.renderBooking);
 router.route('/en/bookings/:bookingId/').get(loginControl.checkAuthenticated, control.renderBookingEn);
+
+router.route('/bookings/:bookingId/').post(loginControl.checkAuthenticated, control.getAvailableSpacesEdit);
+router.route('/en/bookings/:bookingId/').post(loginControl.checkAuthenticated, control.getAvailableSpacesEditEn);
+
+router.route('/bookings/:bookingId/edit/').post(loginControl.checkAuthenticated, control.updateBooking);
+router.route('/en/bookings/:bookingId/edit/').post(loginControl.checkAuthenticated, control.updateBooking);
+
 router.route('/newBooking/').get(loginControl.checkAuthenticated, control.renderNewBooking);
 router.route('/en/newBooking/').get(loginControl.checkAuthenticated, control.renderNewBookingEn);
-router.route('/newBooking/').post(loginControl.checkAuthenticated, control.getAvailableSpaces);
-// router.route('/en/newBooking/').post(loginControl.checkAuthenticated, control.registerNewBookingEn);
-
+router.route('/newBooking/addBooking/').post(loginControl.checkAuthenticated, control.getAvailableSpaces);
+router.route('en/newBooking/addBooking/').post(loginControl.checkAuthenticated, control.getAvailableSpaces);
+router.route('/en/newBooking/addBooking/').post(loginControl.checkAuthenticated, control.getAvailableSpacesEn);
+router.route('/addBooking').post(loginControl.checkAuthenticated, control.addBooking);
+router.route('/en/addBooking').post(loginControl.checkAuthenticated, control.addBookingEn);
+router.route('/cancelBookings/:bookingId/').post(loginControl.checkAuthenticated, control.cancelBooking);
 //-------------------------//
 
 //--------PROFILE---------//
@@ -71,12 +81,14 @@ router.route('/admin/registerSpace/').post(loginControl.checkAdmin, control.admi
 router.route('/admin/deleteSpace/').post(loginControl.checkAdmin, control.adminDeleteSpace);
 router.route('/admin/getSpaces/').get(loginControl.checkAdmin, control.renderSpaces);
 //---------------------//
+
 //--------LOGIN---------//
 router.route('/signIn/').post(loginControl.doLogin);
 router.route('/signUp/').post(loginControl.doRegister);
 router.route('/logout/').get(loginControl.doLogout);
-router.route('/en/signIn/').post(loginControl.doLogin);
-router.route('/en/signUp/').post(loginControl.doRegister);
-router.route('/en/logout/').get(loginControl.doLogout);
+router.route('/en/signIn/').post(loginControl.doLoginEn);
+router.route('/en/signUp/').post(loginControl.doRegisterEn);
+router.route('/en/logout/').get(loginControl.doLogoutEn);
+//----------------------//
 
 export default router;

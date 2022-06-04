@@ -26,6 +26,25 @@ export let doRegister = function (req, res) {
     }
 }
 
+export let doRegisterEn = function (req, res) {
+    if(req.body.username === 'admin'){
+        res.redirect('/en/');  // can't register admin user
+    }
+    else{
+        console.log(req.body.username);
+        dbmodel.insertClient({"username":req.body.username, "email":req.body.email, "password":req.body.password,
+                            "firstname":req.body.firstname, "lastname":req.body.lastname, "mobile":req.body.mobile},
+                            (err,result)=>{
+                                if(err){
+                                    console.log(err);
+                                }
+                                else{
+                                    res.redirect("/en/");
+                                }
+                            });
+    }
+}
+
 export let doLogin = function (req, res){
     if(req.body.user==="admin"){
         dbmodel.getAdminByUsername(req.body.user, (err,admin)=>{
@@ -66,9 +85,54 @@ export let doLogin = function (req, res){
     }
 }
 
+export let doLoginEn = function (req, res){
+    if(req.body.user==="admin"){
+        dbmodel.getAdminByUsername(req.body.user, (err,admin)=>{
+            if(admin === undefined){
+                res.redirect('/en/');
+            }
+            else{
+                const match = bcrypt.compare(req.body.pass, admin.password, (err,match)=>{
+                    if(match){
+                        req.session.loggedUserId = admin.id;
+                        res.redirect("/admin/");
+                    }
+                    else{
+                        res.redirect("/en/");
+                    }
+                })
+            }
+        })
+    }
+    else{
+        dbmodel.getClientByUsername(req.body.user,(err,user)=>{
+            if(user === undefined){
+                res.redirect('/en/')
+            }
+            else {
+                const match = bcrypt.compare(req.body.pass, user.password, (err, match) => {
+                    if (match) {
+                        req.session.loggedUserId = user.id;
+                        const redirectTo = req.session.originalUrl || "/en/";
+                        res.redirect(redirectTo);
+                    }
+                    else {
+                        res.redirect("/en/")
+                    }
+                })
+            }
+        })
+    }
+}
+
 export let doLogout = (req, res) => {
     req.session.destroy();
     res.redirect('/');
+}
+
+export let doLogoutEn = (req, res) => {
+    req.session.destroy();
+    res.redirect('/en/');
 }
 
 export let checkAuthenticated = function (req, res, next) {

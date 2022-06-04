@@ -1,0 +1,80 @@
+
+{{#if msg}}
+    <div class="alert alert-danger" role="alert">{{msg}}</div>
+{{else}}
+    {{#if search}}
+        {{#each details}}
+            <form action='/addBooking' method="post" id="search-form">
+                <fieldset id="personal-info">
+                    <legend>Personal Info</legend>
+                    <label for="fullname">Full Name</label>
+                    <div id="fullname">
+                        <input type="text" id="firstname" name="firstname" placeholder="Όνομα" value="{{fname}}" disabled>
+                        <input type="text" id="lastname" name="lastname" placeholder="Επίθετο" value="{{lname}}" disabled>
+                    </div>
+                    <label for="address">Address</label>
+                    <div id="address">
+                        <input type="text" name="street" id="street" placeholder="Οδός" value="{{street}}" disabled>
+                        <input type="text" name="num" id="num" placeholder="Αριθμός" value="{{num}}" disabled>
+                        <input type="text" name="zip" id="zip" placeholder="Τ.Κ." value="{{zip}}" disabled>
+                    </div>
+                    <label for="tel">Contact Info</label>
+                    <div id="tel">
+                        <input type="tel" name="cell" id="cell" placeholder="Κινητό τηλέφωνο" value="{{mobile}}" disabled>
+                        <span>Do not include telephone code</span>
+                    </div>
+                </fieldset>
+                <hr>
+                <div id="booking-info">
+                    <fieldset>
+                        <legend>Booking Information</legend>
+                        <label for="people">No of People</label>
+                        <select name="people" id="people" disabled>
+                            <option value=""></option>
+                            <option value="1" {{#ifEqual nop '1'}}selected{{/ifEqual}}>1</option>
+                            <option value="2" {{#ifEqual nop '2'}}selected{{/ifEqual}}>2</option>
+                            <option value="3" {{#ifEqual nop '3'}}selected{{/ifEqual}}>3</option>
+                            <option value="4" {{#ifEqual nop '4'}}selected{{/ifEqual}}>4</option>
+                        </select>
+                        <div class="dates">
+                            <label for="dates">Dates</label>
+                            <div id="dates">
+                                <span for="startdate">From</span>
+                                <input type="date" id="startdate" name="checkin" value="{{checkin}}" disabled>
+                                <span for="enddate">To</span>
+                                <input type="date" id="enddate" name="checkout" value="{{checkout}}" disabled>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+        {{/each}}
+        <div id="sub-form">
+        <fieldset id="search-results">
+            <legend>Available Options</legend>
+        {{#if result}}
+            {{#each result}}
+                    <div id="avail-spaces">
+                        <div id="availableSpaceDetails" >
+                            <h2 class="subtitle">{{no_of_people}} person tent space</h2>
+                            <div class="features">Features:
+                                <ul class="features-list">
+                                    <li>5 socket power strip</li>
+                                    <li>Light above tent</li>
+                                    <li>{{location}}m away from beach</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="spaceCheck">
+                            <input type="checkbox" value="{{id}}" name="selectedspace">
+                        </div>
+                    </div>
+            {{/each}}
+                <button class="my-button-green" type="submit" value="submit">Submit</button>
+            </fieldset>
+            </div>
+            </form>
+        {{else}}
+            <div class="alert alert-primary" role="alert">Unfortunately there are no available spaces that match your choices.</div>
+        {{/if}}
+    {{/if}}
+{{/if}}

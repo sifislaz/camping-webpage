@@ -41,9 +41,15 @@
                         <li style=" margin-bottom: 16px;">
                             <a href="/">Αρχική</a>
                         </li>
+                        {{#if userId}}
                         <li style=" margin-bottom: 16px;">
-                            <a href="#">Κράτηση</a>
+                            <a href="/bookings">Κράτησεις</a>
                         </li>
+                        {{else}}
+                        <li style=" margin-bottom: 16px;">
+                            <a id="bookingsLink" href="/" data-bs-toggle="modal" data-bs-target="#signInModal">Κράτησεις</a>
+                        </li>
+                        {{/if}}
                         <li style=" margin-bottom: 16px;">
                             <a href="/pricelist/">Τιμοκατάλογος</a>
                         </li>

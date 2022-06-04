@@ -40,9 +40,15 @@
                                 <li style=" margin-bottom: 16px;">
                                     <a href="/en/">Home</a>
                                 </li>
-                                <li style=" margin-bottom: 16px;">
-                                    <a href="#">Bookings</a>
-                                </li>
+                                {{#if userId}}
+                                    <li style=" margin-bottom: 16px;">
+                                        <a href="/en/bookings">Bookings</a>
+                                    </li>
+                                {{else}}
+                                    <li style=" margin-bottom: 16px;">
+                                        <a id="bookingsLink" href="/en/" data-bs-toggle="modal" data-bs-target="#signInModal">Bookings</a>
+                                    </li>
+                                {{/if}}
                                 <li style=" margin-bottom: 16px;">
                                     <a href="/en/pricelist/">Pricelist</a>
                                 </li>
