@@ -10,9 +10,17 @@
           Cupiditate alias odio omnis minima veritatis saepe porro, repellendus natus vitae, sequi exercitationem ipsam, qui possimus sit eveniet laborum sapiente quisquam quae neque velit?
         </p>
       </div>
-      <div class="btns">
-        <button class='my-button-green'> Book now </button>
-      </div>
+        {{#if loggedIn}}
+            <form method="get" action="/en/newBooking/">
+                <div class="btns">
+                    <button class='my-button-green'>Book now</button>
+                </div>
+            </form>
+        {{else}}
+            <div class="btns">
+                <button id="bookBtn" class='my-button-green' data-bs-toggle="modal" data-bs-target="#signInModal">Book now</button>
+            </div>
+        {{/if}}
     </div>
   </div>
   <div class="container_outer_img">

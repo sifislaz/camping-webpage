@@ -14,11 +14,11 @@
                     <div id="address">
                         <input type="text" name="street" id="street" placeholder="Οδός" required>
                         <input type="text" name="num" id="num" placeholder="Αριθμός" pattern="\d{1,3}[ΑΒΓABC]?" required>
-                        <input type="text" name="zip" id="zip" placeholder="Τ.Κ." pattern="/\d{5}/" required>
+                        <input type="text" name="zip" id="zip" placeholder="Τ.Κ." pattern="\d{5}" required>
                     </div>
                     <label for="tel">Τηλέφωνo Επικοινωνίας</label>
                     <div id="tel">
-                        <input type="tel" name="cell" id="cell" placeholder="Κινητό τηλέφωνο" pattern="/\d{10}/" required>
+                        <input type="tel" name="cell" id="cell" placeholder="Κινητό τηλέφωνο" pattern="\d{10}" required>
                         <span>Χωρίς κωδικό χώρας</span>
                     </div>
                 </fieldset>
@@ -43,7 +43,7 @@
                                 <input type="date" id="enddate" name="checkout" required>
                             </div>
                         </div>
-                        <button class="my-button-green" id="search-btn" onclick="searchSpace()" type="submit">Αναζήτηση</button>
+                        <button class="my-button-green" id="search-btn" type="submit">Αναζήτηση</button><!--onclick="searchSpace()"-->
                     </fieldset>
                 </div>
             </form>
@@ -59,7 +59,7 @@
                         {{#each result}}
                         <div id="avail-spaces">
                             <button type="button">
-                                <h2 class="subtitle">{{this.no_of_people}} person tent space</h2>
+                                <h2 class="subtitle">Χώρος για {{this.no_of_people}} άτομα</h2>
                                 <div class="features">Παροχές:
                                     <ul class="features-list">
                                         <li>Πολύπριζο 5 θέσεων</li>
@@ -70,7 +70,7 @@
                             </button>
                         </div>
                         {{/each}}
-                        <button class="my-button-green" type="submit" value="submit">Submit</button>
+                        <button class="my-button-green" type="submit" value="submit">Υποβολη</button>
                     </fieldset>
                 </form>
                 {{else}}

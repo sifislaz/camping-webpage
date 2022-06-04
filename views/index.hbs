@@ -10,9 +10,17 @@
           Cupiditate alias odio omnis minima veritatis saepe popo, repellendus natus vitae, sequi exercitationem ipsam, qui possimus sit eveniet laborum sapiente quisquam quae neque velit?
         </p>
       </div>
-      <div class="btns">
-        <button class='my-button-green'> Κρατηση τωρα </button>
-      </div>
+        {{#if loggedIn}}
+        <form method="get" action="/newBooking/">
+            <div class="btns">
+                <button class='my-button-green'> Κρατηση τωρα </button>
+            </div>
+        </form>
+        {{else}}
+            <div class="btns">
+                <button id="bookBtn" class='my-button-green' data-bs-toggle="modal" data-bs-target="#signInModal"> Κρατηση τωρα </button>
+            </div>
+        {{/if}}
     </div>
   </div>
   <div class="container_outer_img">

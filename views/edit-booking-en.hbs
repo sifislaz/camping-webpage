@@ -28,7 +28,7 @@
             {{#each booking}}
             <h2 class="subtitle">Your Booking</h2>
             <div id="booked-space">
-                <h3 class="space-title">3 person tent space</h3>
+                <h3 class="space-title">{{space_capacity}} person tent space</h3>
                 <div>Features:</div>
                 <ul class="features">
                     <li>5 socket power strip</li>
@@ -40,7 +40,7 @@
             <form action="#">
                 <div class="formfield">
                     <label for="booking-id">Booking no:</label>
-                    <input type="text" name="id" id="booking-id" value="{{booking.id}}" disabled>
+                    <input type="text" name="id" id="booking-id" value="{{id}}" disabled>
                 </div>
                 <div class="formfield">
                     <label for="people">No of People</label>
@@ -56,9 +56,9 @@
                     <label for="dates">Dates</label>
                         <div id="dates">
                             <span for="startdate">From</span>
-                            <input type="date" name="checkin" id="startdate" value="{{booking.checkin}}">
+                            <input type="date" name="checkin" id="startdate" value="{{checkin}}">
                             <span for="enddate">To</span>
-                            <input type="date" name="checkout" id="enddate" value="{{booking.checkout}}">
+                            <input type="date" name="checkout" id="enddate" value="{{checkout}}">
                         </div>
                 </div>
                 <button class="my-button-green" id="search-btn" type="button">search</button>

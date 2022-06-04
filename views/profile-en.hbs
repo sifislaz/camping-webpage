@@ -7,48 +7,48 @@
 
 <div class="container disp">
 {{#each info}}
-  <form>
+  <form method="post" action="/en/profile">
 
     <label>Full Name</label>
     <div class="input-group mb-3 user">
-      <input type="text" class="form-control" placeholder="First Name" aria-label="FullName" aria-describedby="basic-addon1" required value="{{firstname}}">
-      <input type="text" class="form-control" placeholder="Last Name" aria-label="FullName" aria-describedby="basic-addon1" required value="{{lastname}}">
+      <input name="fname" type="text" class="form-control" placeholder="First Name" aria-label="FullName" aria-describedby="basic-addon1" required value="{{firstname}}">
+      <input name="lname" type="text" class="form-control" placeholder="Last Name" aria-label="FullName" aria-describedby="basic-addon1" required value="{{lastname}}">
     </div>
 
     <div class="form-group mb-3">
 
       <label for=username>Username</label>
-      <input type="text" class="form-control" id="username" placeholder="Username" value="{{username}}">
+      <input type="text" class="form-control" id="username" placeholder="Username" value="{{username}}" disabled>
 
     </div>
     <div class="form-group mb-3">
 
       <label for=email>Email</label>
-      <input type="email" class="form-control" id="email" placeholder="name@example.com" value="{{email}}">
+      <input name="email" type="email" class="form-control" id="email" placeholder="name@example.com" value="{{email}}">
 
     </div>
     <div class="form-group mb-3">
 
       <label for=username>Mobile Phone</label>
-      <input type="text" class="form-control" id="mobile" placeholder="Mobile Phone" value="{{mobile}}">
+      <input name="mobile" type="text" class="form-control" id="mobile" placeholder="Mobile Phone" value="{{mobile}}">
 
     </div>
     <div class="form-group mb-3">
 
       <label for=oldpass>Old Password</label>
-      <input type="password" class="form-control" id="oldpass" placeholder="Old Password">
+      <input name="oldpass" type="password" class="form-control" id="oldpass" placeholder="Old Password">
 
     </div>
     <div class="form-group mb-3">
 
       <label for=newpass>New Password</label>
-      <input type="password" class="form-control" id="newpass" placeholder="New Password">
+      <input name="newPass" type="password" class="form-control" id="newpass" placeholder="New Password">
 
     </div>
     <div class="form-group mb-3">
 
       <label for=renewpass>Re-Enter New Password</label>
-      <input type="password" class="form-control" id="renewpass" placeholder="New Password">
+      <input name="reNewPass" type="password" class="form-control" id="renewpass" placeholder="New Password">
 
     </div>
 
@@ -56,7 +56,7 @@
 
       <div class="text-center btns">
 
-        <button type="button" class="my-button-green" id="saveBtn">Save Changes</button>
+        <button type="submit" class="my-button-green" id="saveBtn">Save Changes</button>
         <button type="reset" class="my my-button-red">Cancel</button>
 
       </div>

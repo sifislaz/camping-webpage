@@ -7,11 +7,17 @@ if(process.env.NODE_ENV !== 'production'){
 }
 
 export let renderIndex = function (req, res){
-    res.render('index', {link:"", pageName:"Αρχική"});
+    let loggedIn;
+    loggedIn = !!req.session.loggedUserId;
+
+    res.render('index', {link:"", pageName:"Αρχική", loggedIn:loggedIn});
 }
 
 export let renderIndexEn = function (req, res){
-    res.render('index-en', {link:"",pageName:"Home",layout : 'main-en.hbs'})
+    let loggedIn;
+    loggedIn = !!req.session.loggedUserId;
+
+    res.render('index-en', {link:"",pageName:"Home",layout : 'main-en.hbs', loggedIn:loggedIn})
 }
 
 export let renderFacilities = function (req, res){
@@ -60,10 +66,6 @@ export let renderForm = function (req, res){
 
 export let renderFormEn = function (req, res){
     res.render('form-en', {link:"form/", pageName:"Comments", layout : 'main-en.hbs'})
-}
-
-export let renderFormNotLogged = function(req, res){
-    res.render('form-log-in', {link:"form/", pageName:"Σχόλια"});
 }
 
 export let adminMain = function(req, res){
@@ -322,7 +324,7 @@ export let updateProfileEn = function (req, res){
     let client;
     modelDB.getClientById(id, (err, cl)=>{
         if(err){
-            res.redirect("/profile/");
+            res.redirect("/en/profile/");
         }
         else{
             client = cl[0];
@@ -345,11 +347,11 @@ export let updateProfileEn = function (req, res){
 
     modelDB.updateClient(newClientInfo, (err, result) => {
         if(err){
-            res.redirect('/profile/')
+            res.redirect('/en/profile/')
             console.log(err);
         }
         else{
-            res.redirect('/profile/')
+            res.redirect('/en/profile/')
         }
     })
 
