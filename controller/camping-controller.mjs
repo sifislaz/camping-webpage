@@ -1,7 +1,6 @@
 import dotenv from 'dotenv';
 import bcrypt from 'bcrypt';
 import * as modelDB from '../model/model.mjs';
-import { css } from 'styled-components';
 
 if(process.env.NODE_ENV !== 'production'){
     dotenv.config();
@@ -94,7 +93,7 @@ export let renderNewBookingEn = function(req, res){
             res.redirect('/en/bookings/')
         }
         else{
-            res.render('new-booking-en', {link:"newBooking/", pageName:"New Booking", search:false, info:info})
+            res.render('new-booking-en', {link:"newBooking/", pageName:"New Booking", search:false, info:info, layout:"main-en.hbs"})
         }
     })
 }
@@ -443,6 +442,48 @@ export let getAvailableSpacesEn = function(req, res){
         else{
             console.log(result);
             res.render('add-booking-en', {link:'newBooking/', pageName:'New Booking', result: result, search:true, details:[details] , layout:'main-en.hbs'})
+        }
+    })
+}
+
+export let updateClientBooking = function(req,res,next){
+    const client = {
+        "id" : req.session.loggedUserId,
+        "firstname" : req.body.firstname,
+        "lastname" : req.body.lastname,
+        "street" : req.body.street,
+        "num" : req.body.num,
+        "zip" : req.body.zip,
+        "cell" : req.body.cell
+    };
+    modelDB.updateClientFull(client,(err, result)=>{
+        if(err){
+            console.log(err);
+            res.render('new-booking', {link:'newBooking/', pageName:'Νέα Κράτηση', result:false, msg:"Κάτι πήγε στραβά"});
+        }
+        else{
+            next();
+        }
+    })
+}
+
+export let updateClientBookingEn = function(req,res,next){
+    const client = {
+        "id" : req.session.loggedUserId,
+        "firstname" : req.body.firstname,
+        "lastname" : req.body.lastname,
+        "street" : req.body.street,
+        "num" : req.body.num,
+        "zip" : req.body.zip,
+        "cell" : req.body.cell
+    };
+    modelDB.updateClientFull(client,(err, result)=>{
+        if(err){
+            console.log(err);
+            res.render('new-booking-en', {layout:'main-en.hbs', link:'newBooking/', pageName:'New Booking', result:false, msg:"Something went wrong"});
+        }
+        else{
+            next();
         }
     })
 }

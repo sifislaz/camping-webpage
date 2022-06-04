@@ -217,6 +217,20 @@ export async function updateClient(client, callback){
     }
 }
 
+export async function updateClientFull(client, callback){
+    const sqlQuery = `UPDATE "CLIENT" SET "firstname"='${client.firstname}', "lastname"='${client.lastname}', "mobile"='${client.cell}',
+        "address"='${client.street}', "address_num"='${client.num}', "zip"='${client.zip}' WHERE "id"='${client.id}'`;
+    try{
+        const client = await connect();
+        const res = await client.query(sqlQuery);
+        client.release();
+        callback(null, res.rows);
+    }
+    catch(err){
+        callback(err, null);
+    }
+}
+
 export async function getClientByUsername(username, callback){
     const sqlQuery = `SELECT "id", "username", "password" FROM "CLIENT" WHERE "username" = '${username}' LIMIT 1`;
     try{

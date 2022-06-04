@@ -13,9 +13,9 @@
                     </div>
                     <label for="address">Address</label>
                     <div id="address">
-                        <input type="text" name="street" id="street" placeholder="Street" required>
-                        <input type="text" name="num" id="num" placeholder="No" pattern="\d{1,3}[ΑΒΓABC]?" required>
-                        <input type="text" name="zip" id="zip" placeholder="Zip Code" pattern="\d{5}" required>
+                        <input type="text" name="street" id="street" placeholder="Street" {{#if address}}value="{{address}}"{{/if}} required>
+                        <input type="text" name="num" id="num" placeholder="No" pattern="\d{1,3}[ΑΒΓABC]?" {{#if address_num}}value="{{address_num}}"{{/if}} required>
+                        <input type="text" name="zip" id="zip" placeholder="Zip Code" pattern="\d{5}" {{#if zip}}value="{{zip}}"{{/if}} required>
                     </div>
                     <label for="tel">Contact Information</label>
                     <div id="tel">
