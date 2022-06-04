@@ -1,5 +1,7 @@
 const lang = document.querySelector("html").getAttribute("lang");
-function checkDates(){
+const myForm = document.querySelector("#search-form");
+
+function checkDates(e){
     let start = document.querySelector("#startdate");
     let end = document.querySelector("#enddate");
     if(end.value<start.value){
@@ -9,6 +11,7 @@ function checkDates(){
         else{
             alert("Check out date cannot be before check in date.")
         }
+        form.preventDefault();
     }
     if(Date.parse(start.value)<Date.now()){
         if(lang==='el'){
@@ -17,15 +20,15 @@ function checkDates(){
         else{
             alert("Check in date cannot be before today!");
         }
+        form.preventDefault();
     }
 }
 
-function checkInfo(){
+function checkInfo(e){
     let fname = document.querySelector("#firstname");
     let lname = document.querySelector("#lastname");
     let num = document.querySelector("#num");
     let zip = document.querySelector("#zip");
-    let land = document.querySelector("#land");
     let cell = document.querySelector("#cell");
     const noNumRegex = /(?=.*\d).*/;
     const numRegex = /\d{1,3}[ΑΒΓABC]?/;
@@ -39,6 +42,7 @@ function checkInfo(){
         else{
             alert("Names do not contain numbers!")
         }
+        form.preventDefault();
     }
     // check address number for validity
     if(!numRegex.test(num.value)){
@@ -48,7 +52,7 @@ function checkInfo(){
         else{
             alert("Street number contains up to 3 numbers and optional A,B,C")
         }
-        
+        form.preventDefault();
     }
     // check zip code for validity
     if(!zipRegex.test(zip.value)){
@@ -58,22 +62,24 @@ function checkInfo(){
         else{
             alert('Zip code consists of 5 numbers.');
         }
+        form.preventDefault();
     }
 
-    if(phoneRegex.test(land.value)||phoneRegex.test(cell.value)){
+    if(phoneRegex.test(cell.value)){
         if(lang==='el'){
-            alert("Τα τηλέφωνα περιέχουν μόνο αριθμούς");
+            alert("Το κινητό περιέχει μόνο αριθμούς");
         }
         else{
-            alert("Phones contain only numbers");
+            alert("Phone contains only numbers");
         }
+        form.preventDefault();
     }
 }
 
 // Search for the requirements and display results
 function searchSpace(){
-    const spaces = document.querySelector("#search-results");
-    spaces.style.display = "block";
+    const spaces = document.querySelector("#sub-form");
+    spaces.classList.remove("hide");
 }
 
 function activeButton(){
@@ -89,10 +95,6 @@ function activeButton(){
         })
     }
 }
-
-function check(){
-    checkInfo();
-    checkDates();
-}
-
+// myForm.addEventListener("submit",checkDates,true);
+// myForm.addEventListener("submit",checkInfo,true);
 activeButton();

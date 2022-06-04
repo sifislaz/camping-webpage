@@ -58,7 +58,7 @@ body{
     overflow: hidden;
     transition: color 1s;
     z-index: 1;
-    border: 0;
+    border: 1px solid #66b2ff;
     border-radius: 0.25em;
     flex-wrap: wrap;
     margin-bottom: 0.5em;

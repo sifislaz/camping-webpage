@@ -1,0 +1,83 @@
+
+        <div class="main-body">
+            <h1 class="title">Νέα Κράτηση</h1>
+            <hr>
+            <form action='/newBooking/' method="post" id="search-form">
+                <fieldset id="personal-info">
+                    <legend>Προσωπικές Πληροφορίες</legend>
+                    <label for="fullname">Ονοματεπώνυμο</label>
+                    <div id="fullname">
+                        <input type="text" id="firstname" name="firstname" placeholder="Όνομα" value="{{firstname}}" required>
+                        <input type="text" id="lastname" name="lastname" placeholder="Επίθετο" value="{{lastname}}"  required>
+                    </div>
+                    <label for="address">Διεύθυνση</label>
+                    <div id="address">
+                        <input type="text" name="street" id="street" placeholder="Οδός" required>
+                        <input type="text" name="num" id="num" placeholder="Αριθμός" pattern="\d{1,3}[ΑΒΓABC]?" required>
+                        <input type="text" name="zip" id="zip" placeholder="Τ.Κ." pattern="/\d{5}/" required>
+                    </div>
+                    <label for="tel">Τηλέφωνo Επικοινωνίας</label>
+                    <div id="tel">
+                        <input type="tel" name="cell" id="cell" placeholder="Κινητό τηλέφωνο" pattern="/\d{10}/" required>
+                        <span>Χωρίς κωδικό χώρας</span>
+                    </div>
+                </fieldset>
+                <hr>
+                <div id="booking-info">
+                    <fieldset>
+                        <legend>Πληροφορίες Κράτησης</legend>
+                        <label for="people">Αριθμός Ατόμων</label>
+                        <select name="people" id="people" min="1" max="4" required>
+                            <option value=""></option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                        <div class="dates">
+                            <label for="dates">Ημερομηνίες</label>
+                            <div id="dates">
+                                <span for="startdate">Από</span>
+                                <input type="date" id="startdate" name="checkin" required>
+                                <span for="enddate">Έως</span>
+                                <input type="date" id="enddate" name="checkout" required>
+                            </div>
+                        </div>
+                        <button class="my-button-green" id="search-btn" onclick="searchSpace()" type="submit">Αναζήτηση</button>
+                    </fieldset>
+                </div>
+            </form>
+           {{#if msg}}
+           <div class="alert alert-danger" role="alert">{{msg}}</div>
+           {{else}}
+           {{#if search}}
+           <div id="sub-form">
+               <form method="post" action="/addBooking/">
+                    <fieldset id="search-results">
+                        <legend>Διαθέσιμες Επιλογές</legend>
+                        {{#if result}}
+                        {{#each result}}
+                        <div id="avail-spaces">
+                            <button type="button">
+                                <h2 class="subtitle">{{this.no_of_people}} person tent space</h2>
+                                <div class="features">Παροχές:
+                                    <ul class="features-list">
+                                        <li>Πολύπριζο 5 θέσεων</li>
+                                        <li>Φως πάνω από την σκηνή</li>
+                                        <li>{{location}}m από την θάλασσα</li>
+                                    </ul>
+                                </div>
+                            </button>
+                        </div>
+                        {{/each}}
+                        <button class="my-button-green" type="submit" value="submit">Submit</button>
+                    </fieldset>
+                </form>
+                {{else}}
+                <div class="alert alert-primary" role="alert">Δυστυχώς δεν υπάρχουν διαθέσιμες επιλογές</div>
+                {{/if}}
+           </div>
+           {{/if}}
+           {{/if}}
+        </div>
+    

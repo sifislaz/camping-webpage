@@ -48,6 +48,11 @@ router.route('/bookings/').get(loginControl.checkAuthenticated, control.renderBo
 router.route('/en/bookings/').get(loginControl.checkAuthenticated, control.renderBookingsEn);
 router.route('/bookings/:bookingId/').get(loginControl.checkAuthenticated, control.renderBooking);
 router.route('/en/bookings/:bookingId/').get(loginControl.checkAuthenticated, control.renderBookingEn);
+router.route('/newBooking/').get(loginControl.checkAuthenticated, control.renderNewBooking);
+router.route('/en/newBooking/').get(loginControl.checkAuthenticated, control.renderNewBookingEn);
+router.route('/newBooking/').post(loginControl.checkAuthenticated, control.getAvailableSpaces);
+// router.route('/en/newBooking/').post(loginControl.checkAuthenticated, control.registerNewBookingEn);
+
 //-------------------------//
 
 //--------PROFILE---------//

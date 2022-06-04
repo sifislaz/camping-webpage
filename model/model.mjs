@@ -34,6 +34,37 @@ export async function getReservation(reservationId, callback){
     }
 }
 
+export async function insertReservation(reservation, callback){
+    const sqlQuery = `INSERT INTO "RESERVATION"("checkin", "checkout", "situation", "no_of_people", "client_id", "reservation_date")
+                    VALUES ('${reservation.checkin}',
+                            '${reservation.checkout}',
+                            '${reservation.situation}',
+                            '${reservation.no_of_people}',
+                            '${reservation.client_id}',
+                            '${reservation.reservation_date}')`;
+    try{
+        const client = await connect();
+        const res = await client.query(sqlQuery);
+        client.release();
+        callback(null, res.rows[0])
+    }
+    catch(err){
+        callback(err, null);
+    }
+}
+
+export async function reservedSpace(reservation, callback){
+    const sqlQuery = `INSERT INTO "RESERVES" VALUES('${reservation.reservation_id}', '${reservation.space_id}', '${reservation.checkin}', '${reservation.checkout}')`
+    try{
+        const client = await connect();
+        const res = await client.query(sqlQuery);
+        client.release();
+        callback(null, res.rows[0])
+    }
+    catch(err){
+        callback(err, null);
+    }
+}
 
 
 export async function getAllReservations(callback){
@@ -196,8 +227,15 @@ export async function insertClient(cl, callback){
 }
 
 
-export async function getSpacesByPeople(numOfPeople, callback){
-    const sqlQuery = `SELECT * FROM "SPACE" WHERE "no_of_people"='${numOfPeople}'`;
+export async function getSpacesByPeople(details, callback){
+
+    const sqlQuery = `SELECT * FROM "SPACE" WHERE "id" in (
+        SELECT "id" FROM "SPACE" EXCEPT
+        (
+        SELECT "id" FROM "SPACE" AS "S" JOIN "RESERVES" AS "R" ON "S"."id" = "space_id"
+        WHERE ('${details.checkin}' BETWEEN "R"."checkin" AND "R"."checkout") OR ('${details.checkout}' BETWEEN "R"."checkin" AND "R"."checkout")
+        )
+    ) AND "no_of_people" = '${details.nop}' ORDER BY "id"`;
     try{
         const client = await connect();
         const res = await client.query(sqlQuery);
@@ -205,6 +243,7 @@ export async function getSpacesByPeople(numOfPeople, callback){
         callback(null, res.rows)
     }
     catch(err){
+        console.log(err);
         callback(err, null);
     }
 }

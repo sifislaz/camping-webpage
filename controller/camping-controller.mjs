@@ -70,6 +70,14 @@ export let adminMain = function(req, res){
     res.render('admin', {link:"admin/", pageName:"Main"});
 }
 
+export let renderNewBooking = function(req, res){
+    res.render('new-booking', {link:"newBooking/", pageName:"New Booking", search:false})
+}
+
+export let renderNewBookingEn = function(req, res){
+    res.render('new-booking-en', {link:"newBooking/", pageName:"New Booking", layout:'main-en.hbs', search:false})
+}
+
 export let adminBookings = function(req, res){
     modelDB.getAllReservations((err,result)=>{
         if(err){
@@ -344,5 +352,28 @@ export let updateProfileEn = function (req, res){
             res.redirect('/profile/')
         }
     })
+
+}
+
+export let getAvailableSpaces =  function(req, res){
+    const id = req.session.loggedUserId;
+    const nop = req.body.people;
+    const details = {
+        "nop":nop,
+        "checkin":req.body.checkin,
+        "checkout":req.body.checkout
+    }
+    modelDB.getSpacesByPeople(details, (err, result) => {
+        if(err){
+            console.log(err);
+            res.render('new-booking', {link:'newBooking/', pageName:'Νέα Κράτηση', msg: 'Κάτι πήγε στραβά', search:false})
+        }
+        else{
+            console.log(result);
+            res.render('new-booking', {link:'newBooking/', pageName:'Νέα Κράτηση', result: result, search:true})
+        }
+    })
+
+
 
 }
