@@ -75,71 +75,6 @@ ALTER TABLE public."ADMIN" ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 
 
 --
--- TOC entry 210 (class 1259 OID 16400)
--- Name: CLIENT; Type: TABLE; Schema: public; Owner: postgres
---
-
-CREATE TABLE public."CLIENT" (
-    id integer NOT NULL,
-    username character varying(20) NOT NULL,
-    password character varying(80) NOT NULL,
-    email character varying(50) NOT NULL,
-    firstname character varying(30) NOT NULL,
-    lastname character varying(30) NOT NULL,
-    mobile character varying(10) NOT NULL,
-    address character varying(30),
-    address_num character varying(4),
-    zip character varying(5)
-);
-
-
-ALTER TABLE public."CLIENT" OWNER TO postgres;
-
---
--- TOC entry 216 (class 1259 OID 16461)
--- Name: CLIENT_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
---
-
-ALTER TABLE public."CLIENT" ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
-    SEQUENCE NAME public."CLIENT_id_seq"
-    START WITH 2
-    INCREMENT BY 1
-    MINVALUE 2
-    NO MAXVALUE
-    CACHE 1
-);
-
-
---
--- TOC entry 213 (class 1259 OID 16425)
--- Name: RATING; Type: TABLE; Schema: public; Owner: postgres
---
-
-CREATE TABLE public."RATING" (
-    id integer NOT NULL,
-    comment character varying(250) NOT NULL,
-    client_id integer
-);
-
-
-ALTER TABLE public."RATING" OWNER TO postgres;
-
---
--- TOC entry 217 (class 1259 OID 16462)
--- Name: RATING_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
---
-
-ALTER TABLE public."RATING" ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
-    SEQUENCE NAME public."RATING_id_seq"
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1
-);
-
-
---
 -- TOC entry 211 (class 1259 OID 16405)
 -- Name: RESERVATION; Type: TABLE; Schema: public; Owner: postgres
 --
@@ -218,74 +153,6 @@ ALTER TABLE public."SPACE" ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 
 
 --
--- TOC entry 3344 (class 0 OID 16395)
--- Dependencies: 209
--- Data for Name: ADMIN; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public."ADMIN" (id, username, password) FROM stdin;
-1	admin	$2b$10$geCSjN78b2Tkp1UMfMvFBeHOEupgOJvAhHCblcDeZWBQyUlrRnLLG
-\.
-
-
---
--- TOC entry 3345 (class 0 OID 16400)
--- Dependencies: 210
--- Data for Name: CLIENT; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public."CLIENT" (id, username, password, email, firstname, lastname, mobile, address, address_num, zip) FROM stdin;
-2	mikroszaios	$2b$10$b.zFzy9wv2jdFANu/3Smx.dPsgLzDzoRalkJjh/6alWOJl07M4RwC	test@bloco.gr	tasos	koustas	6969696969	\N	\N	\N
-3	babalos	$2b$10$IdiJY2xpNVxU83Az5zwIo.WH5u7bdWilRQ3S1AmFuhjZ9UEHV7G/u	babalos@babalos.com	Babis	Babi	6965482225	\N	\N	\N
-8	asteios	$2b$10$4gHHB8znSR6fqIZIOvdJ/O2yaqcIHs1XukCepmICy5Lvkff48BbmW	pap@pap.com	nnnn	aaaassy	678123456	\N	\N	\N
-\.
-
-
---
--- TOC entry 3348 (class 0 OID 16425)
--- Dependencies: 213
--- Data for Name: RATING; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public."RATING" (id, comment, client_id) FROM stdin;
-\.
-
-
---
--- TOC entry 3346 (class 0 OID 16405)
--- Dependencies: 211
--- Data for Name: RESERVATION; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public."RESERVATION" (id, checkin, checkout, situation, no_of_people, client_id, reservation_date) FROM stdin;
-1	2022-07-25	2022-07-29	WAITING	4	2	2022-06-01
-\.
-
-
---
--- TOC entry 3349 (class 0 OID 16445)
--- Dependencies: 214
--- Data for Name: RESERVES; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public."RESERVES" (reservation_id, space_id, checkin, checkout) FROM stdin;
-1	1	2022-07-25	2022-07-29
-\.
-
-
---
--- TOC entry 3347 (class 0 OID 16415)
--- Dependencies: 212
--- Data for Name: SPACE; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public."SPACE" (id, location, no_of_people, admin_id) FROM stdin;
-1	200	2	1
-2	200	2	1
-\.
-
-
---
 -- TOC entry 3361 (class 0 OID 0)
 -- Dependencies: 215
 -- Name: ADMIN_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
@@ -301,15 +168,6 @@ SELECT pg_catalog.setval('public."ADMIN_id_seq"', 1, true);
 --
 
 SELECT pg_catalog.setval('public."CLIENT_id_seq"', 11, true);
-
-
---
--- TOC entry 3363 (class 0 OID 0)
--- Dependencies: 217
--- Name: RATING_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public."RATING_id_seq"', 1, false);
 
 
 --
@@ -349,15 +207,6 @@ ALTER TABLE ONLY public."CLIENT"
 
 
 --
--- TOC entry 3197 (class 2606 OID 16429)
--- Name: RATING RATING_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public."RATING"
-    ADD CONSTRAINT "RATING_pkey" PRIMARY KEY (id);
-
-
---
 -- TOC entry 3193 (class 2606 OID 16409)
 -- Name: RESERVATION RESERVATION_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
@@ -382,15 +231,6 @@ ALTER TABLE ONLY public."RESERVES"
 
 ALTER TABLE ONLY public."SPACE"
     ADD CONSTRAINT "SPACE_pkey" PRIMARY KEY (id);
-
-
---
--- TOC entry 3202 (class 2606 OID 16465)
--- Name: RATING RATING_client_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public."RATING"
-    ADD CONSTRAINT "RATING_client_id_fkey" FOREIGN KEY (client_id) REFERENCES public."CLIENT"(id) ON UPDATE CASCADE ON DELETE RESTRICT NOT VALID;
 
 
 --
