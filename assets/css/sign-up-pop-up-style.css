@@ -1,13 +1,14 @@
-#sign-up-form{
-    display: none;
-}
-
 .img{
     height: 250px;
     background-position: center;
     background-size: cover;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+}
+
+#sign-up-form{
+    border-radius: 10px !important;
+    border: none;
 }
 
 #sign-up-card{
@@ -63,8 +64,7 @@
 }
 
 hr{
-    width: 65%;
-    margin: 0 auto;
+    width: 50%;
 }
 
 #sign-in{

@@ -1,0 +1,109 @@
+.main-body{
+    margin:1em;
+}
+
+.title{
+    font-family: 'Didact Gothic', snas-serif;
+    font-size:3em;
+    color:#66b2ff;
+    text-align: center;
+    margin:0 auto;
+}
+
+form{
+    border: 1px solid #66b2ff;
+    border-radius: 1em;
+    padding: 0.5em 1em;
+    font-family: 'Didact Gothic', sans-serif;
+    margin-top: 1em;
+}
+
+.cont{
+    text-align: center;
+}
+
+legend{
+    color:#00cc66;
+}
+
+input{
+    border: 1px solid #00cc66;
+    border-radius: 0.5em;
+    margin: 0.5em 0.5em 0.5em 0;
+}
+
+.my-button-blue{
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #66B2FF;
+    padding: 15px 30px;
+    position: relative;
+    overflow: hidden;
+    transition: color 1s;
+    z-index: 1;
+    display: block;
+    border: #66B2FF;
+    border-radius: 0.25em;
+    flex-wrap: wrap;
+    margin: 1em auto;
+}
+
+.my-button-blue:hover{
+    color: #ffffff;
+}
+
+.my-button-blue::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50px;
+    width: 0;
+    height: 100%;
+    background-color: #66B2FF;
+    transform: skewX(35deg);
+    z-index: -1;
+    transition: width 1s;
+}
+
+.my-button-blue:hover::before{
+    width: 150%;
+}
+
+.my-button-red{
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: indianred;
+    padding: 15px 30px;
+    position: relative;
+    overflow: hidden;
+    transition: color 1s;
+    z-index: 1;
+    display: block;
+    border: indianred;
+    border-radius: 0.25em;
+    flex-wrap: wrap;
+    margin: 1em auto;
+}
+
+.my-button-red:hover{
+    color: #ffffff;
+}
+
+.my-button-red::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50px;
+    width: 0;
+    height: 100%;
+    background-color: indianred;
+    transform: skewX(35deg);
+    z-index: -1;
+    transition: width 1s;
+}
+
+.my-button-red:hover::before{
+    width: 150%;
+}

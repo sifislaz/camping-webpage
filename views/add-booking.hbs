@@ -1,0 +1,80 @@
+
+{{#if msg}}
+    <div class="alert alert-danger" role="alert">{{msg}}</div>
+{{else}}
+    {{#if search}}
+        {{#each details}}
+        <form action='/addBooking' method="post" id="search-form">
+            <fieldset id="personal-info">
+                <legend>Προσωπικές Πληροφορίες</legend>
+                <label for="fullname">Ονοματεπώνυμο</label>
+                <div id="fullname">
+                    <input type="text" id="firstname" name="firstname" placeholder="Όνομα" value="{{fname}}" disabled>
+                    <input type="text" id="lastname" name="lastname" placeholder="Επίθετο" value="{{lname}}" disabled>
+                </div>
+                <label for="address">Διεύθυνση</label>
+                <div id="address">
+                    <input type="text" name="street" id="street" placeholder="Οδός" value="{{street}}" disabled>
+                    <input type="text" name="num" id="num" placeholder="Αριθμός" value="{{num}}" disabled>
+                    <input type="text" name="zip" id="zip" placeholder="Τ.Κ." value="{{zip}}" disabled>
+                </div>
+                <label for="tel">Τηλέφωνo Επικοινωνίας</label>
+                <div id="tel">
+                    <input type="tel" name="cell" id="cell" placeholder="Κινητό τηλέφωνο" value="{{mobile}}" disabled>
+                    <span>Χωρίς κωδικό χώρας</span>
+                </div>
+            </fieldset>
+            <hr>
+            <div id="booking-info">
+                <fieldset>
+                    <legend>Πληροφορίες Κράτησης</legend>
+                    <label for="people">Αριθμός Ατόμων</label>
+                    <select name="people" id="people">
+                        <option value=""></option>
+                        <option value="1" {{#ifEqual nop '1'}}selected{{/ifEqual}}>1</option>
+                        <option value="2" {{#ifEqual nop '2'}}selected{{/ifEqual}}>2</option>
+                        <option value="3" {{#ifEqual nop '3'}}selected{{/ifEqual}}>3</option>
+                        <option value="4" {{#ifEqual nop '4'}}selected{{/ifEqual}}>4</option>
+                    </select>
+                    <div class="dates">
+                        <label for="dates">Ημερομηνίες</label>
+                        <div id="dates">
+                            <span for="startdate">Από</span>
+                            <input type="date" id="startdate" name="checkin" value="{{checkin}}">
+                            <span for="enddate">Έως</span>
+                            <input type="date" id="enddate" name="checkout" value="{{checkout}}">
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        {{/each}}
+        <div id="sub-form">
+        <fieldset id="search-results">
+            <legend>Διαθέσιμες Επιλογές</legend>
+            {{#if result}}
+                {{#each result}}
+                    <div id="avail-spaces">
+                        <div id="availableSpaceDetails" >
+                            <h2 class="subtitle">Χώρος για {{no_of_people}} άτομα</h2>
+                            <div class="features">Παροχές:
+                                <ul class="features-list">
+                                    <li>Πολύπριζο 5 θέσεων</li>
+                                    <li>Φως πάνω από την σκηνή</li>
+                                    <li>{{location}}m από την θάλασσα</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="spaceCheck">
+                            <input type="checkbox" value="{{id}}" name="selectedspace">
+                        </div>
+                    </div>
+                {{/each}}
+                <button class="my-button-green" type="submit" value="submit">Υποβολη</button>
+        </fieldset>
+        </div>
+        </form>
+        {{else}}
+            <div class="alert alert-primary" role="alert">Δυστυχώς δεν υπάρχουν διαθέσιμες επιλογές</div>
+        {{/if}}
+    {{/if}}
+{{/if}}

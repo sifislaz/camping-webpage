@@ -12,7 +12,8 @@
 
 hr{
     width:50%;
-    margin: 1em auto;
+    /* margin: 1em auto; */
+    transform: translateX(50%);
 }
 
 table{

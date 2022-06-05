@@ -1,0 +1,61 @@
+
+    <div class="header">
+        <header>
+            <div class="container-fluid">
+                <div class="row">
+                    <nav class="navbar navbar-expand-lg navbar-default">
+                        <div class="container-fluid">
+                            <div class="navbar-brand">
+                                <a href="/admin/">Cretan Camping</a>
+                            </div>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="fa fa-bars toggler"></span> <!--fa fa-bars ico-->
+                            </button>
+                        </div>
+                        <div class="collapse navbar-collapse" id="navbarCollapse">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    {{#ifEqual link "admin/"}}
+                                        <a class="nav-link active" href="/admin/">ADMIN&nbsp;PANEL</a>
+                                    {{else}}
+                                        <a class="nav-link" href="/admin/">ADMIN&nbsp;PANEL</a>
+                                    {{/ifEqual}}
+                                </li>
+                                <li class="nav-item">
+                                    {{#ifEqual link "admin/bookings/"}}
+                                        <a class="nav-link active" href="/admin/bookings/">ΚΡΑΤΗΣΕΙΣ</a>
+                                    {{else}}
+                                        <a class="nav-link" href="/admin/bookings/">ΚΡΑΤΗΣΕΙΣ</a>
+                                    {{/ifEqual}}
+                                </li>
+                                <li class="nav-item">
+                                    {{#ifEqual link "admin/space/"}}
+                                        <a class="nav-link active" href="/admin/space/">ΠΡΟΣΘΗΚΗ/ΑΦΑΙΡΕΣΗ&nbsp;ΧΩΡΟΥ</a>
+                                    {{else}}
+                                        <a class="nav-link" href="/admin/space/">ΠΡΟΣΘΗΚΗ/ΑΦΑΙΡΕΣΗ&nbsp;ΧΩΡΟΥ</a>
+                                    {{/ifEqual}}
+                                </li>
+                                <li class="nav-item">
+                                    {{#ifEqual link "admin/getSpaces/"}}
+                                        <a class="nav-link active" href="/admin/getSpaces/">ΧΩΡΟΙ</a>
+                                    {{else}}
+                                        <a class="nav-link" href="/admin/getSpaces/">ΧΩΡΟΙ</a>
+                                    {{/ifEqual}}
+                                </li>
+                                <li class="nav-item">
+                                    {{#ifEqual link "admin/statistics/"}}
+                                        <a class="nav-link active" href="/admin/statistics/">ΣΤΑΤΙΣΤΙΚΑ</a>
+                                    {{else}}
+                                        <a class="nav-link" href="/admin/statistics/">ΣΤΑΤΙΣΤΙΚΑ</a>
+                                    {{/ifEqual}}
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/logout/">ΑΠΟΣΥΝΔΕΣΗ</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </header>
+    </div>

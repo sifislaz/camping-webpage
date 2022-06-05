@@ -1,0 +1,78 @@
+
+        <div class="main-body">
+            <h1 class="title">Edit Booking</h1>
+            <hr>
+            {{#if message}}
+            <div class="alert alert-danger" role="alert">{{message}}</div>
+            {{else}}
+            
+            <h2 class="subtitle">Your Booking</h2>
+            {{#each space}}
+            <div id="booked-space">
+                <h3 class="space-title">{{space_capacity}} person tent space</h3>
+                <div>Features:</div>
+                <ul class="features">
+                    <li>5 socket power strip</li>
+                    <li>Light above tent space</li>
+                    <li>{{location}}m from beach</li>
+                </ul>
+            </div>
+            {{/each}}
+            <h2 class="subtitle">Cancel booking</h2>
+            {{#each booking}}
+            <form action="/cancelBookings/{{id}}/" method="post">
+                <button class="my-button-red" type="submit">Cancel Booking</button>
+            </form>
+
+            <h2 class="subtitle">Edit Booking</h2>
+            <form method="post" action="/en/bookings/{{id}}/{{#if check}}edit/{{/if}}">
+                <div class="formfield">
+                    <label for="booking-id">Booking no:</label>
+                    <input type="text" name="id" id="booking-id" value="{{id}}" disabled>
+                </div>
+                <div class="formfield">
+                    <label for="people">No of people</label>
+                    <select name="people" id="people">
+                        <option value=""></option>
+                        <option value="1"{{#ifEqual nop '1'}}selected{{/ifEqual}}>1</option>
+                        <option value="2"{{#ifEqual nop '2'}}selected{{/ifEqual}}>2</option>
+                        <option value="3"{{#ifEqual nop '3'}}selected{{/ifEqual}}>3</option>
+                        <option value="4"{{#ifEqual nop '4'}}selected{{/ifEqual}}>4</option>
+                    </select>
+                </div>
+                <div class="formfield">
+                    <label for="dates">Booking Dates</label>
+                        <div id="dates">
+                            <span for="startdate">From</span>
+                            <input type="date" name="checkin" id="startdate" value="{{checkin}}">
+                            <span for="enddate">To</span>
+                            <input type="date" name="checkout" id="enddate" value="{{checkout}}">
+                        </div>
+                </div>
+                {{/each}}
+                {{#unless newResults}}
+                <button class="my-button-green" id="search-btn" type="submit">Search</button>
+                {{/unless}}
+                {{#if newResults}}
+                {{#each newResults}}
+                <div id="avail-spaces">
+                    <div id="availableSpaceDetails" >
+                        <h3 class="space-title">{{no_of_people}} person tent space</h3>
+                        <div>Features:</div>
+                        <ul class="features">
+                            <li>5 socket power strip</li>
+                            <li>Light above tent space</li>
+                            <li>{{location}}m from beach</li>
+                        </ul>
+                    </div>
+                    <div id="spaceCheck">
+                        <input type="checkbox" value="{{id}}" name="selectedspace">
+                    </div>
+                </div>
+                {{/each}}
+                <button class="my-button-green" id="search-btn" type="submit">Save Changes</button>
+            </form>
+            {{/if}}
+            {{/if}}
+        </div>
+

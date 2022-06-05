@@ -1,5 +1,6 @@
 /* Button Green */
 .my-button-green{
+    font-family: 'Didact Gothic', sans-serif;
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -36,6 +37,7 @@
 
 /* Button Blue */
 .my-button-blue{
+    font-family: 'Didact Gothic', sans-serif;
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -69,6 +71,15 @@
     width: 150%;
 }
 /* Button Blue*/
+.title{
+    color: #66B2FF;
+    font-family: 'Didact Gothic', sans-serif;
+    text-align: center;
+    font-size: 3em;
+}
+.disp{
+    margin: 120px;
+}
 
 .name{
     font-size: 24px;
@@ -89,10 +100,12 @@
     background-color: #eee;
     border-radius: 10px;
     padding:12px;
+    font-family: 'Didact Gothic', sans-serif;
 }
 
 hr{
-    width: 65%;
+    width: 50%;
+    transform: translateX(50%);
 }
 
 #basic-addon2 i{

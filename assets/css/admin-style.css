@@ -1,0 +1,47 @@
+.flx{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+    margin: 1em auto;
+    font-family: 'Didact Gothic', sans-serif;
+}
+
+.my-button-blue{
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 2px;
+    color: #66B2FF;
+    padding: 15px 30px;
+    position: relative;
+    overflow: hidden;
+    transition: color 1s;
+    z-index: 1;
+    display: block;
+    border: 1px solid #66B2FF;
+    border-radius: 0.25em;
+    flex-wrap: wrap;
+    margin:0.5em;
+}
+
+.my-button-blue:hover{
+    color: #ffffff;
+}
+
+.my-button-blue::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50px;
+    width: 0;
+    height: 100%;
+    background-color: #66B2FF;
+    transform: skewX(35deg);
+    z-index: -1;
+    transition: width 1s;
+}
+
+.my-button-blue:hover::before{
+    width: 150%;
+}

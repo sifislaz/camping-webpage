@@ -1,0 +1,30 @@
+{
+  "name": "camping-webpage",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./app.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sifislaz/camping-webpage.git"
+  },
+  "engines":{
+    "node":"16.15.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "express-handlebars": "^6.0.6",
+    "express-session": "^1.17.3",
+    "nodemon": "^2.0.16",
+    "passport": "^0.6.0",
+    "pg": "^8.7.3"
+  }
+}

@@ -7,7 +7,7 @@
 .navbar{
     background-color: #404040;
     width:100%;
-    margin-top: 1em;
+    margin-top: 1em !important;
 }
 
 .lang-button a{
@@ -33,7 +33,6 @@
     border-radius: 0.25em;
 }
 
-
 .toggler{
     color:#0080ff;
     font-size:1.5em !important;
@@ -53,7 +52,7 @@
 
 .navbar-brand{
     font-family:'Didact Gothic', sans-serif;
-    font-size:1em;
+    font-size:1em !important;
 }
 .active{
     background-color: #ffffff25;
@@ -63,7 +62,7 @@
 .nav-item{
     font-family: 'Didact Gothic', sans-serif;
     font-size: 0.75em;
-    width:auto;
+    width: auto !important;
 }
 
 .nav-link:hover{
@@ -74,19 +73,15 @@
     color:#0080ff;
 }
 
-.nav-drop-link{
-    pointer-events: none;
-}
-
 .nav-drop-menu{
-    background-color: #404040;
-    border-radius: 1em;
+    background-color: #404040 !important;
+    border-radius: 1em !important;
     font-family: 'Didact Gothic', sans-serif;
-    font-size: 1em;
-    z-index: 100;
+    font-size: 1em !important;
+    z-index: 100 !important;
     display:none;
     position:absolute;
-    padding: 0;
+    padding: 0 !important;
 }
 
 .nav-drop-item:hover{
@@ -118,11 +113,11 @@
     .nav-item{
         font-family: 'Didact Gothic', sans-serif;
         font-size:0.8em;
-        text-align: center;
+        text-align: center !important;
     }
 
     .nav-drop-item{
-        text-align: center;
+        text-align: center !important;
     }
 
     .nav-drop-menu{
@@ -136,6 +131,7 @@
         background-color: #404040;
         width:100%;
     }
+
 }
 
 @media screen and (min-width:1000px){
@@ -151,6 +147,10 @@
     .dropdown:hover .nav-drop-menu{
         display: block;
         right:1em;
+    }
+
+    .nav-drop-link{
+        pointer-events: none;
     }
 }
 

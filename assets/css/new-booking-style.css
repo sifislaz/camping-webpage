@@ -25,7 +25,6 @@ legend{
 }
 
 label{
-    /* margin:0.5em 0; */
     color:#66b2ff;
 }
 
@@ -33,7 +32,7 @@ label{
 input{
     border: 1px solid #00cc66;
     border-radius: 0.5em;
-    margin: 0.5em 0.5em 0.5em 0;
+    margin: 0.5em 0.5em 0.5em 0 !important;
 }
 
 input[type=text]{
@@ -122,17 +121,30 @@ input[type=text]{
     width: 150%;
 }
 
-#search-results{
+.hide{
     display:none;
+}
+
+#sub-form{
+    margin: 0.5em 0;
 }
 
 #avail-spaces{
     margin: 0 auto;
     padding: 0;
     width:85%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5em;
 }
 
-#avail-spaces>button{
+#spaceCheck{
+    display: flex;
+    align-items: center;
+}
+
+#avail-spaces{
     width:85%;
     border-radius: 1em;
     border:1px solid #66b2ff55;
@@ -146,7 +158,7 @@ input[type=text]{
 
 hr{
     width:50%;
-    margin:1em auto;
+    transform: translateX(50%);
 }
 
 .test{

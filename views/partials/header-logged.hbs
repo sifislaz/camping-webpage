@@ -1,0 +1,95 @@
+
+    <div class="header">
+        <header>
+            <div class="lang-button">
+                <a id="lang-btn" href="/en/{{link}}">EN</a>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <nav class="navbar navbar-expand-lg navbar-default">
+                        <div class="container-fluid">
+                            <div class="navbar-brand">
+                                <a href="/">Cretan Camping</a>
+                            </div>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="fa fa-bars toggler"></span> <!--fa fa-bars ico-->
+                            </button>
+                        </div>
+                        <div class="collapse navbar-collapse" id="navbarCollapse">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    {{#ifEqual link ""}} 
+                                        <a class="nav-link active" href="/">ΑΡΧΙΚΗ</a>
+                                    {{else}}
+                                        <a class="nav-link" href="/">ΑΡΧΙΚΗ</a>
+                                    {{/ifEqual}}
+                                </li>
+                                <li class="nav-item dropdown">
+                                    {{#ifEqual link "camping/facilities/"}}
+                                        <a class="active nav-link dropdown-toggle nav-drop-link" href="#" id="navbarDropdownLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">ΤΟ CAMPING</a>
+                                        <ul class="dropdown-menu nav-drop-menu" aria-labelledby="navbarDropdownLink">
+                                            <li class="active"><a class="dropdown-item nav-drop-item" href="/camping/facilities/">ΕΓΚΑΤΑΣΤΑΣΕΙΣ</a></li>
+                                            <li><a class="dropdown-item nav-drop-item" href="/camping/season/">ΠΕΡΙΟΔΟΣ ΛΕΙΤΟΥΡΓΙΑΣ</a></li>
+                                            <li><a class="dropdown-item nav-drop-item" href="/camping/activities/">ΔΡΑΣΤΗΡΙΟΤΗΤΕΣ</a></li>
+                                        </ul>
+                                    {{else ifEqual link "camping/season/"}}
+                                        <a class="active nav-link dropdown-toggle nav-drop-link" href="#" id="navbarDropdownLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">ΤΟ CAMPING</a>
+                                        <ul class="dropdown-menu nav-drop-menu" aria-labelledby="navbarDropdownLink">
+                                            <li><a class="dropdown-item nav-drop-item" href="/camping/facilities/">ΕΓΚΑΤΑΣΤΑΣΕΙΣ</a></li>
+                                            <li class="active"><a class="dropdown-item nav-drop-item" href="/camping/season/">ΠΕΡΙΟΔΟΣ ΛΕΙΤΟΥΡΓΙΑΣ</a></li>
+                                            <li><a class="dropdown-item nav-drop-item" href="/camping/activities/">ΔΡΑΣΤΗΡΙΟΤΗΤΕΣ</a></li>
+                                        </ul>
+                                    {{else ifEqual link "camping/activities/"}}
+                                        <a class="active nav-link dropdown-toggle nav-drop-link" href="#" id="navbarDropdownLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">ΤΟ CAMPING</a>
+                                        <ul class="dropdown-menu nav-drop-menu" aria-labelledby="navbarDropdownLink">
+                                            <li><a class="dropdown-item nav-drop-item" href="/camping/facilities/">ΕΓΚΑΤΑΣΤΑΣΕΙΣ</a></li>
+                                            <li><a class="dropdown-item nav-drop-item" href="/camping/season/">ΠΕΡΙΟΔΟΣ ΛΕΙΤΟΥΡΓΙΑΣ</a></li>
+                                            <li class="active"><a class="dropdown-item nav-drop-item" href="/camping/activities/">ΔΡΑΣΤΗΡΙΟΤΗΤΕΣ</a></li>
+                                        </ul>
+                                    {{else}}
+                                        <a class="nav-link dropdown-toggle nav-drop-link" href="#" id="navbarDropdownLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">ΤΟ CAMPING</a>
+                                        <ul class="dropdown-menu nav-drop-menu" aria-labelledby="navbarDropdownLink">
+                                            <li><a class="dropdown-item nav-drop-item" href="/camping/facilities/">ΕΓΚΑΤΑΣΤΑΣΕΙΣ</a></li>
+                                            <li><a class="dropdown-item nav-drop-item" href="/camping/season/">ΠΕΡΙΟΔΟΣ ΛΕΙΤΟΥΡΓΙΑΣ</a></li>
+                                            <li><a class="dropdown-item nav-drop-item" href="/camping/activities/">ΔΡΑΣΤΗΡΙΟΤΗΤΕΣ</a></li>
+                                        </ul>
+                                    {{/ifEqual}}
+                                </li>
+                                <li class="nav-item">
+                                    {{#ifEqual link "pricelist/"}}
+                                        <a class="active nav-link" href="/pricelist/">ΤΙΜΟΚΑΤΑΛΟΓΟΣ</a>
+                                    {{else}}
+                                        <a class="nav-link" href="/pricelist/">ΤΙΜΟΚΑΤΑΛΟΓΟΣ</a>
+                                    {{/ifEqual}}
+                                </li>
+                                <li class="nav-item">
+                                    {{#ifEqual link "crete/"}}
+                                        <a class="active nav-link" href="/crete/">Η&nbsp;ΚΡΗΤΗ</a>
+                                    {{else}}
+                                        <a class="nav-link" href="/crete/">Η&nbsp;ΚΡΗΤΗ</a>
+                                    {{/ifEqual}}
+                                </li>
+                                <li class="nav-item">
+                                    {{#ifEqual link "form/"}}
+                                        <a class="active nav-link" href="/form/">ΣΧΟΛΙΑ</a>
+                                    {{else}}
+                                        <a class="nav-link" href="/form/">ΣΧΟΛΙΑ</a>
+                                    {{/ifEqual}}
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle nav-drop-link" href="#" id="navbarDropdownLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">ΧΡΗΣΤΗΣ</a>
+                                    <ul class="dropdown-menu nav-drop-menu" aria-labelledby="navbarDropdownLink">
+                                        <li><a class="dropdown-item nav-drop-item" href="/profile/">ΠΡΟΦΙΛ<span class="fa fa-user icons"></span></a></li>
+                                        <li><a class="dropdown-item nav-drop-item" href="/bookings/">ΚΡΑΤΗΣΕΙΣ<span class="fa fa-calendar icons"></span></a></li>
+                                        <li><a class="dropdown-item nav-drop-item" href="/logout/">ΑΠΟΣΥΝΔΕΣΗ<span class="fa fa-sign-out icons"></span></a></li>
+
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </header>
+    </div>
+</body>

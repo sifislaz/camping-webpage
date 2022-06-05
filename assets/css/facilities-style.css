@@ -17,7 +17,7 @@ body {
 	position: relative;
 	vertical-align: top;
 	margin: 10px;
-	font-family: 'helvetica', san-serif;
+	font-family: 'Didact Gothic', sans-serif;
 	min-height: 25vh;
 	background: #fff;
 	border: 1px solid #00cc66;
@@ -79,7 +79,7 @@ body {
 	position: relative;
 	vertical-align: top;
 	margin: 10px;
-	font-family: 'helvetica', san-serif;
+	font-family: 'Didact Gothic', sans-serif;
 	min-height: 25vh;
 	background: #fff;
 	border: 1px solid #66b2ff;
@@ -125,5 +125,56 @@ body {
 }
 
 .photo-container{
-    width: 70%;
+    box-sizing: border-box;
+    position:relative;
+    width:30%;
+    height:40%;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.slides{
+    display:none;
+    border-radius: 10px;
+}
+
+.slides img{
+    border-radius: 10px;
+}
+.prev,.next{
+    cursor:pointer;
+    position:absolute;
+    top:40%;
+    width:auto;
+    padding:1em;
+    margin: auto 0;
+    color:#fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 0.2em;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.next{
+    right:0;
+    border-radius: 0.2em;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(100, 100, 100, 0.5);
+  color:#fff;
+}
+
+.title{
+    color:#66b2ff;
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 3em;
+    text-align: center;
+}
+
+hr{
+    width:50%;
+    margin:1em auto;
+	transform: translateX(50%);
 }

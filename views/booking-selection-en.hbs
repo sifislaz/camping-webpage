@@ -1,0 +1,38 @@
+
+    <div class="container-fluid disp">
+        <h1 class="title">Bookings</h1>
+        <hr>
+        <div class="container main-cont">
+            <div class="row">
+                <div class="col-lg-6 clmn">
+                    <h2 class="subtitle">New Booking</h2>
+                <div class="book-button"><a href="/en/newBooking/" class="my-button-blue">New Booking</a></div>
+                </div>
+                <div class="col-lg-6 clmn">
+                    <h2 class="subtitle">Manage Bookings</h2>
+                    <table>
+                        <thead>
+                            <th>Booking No.</th>
+                            <th>Booking State</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                {{#each bookings}}
+                                    <tr>
+                                        {{#ifEqual situation "WAITING"}}
+                                        <td><a href="/en/bookings/{{id}}/" class="go-to-booking">{{id}}</a></td>
+                                        {{else ifEqual situation "ΣΕ ΑΝΑΜΟΝΗ"}}
+                                        <td><a href="/en/bookings/{{id}}/" class="go-to-booking">{{id}}</a></td>
+                                        {{else}}
+                                        <td>{{id}}</td>
+                                        {{/ifEqual}}
+                                        <td class="situation">{{situation}}</td>
+                                    </tr>
+                                {{/each}}
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>

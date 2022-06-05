@@ -1,0 +1,77 @@
+
+        <div class="main-body">
+            <h1 class="title">Επεξεργασία Κράτησης</h1>
+            <hr>
+            {{#if message}}
+            <div class="alert alert-danger" role="alert">{{message}}</div>
+            {{else}}
+            
+            <h2 class="subtitle">Η κράτησή σας</h2>
+            {{#each space}}
+            <div id="booked-space">
+                <h3 class="space-title">Χώρος για {{space_capacity}} άτομα</h3>
+                <div>Χαρακτηριστικά:</div>
+                <ul class="features">
+                    <li>Πολύπριζο 5 θέσεων</li>
+                    <li>Φως πάνω από τον χώρο της σκηνής</li>
+                    <li>{{location}}m από την θάλασσα</li>
+                </ul>
+            </div>
+            {{/each}}
+            <h2 class="subtitle">Ακύρωση Κράτησης</h2>
+            {{#each booking}}
+            <form action="/cancelBookings/{{id}}/" method="post">
+                <button class="my-button-red" type="submit">Ακυρωση Κρατησης</button>
+            </form>
+
+            <h2 class="subtitle">Αλλαγή Κράτησης</h2>
+            <form method="post" action="/bookings/{{id}}/{{#if check}}edit/{{/if}}">
+                <div class="formfield">
+                    <label for="booking-id">Αρ. Κράτησης:</label>
+                    <input type="text" name="id" id="booking-id" value="{{id}}" disabled>
+                </div>
+                <div class="formfield">
+                    <label for="people">Αριθμός Ατόμων</label>
+                    <select name="people" id="people">
+                        <option value=""></option>
+                        <option value="1"{{#ifEqual nop '1'}}selected{{/ifEqual}}>1</option>
+                        <option value="2"{{#ifEqual nop '2'}}selected{{/ifEqual}}>2</option>
+                        <option value="3"{{#ifEqual nop '3'}}selected{{/ifEqual}}>3</option>
+                        <option value="4"{{#ifEqual nop '4'}}selected{{/ifEqual}}>4</option>
+                    </select>
+                </div>
+                <div class="formfield">
+                    <label for="dates">Ημερομηνίες Κράτησης</label>
+                        <div id="dates">
+                            <span for="startdate">Από</span>
+                            <input type="date" name="checkin" id="startdate" value="{{checkin}}">
+                            <span for="enddate">Έως</span>
+                            <input type="date" name="checkout" id="enddate" value="{{checkout}}">
+                        </div>
+                </div>
+                {{/each}}
+                {{#unless newResults}}
+                <button class="my-button-green" id="search-btn" type="submit">Αναζήτηση</button>
+                {{/unless}}
+                {{#if newResults}}
+                {{#each newResults}}
+                <div id="avail-spaces">
+                    <div id="availableSpaceDetails" >
+                        <h3 class="space-title">Χώρος για {{no_of_people}} άτομα</h3>
+                        <div class="features">Παροχές:</div>
+                        <ul class="features-list">
+                            <li>Πολύπριζο 5 θέσεων</li>
+                            <li>Φως πάνω από την σκηνή</li>
+                            <li>{{location}}m από την θάλασσα</li>
+                        </ul>
+                    </div>
+                    <div id="spaceCheck">
+                        <input type="checkbox" value="{{id}}" name="selectedspace">
+                    </div>
+                </div>
+                {{/each}}
+                <button class="my-button-green" id="search-btn" type="submit">Αποθηκευση Αλλαγων</button>
+            </form>
+            {{/if}}
+            {{/if}}
+        </div>

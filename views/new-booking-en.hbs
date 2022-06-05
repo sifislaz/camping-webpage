@@ -1,0 +1,84 @@
+
+        <div class="main-body">
+            <h1 class="title">New Booking</h1>
+            <hr>
+            <form action='/en/newBooking/addBooking' method="post" id="search-form">
+                {{#each info}}
+                <fieldset id="personal-info">
+                    <legend>Personal Information</legend>
+                    <label for="fullname">Full Name</label>
+                    <div id="fullname">
+                        <input type="text" id="firstname" name="firstname" placeholder="First Name" value="{{firstname}}" required>
+                        <input type="text" id="lastname" name="lastname" placeholder="Last Name" value="{{lastname}}" required>
+                    </div>
+                    <label for="address">Address</label>
+                    <div id="address">
+                        <input type="text" name="street" id="street" placeholder="Street" {{#if address}}value="{{address}}"{{/if}} required>
+                        <input type="text" name="num" id="num" placeholder="No" pattern="\d{1,3}[ΑΒΓABC]?" {{#if address_num}}value="{{address_num}}"{{/if}} required>
+                        <input type="text" name="zip" id="zip" placeholder="Zip Code" pattern="\d{5}" {{#if zip}}value="{{zip}}"{{/if}} required>
+                    </div>
+                    <label for="tel">Contact Information</label>
+                    <div id="tel">
+                        <input type="tel" name="cell" id="cell" placeholder="Cellphone" pattern="\d{10}" value="{{mobile}}" required>
+                        <span>Do not include telephone code</span>
+                    </div>
+                </fieldset>
+                {{/each}}
+                <hr>
+                <div id="booking-info">
+                    <fieldset>
+                        <legend>Booking Information</legend>
+                        <label for="people">No of People</label>
+                        <select name="people" id="people" min="1" max="4" required>
+                            <option value=""></option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>                            
+                        </select>
+                        <div class="dates">
+                            <label for="dates">Dates</label>
+                            <div id="dates">
+                                <span for="startdate">From</span>
+                                <input type="date" id="startdate" name="checkin" required>
+                                <span for="enddate">To</span>
+                                <input type="date" id="enddate" name="checkout" required>
+                            </div>
+                        </div>
+                        <button class="my-button-green" id="search-btn" type="submit">Search</button><!--onclick="searchSpace()"-->
+                    </fieldset>
+                </div>
+            </form>
+            {{#if msg}}
+            <div class="alert alert-danger" role="alert">{{msg}}</div>
+            {{else}}
+            {{#if search}}
+            <div id="sub-form">
+                {{#if result}}
+                {{#each result}}
+                <form method="post" action="/addBooking/">
+                    <fieldset id="search-results">
+                        <legend>Available Options</legend>
+                        <div id="avail-spaces">
+                            <input type="button" data-space-id="{{id}}">
+                                <h2 class="subtitle">{{no_of_people}} person tent space</h2>
+                                <div class="features">Features:
+                                    <ul class="features-list">
+                                        <li>5 socket power strip</li>
+                                        <li>Light above tent</li>
+                                        <li>{{location}}m away from beach</li>
+                                    </ul>
+                                </div>
+                        </div>
+                    </fieldset>
+                    {{/each}}
+                    <button class="my-button-green" type="submit" value="submit">Submit</button>
+                </form>
+                {{else}}
+                <div class="alert alert-primary" role="alert">Unfortunately there are no available spaces that match your choices.</div>
+                {{/if}}
+            </div>
+            {{/if}}
+            {{/if}}
+        </div>
+    

@@ -1,0 +1,88 @@
+    <div class="footer">
+        <footer class="text-center text-lg-start text-muted">
+            <!--Top Section -->
+            <section class="d-flex justify-content-center justify-content-between">
+            </section>
+
+            <!-- Footer Links -->
+            <section class="footer-links">
+                <div class="container text-center text-md-start mt-5">
+                    <div class="row">
+                        <!-- CRETAN CAMPING COL -->
+                        <div class="col-md-2 col-lg-2 col-x1-2 mx-auto mb-4">
+                            <h6 class="text-uppercase fw-bold mb-4">
+                                Cretan Camping
+                                <i class="fa-solid fa-campground"></i>
+                            </h6>
+                            <!-- Address -->
+                            <div class="footer-link">
+                                <i class="fa-solid fa-map"></i>
+                                <a href="https://www.google.com/maps/place/%CE%9C%CE%AC%CF%84%CE%B1%CE%BB%CE%B1+%CE%9A%CE%AC%CE%BC%CF%80%CE%B9%CE%BD%CE%B3%CE%BA/@34.9948069,24.7510726,17.75z/data=!4m13!1m7!3m6!1s0x149b228f46f52d77:0x487854d116b4c0d7!2sMatala+702+00!3b1!8m2!3d34.9931068!4d24.7496386!3m4!1s0x149b22855e6c0a07:0xdfd1691631d9e6fb!8m2!3d34.9947089!4d24.7511912" target="_blank">Matala, Phestos, 70200</a>
+                            </div>
+                            <!-- Email -->
+                            <div class="footer-link">
+                                <i class="fa-solid fa-envelope"></i>
+                                <a href="mailto:info@cretancamping.gr">info@cretancamping.gr</a>
+                            </div>
+                            <!-- Phone -->
+                            <div class="footer-link">
+                                <i class="fa-solid fa-phone"></i>
+                                <a href="tel:+302810454673">+30 2810 454673</a>
+                            </div>
+                        </div>
+                        <!-- SHROTCUTS COL -->
+                        <div class="col-md-2 col-lg-2 col-x1-2 mx-auto mb-4">
+                            <h6 class="text-uppercase fw-bold mb-4">
+                                Useful Links
+                                <i class="fa-solid fa-link"></i>
+                            </h6>
+                            <ul class="footer-link">
+                                <li style=" margin-bottom: 16px;">
+                                    <a href="/en/">Home</a>
+                                </li>
+                                {{#if userId}}
+                                    <li style=" margin-bottom: 16px;">
+                                        <a href="/en/bookings">Bookings</a>
+                                    </li>
+                                {{else}}
+                                    <li style=" margin-bottom: 16px;">
+                                        <a id="bookingsLink" href="/en/" data-bs-toggle="modal" data-bs-target="#signInModal">Bookings</a>
+                                    </li>
+                                {{/if}}
+                                <li style=" margin-bottom: 16px;">
+                                    <a href="/en/pricelist/">Pricelist</a>
+                                </li>
+                                <li  style=" margin-bottom: 16px;">
+                                    <a href="/en/crete/">Crete</a>
+                                </li>
+                                <li style=" margin-bottom: 16px;">
+                                    <a href="/en/form/">Comments</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- SOCIAL MEDIA COL -->
+                        <div class="col-md-2 col-lg-2 col-x1-2 mx-auto mb-4">
+                            <h6 class="text-uppercase fw-bold mb-4">
+                                Social Media
+                                <i class="fa-solid fa-at"></i>
+                            </h6>
+                            <div class="footer-link">
+                                <!-- Facebook -->
+                                <a href="" class="me-4 text-reset">
+                                    <i class="fa-brands fa-facebook"></i>
+                                </a>
+                                <!-- Instagram -->
+                                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="me-4 text-reset" target="_blank">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </a>
+                                <!-- Google -->
+                                <a href="" class="me-4 text-reset">
+                                    <i class="fa-brands fa-google"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </footer>
+    </div>

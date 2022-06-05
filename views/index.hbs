@@ -1,0 +1,99 @@
+{{#if message}}
+    <div>
+        {{message}}
+    </div>
+{{/if}}
+<div class= 'container top'>
+  <div class="container_content">
+    <div class="container_content_inner">
+      <div class="title">
+        <h1>Καλώς ήρθατε στο Cretan Camping</h1>
+      </div>
+      <div class="par">
+        <p>
+          Cupiditate alias odio omnis minima veritatis saepe popo, repellendus natus vitae, sequi exercitationem ipsam, qui possimus sit eveniet laborum sapiente quisquam quae neque velit?
+        </p>
+      </div>
+        {{#if loggedIn}}
+        <form method="get" action="/newBooking/">
+            <div class="btns">
+                <button class='my-button-green'> Κρατηση τωρα </button>
+            </div>
+        </form>
+        {{else}}
+            <div class="btns">
+                <button id="bookBtn" class='my-button-green' data-bs-toggle="modal" data-bs-target="#signInModal"> Κρατηση τωρα </button>
+            </div>
+        {{/if}}
+    </div>
+  </div>
+  <div class="container_outer_img">
+    <div class="img-inner">
+      <img src="img/index/camp.jpg" alt="Couldn't load image" class="container_img"/>
+    </div>
+  </div>
+</div>
+<div class="overlay"></div>
+<hr>
+<div class="main-body">
+  <div class="main-panel">
+    <div class="panel-info">
+      <h2 class="subtitle">Καλοκαιρινες διακοπες με άνεση και στυλ!</h2>
+      <p class="description">
+        Απολαύστε άνετες διακοπές στην παραλία των Ματάλων κάτω απο τον καυτό καλοκαιρινό ήλιο της Κρήτης.
+      </p>
+        <form action="/camping/facilities" method="get">
+            <button type="submit" class="my-button-blue">
+                Διαβαστε Περισοτερα
+            </button>
+        </form>
+    </div>
+    <img src="img/index/Matala_beach.jpg" alt="Test for not loading" class="panel-image">
+  </div>
+  <hr>
+  <div class="main-panel">
+    <img src="img/index/camp.jpg" alt="Test for not loading" class="panel-image">
+    <div class="panel-info">
+      <h2 class="subtitle">Προσιτες τιμες για καθε επισκεπτη</h2>
+      <p class="description">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat delectus unde blanditiis perferendis quod incidunt rerum, accusamus, sint ipsam quasi omnis id voluptatum consequatur provident nulla, corrupti reprehenderit minima odit.
+      </p>
+        <form action="/pricelist/" method="get">
+            <button type="submit" class="my-button-green">
+                Διαβαστε Περισοτερα
+            </button>
+        </form>
+    </div>
+  </div>
+  <hr>
+  <div class="main-panel">
+    <div class="panel-info">
+      <h2 class="subtitle">Δραστηριοτητες για όλες τις ηλικιες</h2>
+      <p class="description">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, ratione delectus dicta aperiam quasi ab omnis! Ducimus quae placeat recusandae saepe voluptates, quos iste quisquam, optio non, pariatur sequi similique!
+      </p>
+        <form action="/camping/activities" method="get">
+            <button type="submit" class="my-button-blue">
+                Διαβαστε Περισοτερα
+            </button>
+        </form>
+    </div>
+    <img src="img/index/boat.jpg" alt="Test for not loading" class="panel-image">
+  </div> 
+  <hr>
+  <div class="main-panel">
+    <img src="img/index/phestos.jpg" alt="Test for not loading" class="panel-image">
+    <div class="panel-info">
+      <h2 class="subtitle">Οι ομορφιες της κρητης</h2>
+      <p class="description">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum suscipit, blanditiis eveniet ex laudantium rem! Temporibus minima tempora, quibusdam placeat velit vel ut doloremque? Officiis, omnis sed? Eaque, pariatur possimus!
+      </p>
+        <form action="/crete/" method="get">
+            <button type="submit" class="my-button-green">
+                Διαβαστε Περισοτερα
+            </button>
+        </form>
+    </div>
+  </div>
+</div>
+<br>

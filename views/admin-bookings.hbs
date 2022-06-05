@@ -1,0 +1,26 @@
+
+    <div class="container">
+        <h1 class="title">Κρατήσεις</h1>
+        <table>
+            <tbody>
+                <tr>
+                    <th>ID</th>
+                    <th>Επίθετο</th>
+                    <th>Άτομα</th>
+                    <th>Χώροι Σκηνών</th>
+                    <th>Ημ/νιες</th>
+                </tr>
+                {{#each bookings}}
+                    <tr>
+                        <td>{{this.id}}</td>
+                        <td>{{this.lastname}}</td>
+                        <td>{{this.people}}</td>
+                        <td>
+                            {{this.tent}}
+                        </td>
+                        <td>{{this.checkin}}-{{this.checkout}}</td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>

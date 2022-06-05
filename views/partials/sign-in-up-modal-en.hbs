@@ -1,0 +1,130 @@
+
+    <div class="modal fade" id="signInModal" tabindex="-1"
+        aria-hidden="true" aria-labelledby="modal-title">
+        <div class="modal-dialog">
+            <div class="container modal-content" id="sign-in-form">
+                <div class="row justify-content-center">
+                    <div id="sign-in-card">
+                        <div class="wrap">
+                            <div class="img" style="background-image:url('/img/index/beach.jpg')"></div>
+                        </div>
+                        <div class="login-wrap p-4 p-md-5">
+                            <div class="d-flex">
+                                <div class="w-100">
+                                    <h3 class="mb-3 text-center">Sign In</h3>
+                                </div>
+                            </div>
+                            <hr>
+                            <form action="/en/signIn/" class="signin-form" method="post">
+
+                                {{#if error}}
+                                    <div class="alert alert-danger" role="alert" id="error">
+                                        {{error}}
+                                    </div>
+                                {{/if}}
+
+                                <div class="input-group mt-3 user">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" name="user" placeholder="Enter username" aria-label="Username" aria-describedby="basic-addon1" required>
+                                </div>
+                                <br>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon2"><i class="fa-solid fa-lock"></i></span>
+                                    </div>
+                                    <input type="password" id="pass1" class="form-control" name="pass" placeholder="Enter password" aria-label="Password" aria-describedby="basic-addon2" required>
+                                    <div class="rev-pass" id="showCont">
+                                        <span class="fa fa-eye pass-icon" id="showPass"></span>
+                                    </div>
+                                    <div class="rev-pass" id="hideCont">
+                                        <span class="fa fa-eye-slash pass-icon" id="hidePass"></span>
+                                    </div>
+                                </div>
+                                <div class="text-center mt-3" id="sign-in-btn-place">
+                                    <button class="my-button-blue" id="sign-in-btn" type="submit">Sign in</button>
+                                </div>
+                            </form>
+                            <p class="text-center">Not a member<a data-toggle="tab" href="#signup" id="sign-up">Sign up.</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container modal-content" id="sign-up-form">
+                <div class="row justify-content-center">
+                    <div id="sign-up-card">
+                        <div class="wrap">
+                            <div class="img" style="background-image:url('/img/index/sign-up.jpg')"></div>
+                        </div>
+                        <div class="login-wrap p-md-5">
+                            <div class="d-flex">
+                                <div class="w-100">
+                                    <h3 class="mb-3 text-center">Sign up</h3>
+                                </div>
+                            </div>
+                            <hr>
+                            <form action="/en/signUp/" id="form-sign-up" class="signup-form mt-3" method="post">
+                                <div class="top-label">
+                                    <h4>Full Name</h4>
+                                </div>
+                                <div class="input-group mb-3 user">
+                                    <input type="text" name="firstname" class="form-control" placeholder="First Name" aria-label="FullName" aria-describedby="basic-addon1" required>
+                                    <input type="text" name="lastname" class="form-control" placeholder="Last Name" aria-label="FullName" aria-describedby="basic-addon1" required>
+                                </div>
+                                <div class="top-label">
+                                    <h4>Username</h4>
+                                </div>
+                                <div class="input-group mb-3 user">
+                                    <input type="text" name="username" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required>
+                                </div>
+                                <div class="top-label">
+                                    <h4>Email</h4>
+                                </div>
+                                <div class="input-group mb-3 user">
+                                    <input type="email" name="email" class="form-control" id="floatingEmail" placeholder="name@example.com" required>
+                                </div>
+                                <div class="top-label">
+                                    <h4>Mobile Phone</h4>
+                                </div>
+                                <div class="input-group mb-3 user">
+                                    <input type="text" name="mobile" class="form-control" id="phone" placeholder="Mobile phone" required>
+                                </div>
+                                <div class="top-label">
+                                    <h4>Password</h4>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <input type="password" id="pass1Up" name="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon2" required>
+                                    <div class="rev-pass" id="showCont2"><span class="fa fa-eye pass-icon" id="showPass2"></span></div><div class="rev-pass" id="hideCont2"><span class="fa fa-eye-slash pass-icon" id="hidePass2"></span></div>
+                                </div>
+                                <div class="mb-3">
+                                    <p class="text-muted mb-0">Password must contain:</p>
+                                    <span class="text-muted">&#8226;From 8 to 20 characters</span>
+                                    <br>
+                                    <span class="text-muted">&#8226;One capital and one lowercase letter</span>
+                                    <br>
+                                    <span class="text-muted">&#8226;One number and one special character</span>
+                                </div>
+                                <div class="top-label">
+                                    <h4>Re-Enter Password</h4>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <input type="password" class="form-control" id="pass2" placeholder="Password" required>
+                                    <div class="rev-pass" id="showContConf"><span class="fa fa-eye pass-icon" id="showPassConf"></span></div><div class="rev-pass" id="hideContConf"><span class="fa fa-eye-slash pass-icon" id="hidePassConf"></span></div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="terms-and-conditions">I have read and accept the <a href="#" id="terms-link">terms and conditions</a></label>
+                                    <input type="checkbox" id="terms-and-conditions" required>
+                                </div>
+                                <div class="text-center">
+                                    <button class="my-button-green" id="sign-up-btn" onclick="checkPassword()" type="submit">Sign up</button>
+                                </div>
+                            </form>
+                            <p class="text-center mt-3">Already a member <a data-toggle="tab" href="#signup" id="sign-in">Sign in.</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

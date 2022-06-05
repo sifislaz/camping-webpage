@@ -1,0 +1,36 @@
+
+    <div class="container-fluid disp">
+        <h1 class="title">Κρατήσεις</h1>
+        <hr>
+        <div class="container main-cont">
+            <div class="row">
+                <div class="col-lg-6 clmn">
+                    <h2 class="subtitle">Δημιουργία νέας κράτησης</h2>
+                <div class="book-button"><a href="/newBooking/" class="my-button-blue">Δημιουργία νέας κράτησης</a></div>
+                </div>
+                <div class="col-lg-6 clmn">
+                    <h2 class="subtitle">Διαχείριση κρατήσεων</h2>
+                    <table>
+                        <thead>
+                            <th>Κωδ. Κράτησης</th>
+                            <th>Κατάσταση Κράτησης</th>
+                        </thead>
+                        <tbody>
+                            {{#each bookings}}
+                                <tr>
+                                    {{#ifEqual situation "WAITING"}}
+                                    <td><a href="/bookings/{{id}}/" class="go-to-booking">{{id}}</a></td>
+                                    {{else ifEqual situation "ΣΕ ΑΝΑΜΟΝΗ"}}
+                                    <td><a href="/bookings/{{id}}/" class="go-to-booking">{{id}}</a></td>
+                                    {{else}}
+                                    <td>{{id}}</td>
+                                    {{/ifEqual}}
+                                    <td class="situation">{{situation}}</td>
+                                </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>

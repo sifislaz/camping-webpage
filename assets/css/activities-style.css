@@ -1,6 +1,9 @@
-.heading{
+.heading h1{
+    color:#66b2ff;
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 3em;
     text-align: center;
-    color: #404040;
+    margin-top: 8px;
 }
 
 .flx{
@@ -8,6 +11,8 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 25px;
+    width: 75%;
+    margin: 0 auto;
 }
 
 .card{
@@ -16,7 +21,7 @@
     height: 350px;
     color: #404040;
     background-size: cover;
-    border-radius: 20px;
+    border-radius: 20px !important;
     overflow: hidden;
 
 }
@@ -48,18 +53,21 @@
 .card_title{
     color: #66B2FF;
     line-height: 15px;
+    font-family: 'Didact Gothic', sans-serif;
 }
 
 .card_subtitle{
     display: block;
     font-size: 12px;
     margin-bottom: 10px;
+    font-family: 'Didact Gothic', sans-serif;
 }
 
 .card_desc{
     font-size: 14px;
     opacity: 0;
     transition: opacity 0.5s;
+    font-family: 'Didact Gothic', sans-serif;
 }
 
 .card:hover .card_content{
@@ -69,4 +77,9 @@
 .card:hover .card_desc{
     opacity: 1;
     transition-delay: 0.2s;
+}
+
+hr{
+    width: 50%;
+    transform: translateX(50%);
 }

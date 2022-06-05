@@ -1,0 +1,107 @@
+.main-body{
+    margin:1em;
+    text-align: center;
+}
+
+.title{
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 3em;
+    color: #66b2ff;
+    text-align: center;
+}
+
+form{
+    font-family: 'Didact Gothic', sans-serif;
+    border:1px solid #00cc66;
+    border-radius:1em;
+    margin: 1em 0;
+    padding:0.5em 1em;
+}
+
+label{
+    font-size: 1em;
+    color:#66b2ff;
+}
+
+.my-button-green{
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #00CC66;
+    padding: 15px 30px;
+    position: relative;
+    overflow: hidden;
+    transition: color 1s;
+    z-index: 1;
+    border: 0;
+    border-radius: 0.25em;
+    flex-wrap: wrap;
+    margin-top:0.5em;
+}
+.my-button-green:hover{
+    color: #ffffff;
+}
+.my-button-green::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50px;
+    width: 0;
+    height: 100%;
+    background-color: #00CC66;
+    transform: skewX(35deg);
+    z-index: -1;
+    transition: width 1s;
+}
+.my-button-green:hover::before{
+    width: 150%;
+}
+
+.my-button-red{
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: indianred;
+    padding: 15px 30px;
+    position: relative;
+    overflow: hidden;
+    transition: color 1s;
+    z-index: 1;
+    border: 0;
+    border-radius: 0.25em;
+    flex-wrap: wrap;
+    margin-top:0.5em;
+}
+.my-button-red:hover{
+    color: #ffffff;
+}
+.my-button-red::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50px;
+    width: 0;
+    height: 100%;
+    background-color: indianred;
+    transform: skewX(35deg);
+    z-index: -1;
+    transition: width 1s;
+}
+.my-button-red:hover::before{
+    width: 200%;
+}
+
+.btns{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+hr{
+    width:50%;
+    transform: translateX(50%);
+}
+
+.disp{
+    margin: 100px auto;
+}
