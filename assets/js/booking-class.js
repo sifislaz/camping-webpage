@@ -12,13 +12,13 @@ for(let i = 0; i < books.length; i ++){
             book.innerText='DONE';
         }
     }
-    else if(book.innerText === 'ΣΕ ΑΝΑΜΟΝΗ'||book.innerText==='WAITING'){
-        book.classList.add('sit-wait');
+    else if(book.innerText === 'ΕΝΕΡΓΗ'||book.innerText==='ACTIVE'){
+        book.classList.add('sit-active');
         if(lang==='el'){
-            book.innerText='ΣΕ ΑΝΑΜΟΝΗ';
+            book.innerText='ΕΝΕΡΓΗ';
         }
         else{
-            book.innerText='WAITING';
+            book.innerText='ACTIVE';
         }
         
     }
