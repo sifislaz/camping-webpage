@@ -38,11 +38,6 @@ router.route('/crete/').get(control.renderCrete);
 router.route('/en/crete/').get(control.renderCreteEn);
 //----------------------//
 
-//--------FORM---------//
-router.route('/form/').get(control.renderForm);
-router.route('/en/form/').get(control.renderFormEn);
-//---------------------//
-
 //--------BOOKINGS---------//
 router.route('/bookings/').get(loginControl.checkAuthenticated, control.renderBookings);
 router.route('/en/bookings/').get(loginControl.checkAuthenticated, control.renderBookingsEn);

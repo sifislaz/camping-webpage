@@ -62,14 +62,6 @@ export let renderCreteEn = function (req, res){
     res.render('crete-en', {link:"crete/", pageName:"Crete", layout : 'main-en.hbs'})
 }
 
-export let renderForm = function (req, res){
-    res.render('form', {link:"form/", pageName:"Σχόλια"})
-}
-
-export let renderFormEn = function (req, res){
-    res.render('form-en', {link:"form/", pageName:"Comments", layout : 'main-en.hbs'})
-}
-
 export let adminMain = function(req, res){
     res.render('admin', {link:"admin/", pageName:"Main"});
 }
