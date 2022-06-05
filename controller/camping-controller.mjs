@@ -451,24 +451,31 @@ export let getAvailableSpacesEn = function(req, res){
 }
 
 export let updateClientBooking = function(req,res,next){
-    const client = {
-        "id" : req.session.loggedUserId,
-        "firstname" : req.body.firstname,
-        "lastname" : req.body.lastname,
-        "street" : req.body.street,
-        "num" : req.body.num,
-        "zip" : req.body.zip,
-        "cell" : req.body.cell
-    };
-    modelDB.updateClientFull(client,(err, result)=>{
-        if(err){
-            console.log(err);
-            res.render('new-booking', {link:'newBooking/', pageName:'Νέα Κράτηση', result:false, msg:"Κάτι πήγε στραβά"});
-        }
-        else{
-            next();
-        }
-    })
+    if(req.body.firstname === undefined){
+        console.log("empty");
+        next();
+    }
+    else{
+        const client = {
+            "id" : req.session.loggedUserId,
+            "firstname" : req.body.firstname,
+            "lastname" : req.body.lastname,
+            "street" : req.body.street,
+            "num" : req.body.num,
+            "zip" : req.body.zip,
+            "cell" : req.body.cell
+        };
+        modelDB.updateClientFull(client,(err, result)=>{
+            if(err){
+                console.log(err);
+                res.render('new-booking', {link:'newBooking/', pageName:'Νέα Κράτηση', result:false, msg:"Κάτι πήγε στραβά"});
+            }
+            else{
+                next();
+            }
+        });
+    }
+    
 }
 
 export let updateClientBookingEn = function(req,res,next){
@@ -490,6 +497,34 @@ export let updateClientBookingEn = function(req,res,next){
             next();
         }
     })
+}
+
+export let checkBookingInfo = function(req,res,next){
+    const checkIn = new Date(req.body.checkin);
+    const checkOut = new Date(req.body.checkout);
+    if(checkIn > checkOut){
+        res.render('new-booking', {link:'newBooking/', pageName:'Νέα Κράτηση', result:false, msg:"Η ημερομηνία αναχώρησης δεν γίνεται να προηγείται της ημερομηνίας άφιξης"});
+    }
+    else if(checkIn < Date.now()){
+        res.render('new-booking', {link:'newBooking/', pageName:'Νέα Κράτηση', result:false, msg:"Η ημερομηνία άφιξης δεν μπορεί να είναι πριν από σήμερα"});
+    }
+    else{
+        next();
+    }
+}
+
+export let checkBookingInfoEn = function(req,res,next){
+    const checkIn = new Date(req.body.checkin);
+    const checkOut = new Date(req.body.checkout);
+    if(checkIn > checkOut){
+        res.render('new-booking-en', {link:'newBooking/', pageName:'New Booking', result:false, msg:"Checkout date can't be before checkin date", layout:"main-en.hbs"});
+    }
+    else if(checkIn < Date.now()){
+        res.render('new-booking-en', {link:'newBooking/', pageName:'New Booking', result:false, msg:"Checkin date can't be before today", layout:"main-en.hbs"});
+    }
+    else{
+        next();
+    }
 }
 
 export let getAvailableSpacesEdit = async function(req, res){
@@ -668,7 +703,7 @@ export let addBooking = async function (req, res){
     const reservation = {
         "checkin":req.body.checkin,
         "checkout":req.body.checkout,
-        "situation":"ΣΕ ΑΝΑΜΟΝΗ",
+        "situation":"ΕΝΕΡΓΗ",
         "no_of_people":req.body.people,
         "client_id":req.session.loggedUserId,
         "reservation_date": reservationDate,
@@ -717,7 +752,7 @@ export let addBookingEn = async function (req, res){
     const reservation = {
         "checkin":req.body.checkin,
         "checkout":req.body.checkout,
-        "situation":"ΣΕ ΑΝΑΜΟΝΗ",
+        "situation":"ACTIVE",
         "no_of_people":req.body.people,
         "client_id":req.session.loggedUserId,
         "reservation_date": reservationDate,

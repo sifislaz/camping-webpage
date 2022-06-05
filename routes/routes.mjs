@@ -59,8 +59,8 @@ router.route('/en/bookings/:bookingId/edit/').post(loginControl.checkAuthenticat
 router.route('/newBooking/').get(loginControl.checkAuthenticated, control.renderNewBooking);
 router.route('/en/newBooking/').get(loginControl.checkAuthenticated, control.renderNewBookingEn);
 
-router.route('/newBooking/addBooking/').post(loginControl.checkAuthenticated, control.updateClientBooking, control.getAvailableSpaces);
-router.route('/en/newBooking/addBooking/').post(loginControl.checkAuthenticated, control.updateClientBookingEn, control.getAvailableSpacesEn);
+router.route('/newBooking/addBooking/').post(loginControl.checkAuthenticated, control.updateClientBooking, control.checkBookingInfo, control.getAvailableSpaces);
+router.route('/en/newBooking/addBooking/').post(loginControl.checkAuthenticated, control.updateClientBookingEn, control.checkBookingInfoEn, control.getAvailableSpacesEn);
 
 router.route('/addBooking').post(loginControl.checkAuthenticated, control.addBooking);
 router.route('/en/addBooking').post(loginControl.checkAuthenticated, control.addBookingEn);

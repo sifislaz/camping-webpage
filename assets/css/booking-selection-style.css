@@ -127,8 +127,8 @@ td{
     background-color: rgba(0,256,0,0.2);
 }
 
-.sit-wait{
-    background-color: rgba(256,165,0,0.2);
+.sit-active{
+    background-color: rgba(0,256,0,0.2);
 }
 
 .sit-cancelled{
