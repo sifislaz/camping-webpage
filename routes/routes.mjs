@@ -89,6 +89,7 @@ router.route('/admin/getSpaces/').get(loginControl.checkAdmin, control.renderSpa
 router.route('/signIn/').post(loginControl.doLogin);
 router.route('/signUp/').post(loginControl.doRegister);
 router.route('/logout/').get(loginControl.doLogout);
+
 router.route('/en/signIn/').post(loginControl.doLoginEn);
 router.route('/en/signUp/').post(loginControl.doRegisterEn);
 router.route('/en/logout/').get(loginControl.doLogoutEn);

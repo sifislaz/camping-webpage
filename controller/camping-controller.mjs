@@ -10,14 +10,20 @@ export let renderIndex = function (req, res){
     let loggedIn;
     loggedIn = !!req.session.loggedUserId;
 
-    res.render('index', {link:"", pageName:"Αρχική", loggedIn:loggedIn});
+    let error = req.query.error
+    console.log(error)
+
+    res.render('index', {link:"", pageName:"Αρχική", loggedIn:loggedIn, error:error});
 }
 
 export let renderIndexEn = function (req, res){
     let loggedIn;
     loggedIn = !!req.session.loggedUserId;
 
-    res.render('index-en', {link:"",pageName:"Home",layout : 'main-en.hbs', loggedIn:loggedIn})
+    let error = req.query.error
+    console.log(error)
+
+    res.render('index-en', {link:"",pageName:"Home",layout : 'main-en.hbs', loggedIn:loggedIn, error:error})
 }
 
 export let renderFacilities = function (req, res){

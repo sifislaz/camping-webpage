@@ -20,6 +20,10 @@
     border-radius: 10px;
 }
 
+#error{
+    width: 95%!important;
+}
+
 #basic-addon2 i{
     padding: 4px 0px;
 }

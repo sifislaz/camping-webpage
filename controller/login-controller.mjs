@@ -20,7 +20,7 @@ export let doRegister = function (req, res) {
                                     console.log(err);
                                 }
                                 else{
-                                    res.redirect("/");
+                                    res.redirect('/');
                                 }
                             });
     }
@@ -49,7 +49,7 @@ export let doLogin = function (req, res){
     if(req.body.user==="admin"){
         dbmodel.getAdminByUsername(req.body.user, (err,admin)=>{
             if(admin === undefined){
-                res.redirect('/');
+                res.redirect('/?error=' + encodeURIComponent('Δεν υπάρχει ο χρήστης!'))
             }
             else{
                 const match = bcrypt.compare(req.body.pass, admin.password, (err,match)=>{
@@ -58,7 +58,7 @@ export let doLogin = function (req, res){
                         res.redirect("/admin/");
                     }
                     else{
-                        res.redirect("/");
+                        res.redirect('/?error=' + encodeURIComponent('Λάθος Κωδικός!'))
                     }
                 })
             }
@@ -67,7 +67,7 @@ export let doLogin = function (req, res){
     else{
         dbmodel.getClientByUsername(req.body.user,(err,user)=>{
             if(user === undefined){
-                res.redirect('/')
+                res.redirect('/?error=' + encodeURIComponent('Δεν υπάρχει ο χρήστης!'))
             }
             else {
                 const match = bcrypt.compare(req.body.pass, user.password, (err, match) => {
@@ -77,7 +77,7 @@ export let doLogin = function (req, res){
                         res.redirect(redirectTo);
                     }
                     else {
-                        res.redirect("/")
+                        res.redirect('/?error=' + encodeURIComponent('Λάθος Κωδικός!'))
                     }
                 })
             }
@@ -89,7 +89,7 @@ export let doLoginEn = function (req, res){
     if(req.body.user==="admin"){
         dbmodel.getAdminByUsername(req.body.user, (err,admin)=>{
             if(admin === undefined){
-                res.redirect('/en/');
+                res.redirect('/en/?error=' + encodeURIComponent('No such user!'))
             }
             else{
                 const match = bcrypt.compare(req.body.pass, admin.password, (err,match)=>{
@@ -98,7 +98,7 @@ export let doLoginEn = function (req, res){
                         res.redirect("/admin/");
                     }
                     else{
-                        res.redirect("/en/");
+                        res.redirect('/en/?error=' + encodeURIComponent('Wrong Password'))
                     }
                 })
             }
@@ -107,7 +107,7 @@ export let doLoginEn = function (req, res){
     else{
         dbmodel.getClientByUsername(req.body.user,(err,user)=>{
             if(user === undefined){
-                res.redirect('/en/')
+                res.redirect('/en/?error=' + encodeURIComponent('No such user!'))
             }
             else {
                 const match = bcrypt.compare(req.body.pass, user.password, (err, match) => {
@@ -117,7 +117,7 @@ export let doLoginEn = function (req, res){
                         res.redirect(redirectTo);
                     }
                     else {
-                        res.redirect("/en/")
+                        res.redirect('/en/?error=' + encodeURIComponent('Wrong Password'))
                     }
                 })
             }
