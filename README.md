@@ -10,7 +10,7 @@
 
 ### Διαδικασία Εγκατάστασης
 1. Ανοίξτε ένα _terminal_ και γράψτε την εντολή:<br>
-`git clone https://github.com/sifislaz/camping-webpage`<br>
+`git clone https://github.com/sifislaz/camping-webpage.git`<br>
 Με αυτήν την διαδικασία κατεβάζετε τον πηγαίο κώδικα του project στον υπολογιστή σας.
 2. Έπειτα εκτελέστε την εντολή:<br>
 `npm install`<br>
