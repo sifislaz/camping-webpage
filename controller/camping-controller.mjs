@@ -511,10 +511,10 @@ export let checkBookingInfoEn = function(req,res,next){
     const checkIn = new Date(req.body.checkin);
     const checkOut = new Date(req.body.checkout);
     if(checkIn > checkOut){
-        res.render('new-booking-en', {link:'newBooking/', pageName:'New Booking', result:false, msg:"Checkout date can't be before checkin date"});
+        res.render('new-booking-en', {link:'newBooking/', pageName:'New Booking', result:false, msg:"Checkout date can't be before checkin date", layout:"main-en.hbs"});
     }
     else if(checkIn < Date.now()){
-        res.render('new-booking-en', {link:'newBooking/', pageName:'New Booking', result:false, msg:"Checkin date can't be before today"});
+        res.render('new-booking-en', {link:'newBooking/', pageName:'New Booking', result:false, msg:"Checkin date can't be before today", layout:"main-en.hbs"});
     }
     else{
         next();
