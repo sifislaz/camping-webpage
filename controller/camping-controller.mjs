@@ -413,7 +413,6 @@ export let getAvailableSpaces = function(req, res){
             res.render('add-booking', {link:'newBooking/', pageName:'Νέα Κράτηση', msg: 'Κάτι πήγε στραβά', search:false})
         }
         else{
-            console.log(result);
             res.render('add-booking', {link:'newBooking/', pageName:'Νέα Κράτηση', result: result, search:true, details:[details]})
         }
     })
@@ -440,7 +439,6 @@ export let getAvailableSpacesEn = function(req, res){
             res.render('add-booking-en', {link:'newBooking/', pageName:'New Booking', msg: 'Somehting went wrong', search:false, layout:'main-en.hbs'})
         }
         else{
-            console.log(result);
             res.render('add-booking-en', {link:'newBooking/', pageName:'New Booking', result: result, search:true, details:[details] , layout:'main-en.hbs'})
         }
     })
