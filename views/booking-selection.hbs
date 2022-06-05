@@ -18,9 +18,9 @@
                         <tbody>
                             {{#each bookings}}
                                 <tr>
-                                    {{#ifEqual situation "WAITING"}}
+                                    {{#ifEqual situation "ACTIVE"}}
                                     <td><a href="/bookings/{{id}}/" class="go-to-booking">{{id}}</a></td>
-                                    {{else ifEqual situation "ΣΕ ΑΝΑΜΟΝΗ"}}
+                                    {{else ifEqual situation "ΕΝΕΡΓΗ"}}
                                     <td><a href="/bookings/{{id}}/" class="go-to-booking">{{id}}</a></td>
                                     {{else}}
                                     <td>{{id}}</td>

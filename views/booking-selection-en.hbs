@@ -19,9 +19,9 @@
                             <tr>
                                 {{#each bookings}}
                                     <tr>
-                                        {{#ifEqual situation "WAITING"}}
+                                        {{#ifEqual situation "ACTIVE"}}
                                         <td><a href="/en/bookings/{{id}}/" class="go-to-booking">{{id}}</a></td>
-                                        {{else ifEqual situation "ΣΕ ΑΝΑΜΟΝΗ"}}
+                                        {{else ifEqual situation "ΕΝΕΡΓΗ"}}
                                         <td><a href="/en/bookings/{{id}}/" class="go-to-booking">{{id}}</a></td>
                                         {{else}}
                                         <td>{{id}}</td>
